@@ -1,7 +1,5 @@
 package arrays.sortingsearching;
 
-import sun.plugin.javascript.navig.Array;
-
 import java.util.Arrays;
 
 public class MergeSort {
@@ -12,7 +10,6 @@ public class MergeSort {
             mergeSort(arr,l,m);
             mergeSort(arr,m+1,h);
             merge(arr,l,m,h);
-            //return;
         }
     }
     public static void merge(int [] arr,int l,int m,int h){
@@ -33,6 +30,7 @@ public class MergeSort {
         i=j=0;
         int k = l;
         while(i<n1 && j<n2){
+            //stable sorting line
             if(leftArr[i] <= rightArr[j]){
                 arr[k] = leftArr[i];
                 i++;

@@ -1,10 +1,10 @@
-package arrays;
+package arrays.others;
 
 /*
 * input : aabbcc
 * output : a2b2c2
 * */
-public class CharEncodding {
+public class RunLengthEncodding {
 
     public String charEncodding(String str){
         if(str == null || str.isEmpty()){
@@ -30,7 +30,9 @@ public class CharEncodding {
 
     public static void main(String[] args) {
         String str = "aabbcc";
-        CharEncodding charEncodding = new CharEncodding();
-        System.out.println(charEncodding.charEncodding(str));
+        /*char [] arr = {'c','b'};
+        str = String.valueOf(arr);*/
+        RunLengthEncodding runLengthEncodding = new RunLengthEncodding();
+        System.out.println(runLengthEncodding.charEncodding(str));
     }
 }

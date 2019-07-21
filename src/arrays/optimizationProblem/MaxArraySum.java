@@ -4,6 +4,11 @@ package arrays.optimizationProblem;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+
+/*
+* In another word . we have to find maximum difference between two elements with i<j condition
+* */
+
 class MaxArraySum
 {
     public static int maxSubArraySum(int [] arr){
@@ -155,18 +160,12 @@ class MaxArraySum
 
 
              int t;
-        //Scanner sc = new Scanner(System.in);
         BufferedReader inp = new BufferedReader (new InputStreamReader(System.in));
-    //int T=
-    t =Integer.parseInt(inp.readLine());
-       // t = sc.nextInt();
+        t =Integer.parseInt(inp.readLine());
         while(t>0){
-
             int s= Integer.parseInt(inp.readLine());
-            //sc.nextInt();
             int [] arr = new int[s];
             String [] str = inp.readLine().split("\\s+");
-
             for(int i=0;i<s;i++){
                 arr[i] = Integer.parseInt(str[i]);
             }

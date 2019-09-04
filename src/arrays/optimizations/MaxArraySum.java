@@ -1,4 +1,4 @@
-package arrays.optimizationProblem;
+package arrays.optimizations;
 
 
 import java.io.BufferedReader;

@@ -2,19 +2,32 @@ package linkedlistproblem;
 
 public interface LinkedListOpd {
 
-    ListNode getHead();
+    public  ListNode getHead();
 
-    public void addLast(int date);
+    //addition
+    public ListNode addLast(int date);
+
+    public ListNode addFirst(int date);
+
+    ListNode removeFirstNode(ListNode head);
+
+    ListNode removeLast(ListNode head);
+
+    ListNode remove(ListNode head, int data);
+
+    ListNode insertion(int data);
+
+    public ListNode addNode(int data, int index);
+
+    public ListNode addNode(int data);
 
     public void display(ListNode head);
 
-    public void addFirst(int date);
+    public ListNode deleteEleExceptLast(ListNode node);
 
-    void addNode(int data, int index);
+    public ListNode findNthNodeFromlast(ListNode head, int n);
 
-    void addNode(int data);
+    public ListNode findMiddleNode(ListNode head);
 
-    ListNode deleteEleExceptLast(ListNode node);
-
-    ListNode findNthNodeFromlast(ListNode head, int n);
+    public boolean isLoopExist(ListNode head);
 }

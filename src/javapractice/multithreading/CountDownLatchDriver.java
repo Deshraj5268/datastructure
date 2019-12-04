@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 abstract class BaseHealthCheckUp implements Runnable{
 
@@ -47,7 +46,6 @@ abstract class BaseHealthCheckUp implements Runnable{
 
 class NetworkHealthCheckUp extends BaseHealthCheckUp {
 
-
     public NetworkHealthCheckUp(CountDownLatch latch){
         super("networkService",latch);
     }
@@ -65,39 +63,51 @@ class NetworkHealthCheckUp extends BaseHealthCheckUp {
     }
 }
 
+class DatabaseHealthCheckUp extends BaseHealthCheckUp{
+
+    public DatabaseHealthCheckUp(CountDownLatch latch){
+        super("dataBaseService",latch);
+    }
+
+    @Override
+    public void verifyService(){
+        System.out.println("checking status for : "+this.getServiceName());
+        try{
+            Thread.sleep(100);
+        }catch (InterruptedException ex){
+            System.out.println(ex.getMessage());
+        }
+        System.out.println(this.getServiceName()+" service is up now ...");
+    }
+
+}
+
 class ApplicationStartUpUtil{
-
-    private static CountDownLatch latch;
-
-    private static List<BaseHealthCheckUp> healthListServices;
 
     private ApplicationStartUpUtil(){
 
     }
 
-    private final static ApplicationStartUpUtil INSTANCE = new ApplicationStartUpUtil();
+    private static final ApplicationStartUpUtil INSTANCE = new ApplicationStartUpUtil();
 
     public static ApplicationStartUpUtil getSingleTonInstance(){
         return INSTANCE;
     }
 
     public static boolean externalServiceStatusCheck() throws Exception{
-        latch = new CountDownLatch(1);
-        healthListServices = new ArrayList<>();
+        CountDownLatch latch = new CountDownLatch(2);
+        List<BaseHealthCheckUp> healthListServices = new ArrayList<>();
         healthListServices.add(new NetworkHealthCheckUp(latch));
+        healthListServices.add(new DatabaseHealthCheckUp(latch));
 
         Executor executor = Executors.newFixedThreadPool(healthListServices.size());
-        if(healthListServices != null && healthListServices.size()>0 ) {
-            for (final BaseHealthCheckUp service : healthListServices) {
-                executor.execute(service);
-            }
+        for (final BaseHealthCheckUp service : healthListServices) {
+            executor.execute(service);
         }
         latch.await();
-        if(healthListServices != null && healthListServices.size()>0 ) {
-            for (final BaseHealthCheckUp service : healthListServices) {
-                if (!service.isServiceUp()) {
-                    return false;
-                }
+        for (final BaseHealthCheckUp service : healthListServices) {
+            if (!service.isServiceUp()) {
+                return false;
             }
         }
         return true;
@@ -109,7 +119,7 @@ public class CountDownLatchDriver {
     public static void main(String[] args) {
         boolean result = false;
         try{
-          result = ApplicationStartUpUtil.externalServiceStatusCheck();
+            result = ApplicationStartUpUtil.externalServiceStatusCheck();
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }

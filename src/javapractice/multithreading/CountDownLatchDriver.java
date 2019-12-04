@@ -3,7 +3,7 @@ package javapractice.multithreading;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 abstract class BaseHealthCheckUp implements Runnable{
@@ -100,11 +100,12 @@ class ApplicationStartUpUtil{
         healthListServices.add(new NetworkHealthCheckUp(latch));
         healthListServices.add(new DatabaseHealthCheckUp(latch));
 
-        Executor executor = Executors.newFixedThreadPool(healthListServices.size());
+        ExecutorService executor = Executors.newFixedThreadPool(healthListServices.size());
         for (final BaseHealthCheckUp service : healthListServices) {
             executor.execute(service);
         }
         latch.await();
+        executor.shutdown();//need to shutdown
         for (final BaseHealthCheckUp service : healthListServices) {
             if (!service.isServiceUp()) {
                 return false;

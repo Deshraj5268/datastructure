@@ -22,5 +22,8 @@ public class BTDriver {
 
         System.out.println("max :"+btTreeService.findMax(root));
         System.out.println("min :"+btTreeService.findMin(root));
+
+        System.out.println("iterative level order traversal : ");
+        btTreeService.levelOrderRec(root);
     }
 }

@@ -13,11 +13,11 @@ public class JavaInternalSorting {
 
         HashMap<String,Object> map2 = new HashMap<>();
         map2.put("employeeId","23425");
-        map2.put("employeeName","Adarsh");
+        map2.put("employeeName","Adarsh2");
 
         HashMap<String,Object> map3 = new HashMap<>();
         map3.put("employeeId","23405");
-        map3.put("employeeName","Adaresh");
+        map3.put("employeeName","Adarsh2");
 
         HashMap<String,Object> map4 = new HashMap<>();
         map4.put("employeeId","287405");
@@ -29,6 +29,15 @@ public class JavaInternalSorting {
         list.add(map3);
         list.add(map4);
         System.out.println("list before sorting "+list.toString());
+
+        Collections.sort(list, new Comparator<HashMap<String, Object>>() {
+            @Override
+            public int compare(HashMap<String, Object> o1, HashMap<String, Object> o2) {
+                return (o2.get("employeeName").toString().compareTo(o1.get("employeeName").toString()));
+            }
+        });
+
+        System.out.println("list after sorting decreasing "+list.toString());
         Collections.sort(list, new Comparator<HashMap<String, Object>>() {
             @Override
             public int compare(HashMap<String, Object> o1, HashMap<String, Object> o2) {
@@ -36,6 +45,13 @@ public class JavaInternalSorting {
             }
         });
 
-        System.out.println("list after  sorting "+list.toString());
+
+        System.out.println("list after  sorting increasing "+list.toString());
+
+
+
+
+
     }
 }
+

@@ -101,6 +101,40 @@ public class BTTreeService {
         }
     }
 
+    public void levelOrderRec(BTNode root){
+        int height = heightRec(root);
+        for(int d=0;d<=height;d++){
+            levelOrderRecUtil(root,d);
+            System.out.println();
+        }
+    }
+
+    private void levelOrderRecUtil(BTNode root, int d) {
+        if(root == null){
+            return;
+        }
+        if(d == 1){
+            System.out.print(root.data+" ");
+        }
+        if(d > 1){
+            levelOrderRecUtil(root.left,d-1);
+            levelOrderRecUtil(root.right,d-1);
+        }
+    }
+
+    public int heightRec(BTNode root){
+        if(root == null){
+            return 0;
+        }
+        int left = heightRec(root.left);
+        int right = heightRec(root.right);
+        if(left > right){
+            return left+1;
+        }else {
+            return right+1;
+        }
+    }
+
     public int findMax(BTNode root){
         if(root == null){
             return Integer.MIN_VALUE;

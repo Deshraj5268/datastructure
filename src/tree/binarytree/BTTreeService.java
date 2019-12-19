@@ -1,5 +1,6 @@
 package tree.binarytree;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -165,5 +166,110 @@ public class BTTreeService {
             min = right;
         }
         return min;
+    }
+
+
+    public void leftView(BTNode root){
+        if(root == null){
+            System.out.println("empty tree ");
+            return;
+        }
+        Queue<BTNode> queue = new LinkedList<>();
+        queue.offer(root);
+        queue.offer(null);
+        BTNode temp = null;
+        System.out.print(root.data+" ");
+        boolean isLfetViewNOde = false;
+        while (!queue.isEmpty()){
+           temp = queue.poll();
+           if(temp == null){
+               if(!queue.isEmpty()){
+                   queue.offer(null);
+                   isLfetViewNOde = true;
+               }
+           }else {
+               if(isLfetViewNOde){
+                   System.out.print(temp.data+" ");
+                   isLfetViewNOde = false;
+               }
+               if(temp.left != null){
+                   queue.offer(temp.left);
+               }
+               if (temp.right != null){
+                   queue.offer(temp.right);
+               }
+           }
+        }
+    }
+
+    public void rightView(BTNode root){
+        if(root == null){
+            System.out.println("empty tree ");
+            return;
+        }
+        Queue<BTNode> queue = new LinkedList<>();
+        queue.offer(root);
+        queue.offer(null);
+        BTNode temp = null;
+        System.out.print(root.data+" ");
+        boolean isRightViewNOde = false;
+        while (!queue.isEmpty()){
+            temp = queue.poll();
+            if(temp == null){
+                if(!queue.isEmpty()){
+                    queue.offer(null);
+                    isRightViewNOde = true;
+                }
+            }else {
+                if(isRightViewNOde){
+                    System.out.print(temp.data+" ");
+                    isRightViewNOde = false;
+                }
+                if (temp.right != null){
+                    queue.offer(temp.right);
+                }
+                if(temp.left != null){
+                    queue.offer(temp.left);
+                }
+            }
+        }
+    }
+
+    /*
+    * traverse level order way
+     * increment count of left node 
+     * and count value in right node will be same as parent node
+    * */
+    public void diagonalLeftView(BTNode root){
+        if(root == null){
+            System.out.println("empty tree ");
+            return;
+        }
+        Queue<LeftDiagonalNode> queue = new LinkedList<>();
+        LeftDiagonalNode temp = null;
+        LeftDiagonalNode leftNode = null;
+        LeftDiagonalNode rightNode = null;
+        LeftDiagonalNode leftDiagonalNode = new LeftDiagonalNode(root,0);
+        queue.offer(leftDiagonalNode);
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
+        while (!queue.isEmpty()){
+            temp =  queue.poll();
+            if(hashMap.get(temp.count) == null){
+                hashMap.put(temp.count,temp.btNode.data);
+            }
+            if(temp.btNode.left != null){
+                leftNode = new LeftDiagonalNode(temp.btNode.left,temp.count+1);
+                queue.offer(leftNode);
+            }
+            if(temp.btNode.right != null){
+                rightNode = new LeftDiagonalNode(temp.btNode.right,temp.count);
+                queue.offer(rightNode);
+            }
+        }
+        if(hashMap != null) {
+            for (Integer value : hashMap.values()){
+                System.out.print(value+" ");
+            }
+        }
     }
 }

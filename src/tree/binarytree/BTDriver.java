@@ -10,7 +10,8 @@ public class BTDriver {
         root = btTreeService.insert(root,15);
         root = btTreeService.insert(root,3);
         root = btTreeService.insert(root,12);
-        root = btTreeService.insert(root,6);
+        root = btTreeService.insert(root,11);
+        root = btTreeService.insert(root,10);
         System.out.println("pre-order : ");
         btTreeService.preOrderItr(root);
         System.out.println("\nIn-order : ");
@@ -25,5 +26,14 @@ public class BTDriver {
 
         System.out.println("iterative level order traversal : ");
         btTreeService.levelOrderRec(root);
+
+        System.out.println("print left view of the tree : ");
+        btTreeService.leftView(root);
+
+        System.out.println("\n print right view of the tree : ");
+        btTreeService.rightView(root);
+
+        System.out.println("\n print left diagonal  view of the tree : ");
+        btTreeService.diagonalLeftView(root);
     }
 }

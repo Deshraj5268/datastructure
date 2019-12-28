@@ -18,6 +18,7 @@ public class CeilInsortedArray {
                 r = m;
             }
         }
+        //exact match case [4,6] num 4
        if(arr[l] == data){
             return l;
        }

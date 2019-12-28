@@ -237,7 +237,7 @@ public class BTTreeService {
 
     /*
     * traverse level order way
-     * increment count of left node 
+     * increment count of left node
      * and count value in right node will be same as parent node
     * */
     public void diagonalLeftView(BTNode root){

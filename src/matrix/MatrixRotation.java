@@ -70,6 +70,11 @@ public class MatrixRotation {
     }
 
 
+    /*
+    * one more solution
+    * 1. Reverse all the columns
+    * 2. Reverse All the rows
+    * */
     static void rotateMatrix180(int[][] mat,int N) {
         for(int i=0;i<N/2;i++) {
             for(int j=0;j<N;j++) {

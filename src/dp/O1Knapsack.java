@@ -35,6 +35,7 @@ public class O1Knapsack {
         return tabKnapsack[n][w];
     }
 
+    //two row will be used
     public static int o1KnapsackTabulationSpaceOpt(int [] val,int [] wt,int n,int w){
         int k = 0;
         for(int i=0;i<=n;i++){

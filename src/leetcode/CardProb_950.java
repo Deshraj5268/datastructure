@@ -7,6 +7,13 @@ import java.util.LinkedList;
 
 public class CardProb_950 {
 
+
+    /*
+    * sort array in increasing order
+    * traverse from the last
+    * delete last element and add at first
+    * pic next element and add it first
+    * */
     public static int [] deckRevealedIncreasing(int [] arr){
         if(arr == null || arr.length == 0){
             return new int[0];

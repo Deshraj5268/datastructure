@@ -36,16 +36,23 @@ class MaxArraySum
         }
         int maxSum = arr[0];
         int sum = arr[0];
+        int maxIndex = 0;
+        int start = 0;
+        int minIndex = 0;
         for(int i=1;i<arr.length;i++){
             sum += arr[i];
             if(sum>0){
                 if(maxSum < sum){
                     maxSum = sum;
+                    maxIndex = i;
+                    minIndex = start;
                 }
             }else{
                 sum = 0;
+                start = i+1;
             }
         }
+        System.out.println("minIndex "+minIndex+" maxIndex "+maxIndex);
         return maxSum;
     }
 
@@ -58,19 +65,6 @@ class MaxArraySum
         int maxSum = 0;
         int negSum = Integer.MIN_VALUE;
         boolean flag = false;
-        /*for(int i=0;i<arr.length;i++){
-            if(arr[i]<0){
-                if(negSum<arr[i]){
-                    negSum = arr[i];
-                }
-            }else {
-                flag = true;
-                break;
-            }
-        }
-        if(!flag){
-            return negSum;
-        }*/
         for(int i=0;i<arr.length;i++){
             //arrSum[i+1] = ;
             if(arrSum[i]+arr[i]>0){
@@ -143,8 +137,20 @@ class MaxArraySum
         }
     }
 
-    public static void main (String[] args) throws Exception
-    {
+    public static int maxSubArraySumWithNegNumCase(int [] arr){
+        if(arr == null || arr.length == 0){
+            return Integer.MIN_VALUE;
+        }
+        int maxSum = arr[0];
+        int currentSum = arr[0];
+        for(int i=1;i<arr.length;i++){
+            currentSum = Math.max(arr[i],currentSum+arr[i]);
+            maxSum = Math.max(maxSum,currentSum);
+        }
+        return maxSum;
+    }
+
+    public static void main (String[] args) {
         //code
         /*int t;
         Scanner sc = new Scanner(System.in);
@@ -175,11 +181,14 @@ class MaxArraySum
         }*/
 
 
-        BufferedReader inp = new BufferedReader (new InputStreamReader(System.in));
-        int T= Integer.parseInt(inp.readLine());
+        /*BufferedReader inp = new BufferedReader (new InputStreamReader(System.in));
+        int T= Integer.parseInt(inp.readLine());*/
 
-        int arr[] =  {-2,-5,-3};
+        int [] arr =  {-2, -3, 4, -1, -2, 1, 5, -8,9,120,8};
+        System.out.println(Arrays.toString(arr));
         //System.out.println(maxSubArraySumDp(arr));
-        System.out.println(maxSubArrSumTabDp(arr));
+        System.out.println("maxSum : "+maxSubArraySumDp(arr));
+
+        System.out.println("max sum for negative num : "+maxSubArraySumWithNegNumCase(arr));
     }
 }

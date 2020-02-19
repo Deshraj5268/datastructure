@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 public class LCS {
 
     private static int [] memoArr;
@@ -27,6 +29,10 @@ public class LCS {
                 }
             }
         }
+
+        /*for(int i=0;i<=m;i++){
+            System.out.println(Arrays.toString(tab[i]));
+        }*/
         return tab;
     }
 
@@ -46,7 +52,7 @@ public class LCS {
         }
     }
 
-    public static int  lcsDpTabSpaceOptimize(String str1,String str2,int m,int n){
+    public static int[][]  lcsDpTabSpaceOptimize(String str1,String str2,int m,int n){
         int [][] tab = new int[2][n+1];
         int bi = 0;
         for(int i=0;i<=m;i++){
@@ -60,8 +66,11 @@ public class LCS {
                     tab[bi][j] = Math.max(tab[1-bi][j],tab[bi][j-1]);
                 }
             }
+            /*System.out.println(Arrays.toString(tab[0]));
+            System.out.println(Arrays.toString(tab[1]));
+            System.out.println();*/
         }
-        return tab[bi][n];
+        return tab;
     }
 
     /*public static int lcsDpMemoziation(String str1,String str2,int m,int n){
@@ -78,13 +87,45 @@ public class LCS {
         String str1 = "AGGTAB";
         String str2 = "GXTXAYB";
         System.out.println("native "+lcs(str1,str2,str1.length()-1,str2.length()-1));
+
         int [][] arr = new int [str1.length()+1][str2.length()+1];
         System.out.println("Dp With memoziation "+lcsDPMemmoziation(str1,str2,str1.length()-1,str2.length()-1,arr));
-        System.out.println("Dp with space optimization "+lcsDpTabSpaceOptimize(str1,str2,str1.length(),str2.length()));
+
+        int [][] optTab = lcsDpTabSpaceOptimize(str1,str2,str1.length(),str2.length());
+        System.out.println("Dp with space optimization "+optTab[str1.length()%2][str2.length()]);
+        printLCSOpt(optTab,str1,str2,optTab[str1.length()%2][str2.length()]);
+
         int [][] tab = lcsDpTab(str1,str2,str1.length(),str2.length());
         System.out.println("Dp with tabulation appraoch"+tab[str1.length()][str2.length()]);
         printLCS(tab,str1,str2,tab[str1.length()][str2.length()]);
     }
+
+    private static void printLCSOpt(int[][] optTab, String str1, String str2, int lcsLength) {
+        char [] lcsArr = new char[lcsLength+1];
+        int temp = lcsLength;
+        int i=str1.length();
+        int bit = 1 & i;
+        int j = str2.length();
+        while (i > 0 && j > 0){
+            if(str1.charAt(i-1) == str2.charAt(j-1)){
+                lcsArr[temp] = str1.charAt(i-1);
+                temp--;
+                bit = 1-bit;
+                i--;
+                j--;
+            }else if(optTab[1-bit][j] > optTab[bit][j-1]){
+               // i--;
+                bit = 1-bit;
+            }else {
+                j--;
+            }
+        }
+        System.out.println("print LCS string using space optimized approach");
+        for (int k = 0;k<=lcsLength;k++){
+            System.out.print(lcsArr[k]);
+        }
+    }
+
 
     private static void printLCS(int[][] tab,String str1,String str2,int lcs) {
 
@@ -104,9 +145,11 @@ public class LCS {
                j--;
            }
        }
+        System.out.println("print LCS string ");
        for (int k = 0;k<=lcs;k++){
            System.out.print(lcsArr[k]);
        }
+        System.out.println();
 
     }
 

@@ -30,4 +30,6 @@ public interface LinkedListOpd {
     public ListNode findMiddleNode(ListNode head);
 
     public boolean isLoopExist(ListNode head);
+
+    public ListNode findMiddleNodeUsingLength(ListNode head);
 }

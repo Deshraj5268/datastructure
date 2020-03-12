@@ -23,7 +23,7 @@ public class LinkedListDriver {
             System.out.println("middle Node :"+middleNode.data);
         }
 
-        //create loop in linked list
+        /*//create loop in linked list
         LinkedListOpd  list1 = new LinkedListOpdImpl();
         list1.addNode(1);
         list1.addNode(8);
@@ -33,5 +33,11 @@ public class LinkedListDriver {
         ListNode node1 = list1.addNode(5);
         node1.next = node;
         System.out.println("is loop exist :"+list1.isLoopExist(list1.getHead()));
+*/
+        //find middle noe using lenth
+        ListNode middleNode2 = list.findMiddleNodeUsingLength(list.getHead());
+        if(middleNode2 != null) {
+            System.out.println("middle Node using length :"+middleNode2.data);
+        }
     }
 }

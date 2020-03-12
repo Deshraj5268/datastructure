@@ -270,4 +270,31 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     }
 
 
+    public int findLength(ListNode head){
+        if(head == null){
+            return 0;
+        }
+        ListNode temp = head;
+        int count=0;
+        while (temp!= null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+    @Override
+    public ListNode findMiddleNodeUsingLength(ListNode head){
+        int length = findLength(head);
+        if(length == 0){
+            return null;
+        }
+        int count = 0;
+        int mid = length/2;
+        ListNode temp = head;
+        while (temp != null && mid != ++count){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
 }

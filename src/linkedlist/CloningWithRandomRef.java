@@ -1,6 +1,4 @@
-package linkedlistproblem;
-
-import java.util.LinkedHashMap;
+package linkedlist;
 
 public class CloningWithRandomRef {
 

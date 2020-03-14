@@ -1,4 +1,4 @@
-package linkedlistproblem;
+package linkedlist;
 
 public class ListNode {
 

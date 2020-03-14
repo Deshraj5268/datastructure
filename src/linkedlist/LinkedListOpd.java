@@ -1,4 +1,4 @@
-package linkedlistproblem;
+package linkedlist;
 
 public interface LinkedListOpd {
 

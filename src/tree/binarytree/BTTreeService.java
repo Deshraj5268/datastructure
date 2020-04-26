@@ -276,7 +276,6 @@ public class BTTreeService {
     public void printRootToLeafPath(BTNode root,int [] pathArr,int length){
 
         if(root == null){
-
             return;
         }
         if(root.left == null && root.right == null){
@@ -339,17 +338,56 @@ public class BTTreeService {
                 Math.max(ld,rd));
     }
 
-    public int diameterUsingHeight(BTNode root,Height height){
+    public int diameterUsingHeight(BTNode root,Height height,BTNode rootDmNode,Height left,Height right){
         if(root == null){
             return 0;
         }
 
-        int lh = diameterUsingHeight(root.left,height);
-        int rh = diameterUsingHeight(root.right,height);
+        int lh = diameterUsingHeight(root.left,height,rootDmNode,left,right);
+        int rh = diameterUsingHeight(root.right,height,rootDmNode,left,right);
 
-        height.h = Math.max(height.h,(lh+rh+1));
+        if(height.h < lh+rh+1) {
+            height.h = lh + rh + 1;
+            left.h = lh;
+            right.h = rh;
+            rootDmNode.data = root.data;
+            rootDmNode.left = root.left;
+            rootDmNode.right = root.right;
+        }
 
         return 1+ Math.max(lh,rh);
+    }
+
+    public int [] printPath(BTNode root,int [] pathArr,int length,int leafLength){
+
+        if(root == null){
+            return null;
+        }
+        pathArr[length++] = root.data;
+        if(isLeaf(root) && length == leafLength){
+            return pathArr;
+        }else {
+            printPath(root.left, pathArr, length, leafLength);
+            printPath(root.right, pathArr, length, leafLength);
+            return pathArr;
+        }
+    }
+
+    private boolean isLeaf(BTNode node){
+        return (node.left == null && node.right == null);
+    }
+
+
+    public void printDiameter(int [] leftPath,int [] rightPath,BTNode rootDm){
+        for(int j=leftPath.length-1;j>=0;j--){
+            System.out.print(leftPath[j]+" ");
+        }
+
+        System.out.print(rootDm.data+" ");
+
+        for(int i=0;i<rightPath.length;i++){
+            System.out.print(rightPath[i]+" ");
+        }
     }
 
 }

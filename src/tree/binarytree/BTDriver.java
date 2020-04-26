@@ -11,6 +11,7 @@ public class BTDriver {
         root = btTreeService.insert(root,16);
         root = btTreeService.insert(root,17);
         root = btTreeService.insert(root,18);
+        root = btTreeService.insert(root,20);
         root = btTreeService.insert(root,19);
         root = btTreeService.insert(root,21);
         root = btTreeService.insert(root,3);
@@ -52,13 +53,21 @@ public class BTDriver {
         int dmeterOfBt = btTreeService.diameter(root);
         System.out.print("\n diameter of bt : "+dmeterOfBt);
 
-         dmeterOfBt = btTreeService.diameterWOHeight(root,new Height());
+        dmeterOfBt = btTreeService.diameterWOHeight(root,new Height());
         System.out.print("\n diameter of bt WO Height : "+dmeterOfBt);
 
         Height minHeight = new Height();
         minHeight.h = Integer.MIN_VALUE;
-        dmeterOfBt = btTreeService.diameterUsingHeight(root,minHeight);
+        Height left = new Height();
+        Height right = new Height();
+        BTNode rootDm = new BTNode();
+        dmeterOfBt = btTreeService.diameterUsingHeight(root,minHeight,rootDm,left,right);
         System.out.print("\n diameter of bt diameterUsingHeight : "+minHeight.h);
+        System.out.println("\n "+rootDm.data + " left dm length :"+left.h+ " right dm length :"+right.h);
+        int [] leftPathArr = btTreeService.printPath(rootDm.left,new int[left.h],0,left.h);
+        int [] rightPathArr = btTreeService.printPath(rootDm.right,new int[right.h],0,right.h);
+        btTreeService.printDiameter(leftPathArr,rightPathArr,rootDm);
+
 
     }
 }

@@ -72,4 +72,57 @@ public class BSTService {
         }
         return min;
     }
+
+    public BTNode searchNode(BTNode root,int val){
+        BTNode temp = root;
+        while (temp != null){
+            if(temp.data == val){
+                return root;
+            }else if(val < temp.data){
+                temp = temp.left;
+            }else {
+                temp = temp.right;
+            }
+        }
+        return null;
+    }
+
+    public BTNode findMaxInBST(BTNode root){
+        if(root == null){
+            return null;
+        }
+        BTNode temp = root;
+        while (temp.right != null){
+            temp = temp.right;
+        }
+        return temp;
+    }
+
+    public BTNode delete(BTNode root,int data){
+        if(root == null){
+            return null;
+        }
+        BTNode delNode = searchNode(root,data);
+        if(delNode == null){
+            System.out.println("data is not present");
+            return null;
+        }
+        BTNode temp=null;
+        if(delNode.left != null && delNode.right != null){
+            temp = findMaxInBST(delNode.left);
+            delNode.data = temp.data;
+            delNode.left = delete(delNode.left,delNode.data);
+        }else {
+            temp = delNode;
+            if (delNode.left == null) {
+                delNode= delNode.right;
+            }
+            if (delNode.right == null) {
+                delNode = delNode.left;
+            }
+            temp.left = null;
+            temp.right = null;
+        }
+        return temp;
+    }
 }

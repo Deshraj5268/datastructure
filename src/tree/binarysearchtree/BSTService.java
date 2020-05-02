@@ -2,6 +2,10 @@ package tree.binarysearchtree;
 
 import tree.binarytree.BTNode;
 
+import javax.xml.soap.Node;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BSTService {
 
     public boolean isBST(BTNode root){
@@ -124,5 +128,43 @@ public class BSTService {
             temp.right = null;
         }
         return temp;
+    }
+
+    public boolean isLevelOrderBST(int [] arr){
+
+        if(arr == null || arr.length == 0){
+            return false;
+        }
+        Queue<NodeDetails> queue = new LinkedList<>();
+        NodeDetails node = new NodeDetails();
+        node.data = arr[0];
+        node.min = Integer.MIN_VALUE;
+        node.max= Integer.MAX_VALUE;
+        queue.offer(node);
+        NodeDetails temp = null;
+        int i=1;
+        int n = arr.length;
+        while (i != n && !queue.isEmpty()){
+            temp = queue.poll();
+            if((i<n) && (arr[i]<temp.data && arr[i]>temp.min)){
+                NodeDetails newNode = new NodeDetails();
+                newNode.data = arr[i++];
+                newNode.min = temp.min;
+                newNode.max = temp.data;
+                queue.add(newNode);
+            }
+            if((i<n) && (arr[i]>temp.data && arr[i]<temp.max)){
+                NodeDetails newNode = new NodeDetails();
+                newNode.data = arr[i++];
+                newNode.min = temp.data;
+                newNode.max = temp.max;
+                queue.add(newNode);
+            }
+        }
+
+        if(i == n){
+            return true;
+        }
+        return false;
     }
 }

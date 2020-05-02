@@ -21,5 +21,8 @@ public class BSTDriver {
         System.out.println("isBST : "+isBST);
         DataNode prev = new DataNode(Integer.MIN_VALUE);
         System.out.println("isBSTInorder : "+bstService.isBSTUsingInOrder(root,prev));
+
+        int [] lvlOrderArr = {11,6,13,6,12,10};//{7,4,12,3,6,8,1,5,10};
+        System.out.println(bstService.isLevelOrderBST(lvlOrderArr));
     }
 }

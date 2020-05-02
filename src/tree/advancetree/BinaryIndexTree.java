@@ -1,12 +1,14 @@
 package tree.advancetree;
 
+/* https://www.youtube.com/watch?v=v_wj_mOAlig */
+
 public class BinaryIndexTree {
 
     public static void main(String[] args) {
         int [] arr = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 9};
         int [] binaryIndexTree = constructBinaryIndexTree(arr,arr.length);
 
-        System.out.println(getSum(binaryIndexTree,5));
+        System.out.println(getSum(binaryIndexTree,7));
 
         update(binaryIndexTree,3,arr.length,6);
         System.out.println(getSum(binaryIndexTree,5));
@@ -22,10 +24,16 @@ public class BinaryIndexTree {
         return binaryIndexArr;
     }
 
+    /*2's complement (-index)
+    and with original no , i.e. get the right most set bit
+    subtract with original no get parent
+    final : remove last set bit from current number
+    * */
     private static int getParent(int index){
         return (index - (index & -index));
     }
 
+    /*final : add last set bit in current number*/
     private static int getNext(int index){
         return (index + (index & -index));
     }

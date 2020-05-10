@@ -1,13 +1,14 @@
-package tree.advancetree;
+package advanceds.binaryindextree;
 
 /* https://www.youtube.com/watch?v=v_wj_mOAlig */
 
 public class BinaryIndexTree {
 
     public static void main(String[] args) {
-        int [] arr = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 9};
+        int [] arr = {2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 9,13,14,15,16,17};
         int [] binaryIndexTree = constructBinaryIndexTree(arr,arr.length);
 
+        System.out.println("creation finish");
         System.out.println(getSum(binaryIndexTree,7));
 
         update(binaryIndexTree,3,arr.length,6);
@@ -19,7 +20,9 @@ public class BinaryIndexTree {
         int [] binaryIndexArr = new int[n+1];
 
         for(int i=1;i<n;i++){
+            System.out.print(i+" inirial  ");
             update(binaryIndexArr,i,n,arr[i-1]);
+            System.out.println();
         }
         return binaryIndexArr;
     }
@@ -51,6 +54,7 @@ public class BinaryIndexTree {
         while (index < n){
             binaryIndexArr[index] += val;
             index = getNext(index);
+            System.out.print(index+" ");
         }
     }
 

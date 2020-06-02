@@ -2,6 +2,9 @@ package graph.disjointset;
 
 import java.util.Arrays;
 
+
+/*https://www.youtube.com/watch?v=wU6udHRIkcc*/
+
 public class DisJointSetDriver {
 
     private static int[] parent;

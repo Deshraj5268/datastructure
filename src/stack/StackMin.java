@@ -7,6 +7,13 @@ public class StackMin {
     private static int minVal = Integer.MAX_VALUE;
     private static  Stack<Integer> stack = new Stack<>();
 
+    /*
+    *  ax - m < x (x is the new element, m is the old min).
+    *  (a - 1) x < m
+    *   but we know that x < m (otherwise, we will not be getting into this situation.)
+    *   a-1 = 1, a = 2.
+    *   which is why 2x - m came into picture.
+    * */
     public static void push(int val){
         if(stack.isEmpty()){
             minVal = val;

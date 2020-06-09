@@ -14,15 +14,39 @@ public class DisJointSetDriver {
         int totalV = 8;
         int edge = 9;
         createGraph(totalV,edge);
+
         makeDisjointSet(totalV,edge);
         printDisjointSet(parent);
+
+        /*makeDisjointWeightedSet(totalV,edge);
+        printDisjointSet(parent);
+
+        Arrays.fill(parent,-1);// reinitialize for path com
+        makeDisjointPathCmp(totalV,edge);
+        System.out.println("path comp");
+        printDisjointSet(parent);*/
+    }
+
+    private static void makeDisjointSet(int totalV, int edge) {
+        int x;
+        int y;
+        //iterate all edges
+        for (int i = 0; i < udGraph.e; i++) {
+            x = DisJointOps.findSet(parent, udGraph.edge[i].src);
+            y = DisJointOps.findSet(parent, udGraph.edge[i].dest);
+            if (x == y) {
+                System.out.println("cycle exist between "+udGraph.edge[i].src + " and "+udGraph.edge[i].dest);
+            } else {
+                DisJointOps.unionSet(parent, x, y);
+            }
+        }
     }
 
     private static void printDisjointSet(int[] parent) {
         System.out.println(Arrays.toString(parent));
     }
 
-    private static void makeDisjointSet(int totalV, int edge) {
+    private static void makeDisjointWeightedSet(int totalV, int edge) {
         int x;
         int y;
         //iterate all edges
@@ -34,6 +58,22 @@ public class DisJointSetDriver {
                 System.out.println("cycle exist between "+udGraph.edge[i].src + " and "+udGraph.edge[i].dest);
             } else {
                 DisJointOps.unionWeightedSet(parent, x, y);
+            }
+        }
+    }
+
+    private static void makeDisjointPathCmp(int totalV, int edge) {
+        int x;
+        int y;
+        //iterate all edges
+        for (int i = 0; i < udGraph.e; i++) {
+            x = DisJointOps.findPathSet(parent, udGraph.edge[i].src);
+            y = DisJointOps.findPathSet(parent, udGraph.edge[i].dest);
+            if (x == y) {
+                //return true;
+                System.out.println("cycle exist between "+udGraph.edge[i].src + " and "+udGraph.edge[i].dest);
+            } else {
+                DisJointOps.unionPathSet(parent, x, y);
             }
         }
     }

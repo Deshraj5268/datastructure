@@ -1,13 +1,9 @@
 package dp;
 
-import sun.plugin.javascript.navig.Array;
-
-import java.util.Arrays;
-
 public class LPSubSequence {
 
     public static void main(String[] args) {
-        String str = "abcdba";
+        String str = "cbbd";
         char [] arr = str.toCharArray();
         System.out.println(lpSubSequence(arr,0,arr.length-1));
 
@@ -22,14 +18,14 @@ public class LPSubSequence {
         int j=0;
         for(int l=2;l<=n;l++){
             for(int i=0;i<n-l+1;i++){
-               j = i+l-1;
-               if(arr[i] == arr[j] && l==2){
-                   lps[i][j] = 2;
-               }else if(arr[i] == arr[j]){
-                   lps[i][j] = lps[i+1][j-1]+2;
-               }else {
-                   lps[i][j] = Math.max(lps[i+1][j],lps[i][j-1]);
-               }
+                j = i+l-1;
+                if(arr[i] == arr[j] && l==2){
+                    lps[i][j] = 2;
+                }else if(arr[i] == arr[j]){
+                    lps[i][j] = lps[i+1][j-1]+2;
+                }else {
+                    lps[i][j] = Math.max(lps[i+1][j],lps[i][j-1]);
+                }
             }
         }
         /*for (int k=0;k<lps.length;k++){
@@ -38,6 +34,28 @@ public class LPSubSequence {
         return lps[0][n-1];
     }
 
+ /*  fun(i,j)
+  *  lps[n][n]
+  *  if i== j then return 1;
+  *  if first == last element equal AND length =2
+   *  then return 2;
+   *  if first == last element ( increase starting index and decrease last index
+   *  then return fun(i+1,j-1)+2;
+   *  else
+   *   Max( fun(i+1,j),fun(i,j-1)
+  * O(2^n)
+  *
+  *           f(i,j)
+  *        /        \
+  *       /          \
+  *    f(i+1,j)     f(i,j-1)
+  *    /     \        .
+  *   /       \
+  * f(i+2,j)  f(i+1,j-1)
+  * /     \
+  *f(n,n)  f(n,j)
+  *
+  * */
     public static int lpSubSequence(char [] arr,int i,int j){
         if(i == j){
             return 1;

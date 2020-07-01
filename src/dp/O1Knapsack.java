@@ -20,6 +20,26 @@ public class O1Knapsack {
             return Math.max(a,b);
         }
     }
+
+    public static int o1KnapsackMemoization(int [] val,int [] wt,int n,int w,int [][] dpTable){
+        if(n == 0 || w == 0){
+            return 0;
+        }
+        if(dpTable[n][w] != 0){
+            return dpTable[n][w];
+        }
+        if(wt[n-1] > w){
+             dpTable[n][w] = o1KnapsackMemoization(val,wt,n-1,w,dpTable);
+             return dpTable[n][w];
+        }else {
+            dpTable[n][w] = Math.max(o1KnapsackMemoization(val, wt, n - 1,w,dpTable),
+                    o1KnapsackMemoization(val, wt, n - 1, w - wt[n - 1], dpTable) + val[n - 1]);
+            return dpTable[n][w];
+        }
+
+
+    }
+
     public static int o1KnapsackTabulation(int [] val,int [] wt,int n,int w){
         for(int i=0;i<=n;i++){
             for(int j=0;j<=w;j++){
@@ -67,6 +87,9 @@ public class O1Knapsack {
 
         optTabKnapsack = new int[2][w+1];
         System.out.println("tabulation with optimize space   : "+o1KnapsackTabulationSpaceOpt(val,wt,n,w));
+
+        int [][] dpTable = new int[n+1][w+1];
+        System.out.println(o1KnapsackMemoization(val,wt,wt.length,w,dpTable));
 
     }
 }

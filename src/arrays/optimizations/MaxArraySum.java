@@ -1,8 +1,6 @@
 package arrays.optimizations;
 
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Arrays;
 
 /*
@@ -150,6 +148,64 @@ class MaxArraySum
         return maxSum;
     }
 
+    /*
+    *  max ( (fun(i-1) + A[i]),A[i])
+    * */
+    public static int maxContiguousSubArrSumDp(int [] arr){
+        if(arr == null || arr.length == 0){
+            return Integer.MIN_VALUE;
+        }
+        int [] mArr = new int[arr.length];
+        mArr[0] = arr[0];
+        int n = arr.length;
+        int maxSum = arr[0];
+        int startP = 0;
+        int endP = 0;
+        for (int i=1;i<n;i++){
+            if(mArr[i-1] + arr[i] > arr[i]){
+                mArr[i] = mArr[i-1] + arr[i];
+                if(maxSum < mArr[i]){
+                    maxSum = mArr[i];
+                    endP = i;
+                }
+            }else {
+                mArr[i] = arr[i];
+                startP = i;
+                endP = i;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        System.out.println(startP + " to "+endP);
+        return maxSum;
+    }
+
+    public static int maxContiguousSubArrSumDpWOSpace(int [] arr){
+        if(arr == null || arr.length == 0){
+            return Integer.MIN_VALUE;
+        }
+        int n = arr.length;
+        int maxSum = arr[0];
+        int currentSum = arr[0];
+        int startP = 0;
+        int endP = 0;
+        for (int i=1;i<n;i++){
+            if(currentSum + arr[i] > arr[i]){
+                currentSum = currentSum + arr[i];
+                if(maxSum < currentSum){
+                    maxSum = currentSum;
+                    endP = i;
+                }
+            }else {
+                currentSum = arr[i];
+                startP = i;
+                endP = i;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        System.out.println(startP + " to "+endP);
+        return maxSum;
+    }
+
     public static void main (String[] args) {
         //code
         /*int t;
@@ -184,11 +240,14 @@ class MaxArraySum
         /*BufferedReader inp = new BufferedReader (new InputStreamReader(System.in));
         int T= Integer.parseInt(inp.readLine());*/
 
-        int [] arr =  {-2, -3, 4, -1, -2, 1, 5, -8,9,120,8};
+        /*int [] arr =  {-2, -3, 4, -1, -2, 1, 5, -8,9,120,8};
         System.out.println(Arrays.toString(arr));
         //System.out.println(maxSubArraySumDp(arr));
         System.out.println("maxSum : "+maxSubArraySumDp(arr));
 
-        System.out.println("max sum for negative num : "+maxSubArraySumWithNegNumCase(arr));
+        System.out.println("max sum for negative num : "+maxSubArraySumWithNegNumCase(arr));*/
+        int [] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+        System.out.println(maxContiguousSubArrSumDp(arr));
+        System.out.println(maxContiguousSubArrSumDpWOSpace(arr));
     }
 }

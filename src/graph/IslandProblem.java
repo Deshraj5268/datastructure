@@ -1,5 +1,8 @@
 package graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class IslandProblem {
 
     //use for 8 direction movement (like complete 1 row and 3 column)
@@ -9,21 +12,25 @@ public class IslandProblem {
     boolean [][]visited;
 
     public static void main(String[] args) {
-        int [][] mat = {
+        int [][] mat = /*{
                 {1,1,0,1},
                 {0,0,1,0},
                 {1,1,0,1},
                 {1,1,0,1}
-        };/*{{1, 1, 0, 0, 0},
+        };*/{{1, 1, 0, 0, 0},
                 {0, 1, 0, 0, 1},
                 {1, 0, 0, 1, 1},
                 {0, 0, 0, 0, 0},
-                {1, 0, 1, 0, 1}};*/
+                {1, 0, 1, 0, 1}};
         int m = mat.length;
         int n = mat[0].length;
         IslandProblem islandProblem = new IslandProblem();
         int totalIsland = islandProblem.countNumberOfIslandM1(mat,m,n,0,0);
         System.out.println("total island in 2D matrix :"+totalIsland);
+
+        totalIsland = islandProblem.countNumberOfIslandUsingBFS(mat,m,n,0,0);
+        System.out.println("total island in 2D matrix using BFS :"+totalIsland);
+
         totalIsland = islandProblem.countNumberOfIslandM2(mat,m,n,0,0);
         System.out.println("total island in 2D matrix WO Extra space :"+totalIsland);
     }
@@ -47,6 +54,40 @@ public class IslandProblem {
             }
         }
         return islandCount;
+    }
+
+    public int countNumberOfIslandUsingBFS(int [][] mat,int m,int n,int i,int j){
+        visited = new boolean[m][n];
+        int islandCount = 0;
+        for(int r=0;r<m;r++){
+            for(int c=0;c<n;c++){
+                if(mat[r][c] == 1 && !visited[r][c]){
+                    bfs(mat,m,n,r,c);
+                    islandCount++;
+                }
+            }
+        }
+        return islandCount;
+    }
+
+    private void bfs(int[][] mat, int m, int n, int r, int c) {
+        visited[r][c] = true;
+        Queue<RowColPair> queue = new LinkedList<>();
+        queue.offer(new RowColPair(r,c));
+        int newR;
+        int newC;
+        while (!queue.isEmpty()){
+            RowColPair rowColPair = queue.poll();
+            for (int k=0;k<8;k++){
+                newR = rowColPair.row+rowNumber[k];
+                newC = rowColPair.col+colNumber[k];
+                if(isSafeMatrixCell(m,n,newR,newC) && mat[newR][newC] == 1 && !visited[newR][newC]){
+                    visited[newR][newC] = true;
+                    queue.offer(new RowColPair(newR,newC));
+                }
+            }
+        }
+
     }
 
     /* Algo
@@ -84,7 +125,7 @@ public class IslandProblem {
         for(int i=0;i<8;i++){
             newR = r+rowNumber[i];
             newC = c+colNumber[i];
-            if(isSafeMatrixCell(mat,m,n,newR,newC) && (mat[newR][newC] == 1)){
+            if(isSafeMatrixCell(m,n,newR,newC) && (mat[newR][newC] == 1)){
                // mat[newR][newC] = -1;
                 dfsM2(mat,m,n,newR,newC);
             }
@@ -98,13 +139,13 @@ public class IslandProblem {
         for(int i=0;i<8;i++){
             newR = r+rowNumber[i];
             newC = c+colNumber[i];
-            if(isSafeMatrixCell(mat,m,n,newR,newC) && (mat[newR][newC] == 1 && !visited[newR][newC])){
+            if(isSafeMatrixCell(m,n,newR,newC) && (mat[newR][newC] == 1 && !visited[newR][newC])){
                 dfs(mat,m,n,newR,newC);
             }
         }
     }
 
-    private boolean isSafeMatrixCell(int[][] mat, int m, int n, int r, int c) {
+    private boolean isSafeMatrixCell(int m, int n, int r, int c) {
         return ((r > -1 && r < m) && (c > -1 && c < n));
     }
 
@@ -120,5 +161,15 @@ public class IslandProblem {
             System.out.println();
             r1++;
         }
+    }
+}
+
+class RowColPair{
+    int row;
+    int col;
+
+    public RowColPair(int row, int col) {
+        this.row = row;
+        this.col = col;
     }
 }

@@ -12,11 +12,11 @@ public class BFS {
         Queue<Integer> qu = new LinkedList<>();
         qu.offer(startVertex);
         int newVertex;
-        int queuedDate;
+        int queueddata;
         while (!qu.isEmpty()){
-            queuedDate = qu.poll();
-            System.out.print(queuedDate+" ");
-            Iterator<Integer> it = adj[queuedDate].listIterator();
+            queueddata = qu.poll();
+            System.out.print(queueddata+" ");
+            Iterator<Integer> it = adj[queueddata].listIterator();
             while (it.hasNext()) {
                 newVertex = it.next();
                 if (!visited[newVertex]) {
@@ -33,7 +33,6 @@ public class BFS {
     }
 
     public static void main(String[] args) {
-        {
             int totalVertex = 4;
             AdjacencyMatrix adjObj =  new AdjacencyMatrix(totalVertex);
             adj = adjObj.getAdj();
@@ -50,6 +49,5 @@ public class BFS {
             System.out.println("Following is Depth First Traversal (starting from vertex )"+startVertex);
 
             bfs(totalVertex,startVertex);
-        }
     }
 }

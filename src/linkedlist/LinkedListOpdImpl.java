@@ -5,6 +5,7 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     private ListNode last;
     private ListNode head;
     private int size;
+    private ListNode newHead;
 
     public ListNode getLast() {
         return last;
@@ -29,6 +30,14 @@ public class LinkedListOpdImpl implements LinkedListOpd {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public ListNode getNewHead() {
+        return newHead;
+    }
+
+    public void setNewHead(ListNode newHead) {
+        this.newHead = newHead;
     }
 
     @Override
@@ -295,6 +304,32 @@ public class LinkedListOpdImpl implements LinkedListOpd {
             temp = temp.next;
         }
         return temp;
+    }
+
+    public ListNode reverseListItr(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode nextNode = null;
+        ListNode newHead = null;
+        while (head != null){
+            nextNode = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = nextNode;
+        }
+        return newHead;
+    }
+
+    public ListNode reverseListRec(ListNode head){
+        if(head == null){
+            return null;
+        }
+        ListNode nextNode = head.next;
+        head.next = newHead;
+        newHead = head;
+        return reverseListRec(nextNode);
+
     }
 
 }

@@ -39,5 +39,24 @@ public class LinkedListDriver {
         if(middleNode2 != null) {
             System.out.println("middle Node using length :"+middleNode2.data);
         }
+
+        LinkedListOpd  list1 = new LinkedListOpdImpl();
+        list1.addNode(10);
+        list1.addNode(16);
+        list1.addNode(20);
+        list1.addNode(30);
+        list1.addNode(40);
+        list1.addNode(50);
+        System.out.print("before reversal : \n");
+        list1.display(list1.getHead());
+
+        list1.reverseListRec(list1.getHead());
+        System.out.println("After reversal recursively : \n");
+        list1.display(list1.getNewHead());
+
+        /*ListNode newHead = list1.reverseListItr(list1.getHead());
+        System.out.println("After reversal Iterative : \n");
+        list1.display(list1.getNewHead());*/
+
     }
 }

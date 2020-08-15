@@ -4,6 +4,8 @@ public interface LinkedListOpd {
 
     public  ListNode getHead();
 
+    public ListNode getNewHead();
+
     //addition
     public ListNode addLast(int date);
 
@@ -32,4 +34,8 @@ public interface LinkedListOpd {
     public boolean isLoopExist(ListNode head);
 
     public ListNode findMiddleNodeUsingLength(ListNode head);
+
+    public ListNode reverseListItr(ListNode head);
+
+    public ListNode reverseListRec(ListNode head);
 }

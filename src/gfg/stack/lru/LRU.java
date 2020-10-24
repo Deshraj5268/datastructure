@@ -4,5 +4,5 @@ public interface LRU {
 
     public void setPage(int pageNumber);
 
-    public int getPage();
+    public int getPage(int key);
 }

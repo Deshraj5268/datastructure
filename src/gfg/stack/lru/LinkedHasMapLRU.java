@@ -21,15 +21,25 @@ public class LinkedHasMapLRU implements LRU{
     public void setPage(int pageNumber) {
         Integer value = linkedHashMap.get(pageNumber);
         if(value != null){
-            Integer refValue = linkedHashMap.remove(pageNumber);
-            linkedHashMap.put(pageNumber,refValue);
+            linkedHashMap.remove(pageNumber);
+            linkedHashMap.put(pageNumber,value);
         }else{
             linkedHashMap.put(pageNumber,pageNumber); //it will call eldestEntry
         }
     }
 
     @Override
-    public int getPage() {
-         return linkedHashMap.size()>0 ? linkedHashMap.entrySet().iterator().next().getValue():0;
+    public int getPage(int key) {
+        if(linkedHashMap.size() > 0){
+            Integer pageRef = linkedHashMap.get(key);
+            if(pageRef == null){
+                return -1;
+            }else {
+                linkedHashMap.remove(key);
+                linkedHashMap.put(key,pageRef);
+                return pageRef;
+            }
+        }
+        return -1;
     }
 }

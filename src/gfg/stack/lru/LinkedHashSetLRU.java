@@ -16,7 +16,7 @@ public class LinkedHashSetLRU implements LRU{
     public void setPage(int pageNumber) {
         if(linkedHashSet.contains(pageNumber)){ //move at the end
             linkedHashSet.remove(pageNumber);
-            linkedHashSet.add(pageNumber);//add at the end
+            linkedHashSet.add(pageNumber);
         }else {
             if(linkedHashSet.size() == frameSize){
                 linkedHashSet.remove(linkedHashSet.iterator().next());
@@ -26,7 +26,12 @@ public class LinkedHashSetLRU implements LRU{
     }
 
     @Override
-    public int getPage() {
-        return (linkedHashSet.size() >0 ?linkedHashSet.iterator().next():0);
+    public int getPage(int key) {
+        if(linkedHashSet.size() > 0 && linkedHashSet.contains(key)){ //move at the end
+            linkedHashSet.remove(key);
+            linkedHashSet.add(key);
+            return key;
+        }
+        return -1;
     }
 }

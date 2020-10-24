@@ -33,7 +33,16 @@ public class CustomLRU implements LRU {
     }
 
     @Override
-    public int getPage() {
-        return (list.getHead() == null? 0: list.getHead().data);
+    public int getPage(int key) {
+        if(map.size() > 0){
+            DListNode pageRef = map.get(key);
+            if(pageRef == null){
+                return -1;
+            }else {
+                list.addLast(list.removeNode(pageRef));
+                return pageRef.data;
+            }
+        }
+        return -1;
     }
 }

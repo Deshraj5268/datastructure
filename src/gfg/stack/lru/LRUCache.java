@@ -39,12 +39,18 @@ class LRUCache
 
     }
 
+    /*
+    * LinkedHashamp arg 1: initial capacity
+    * arg 2 : load factor
+    * *arg3 :by default it maintain insertion order if we pass access order true then it maintain access order also
+    * removeEldestEntry() : it's invoke after every call of put or puttAll() , if true then remove least recently node
+    * */
     public LRUCache(int cap)
     {
         // Intialize the cache capacity with the given
         // cap
         this.cap = cap;
-        this.linkedHashMap = new LinkedHashMap<Integer,Integer>(cap){
+        this.linkedHashMap = new LinkedHashMap<Integer,Integer>(cap,.75f,true){
             protected boolean removeEldestEntry(Map.Entry<Integer,Integer> eldest){
                 return cap < size();
             }
@@ -55,29 +61,15 @@ class LRUCache
     public  int get(int key) {
         if(linkedHashMap.size() > 0){
             Integer result = linkedHashMap.get(key);
-            if(result == null){
-                return -1;
-            }else{
-                linkedHashMap.remove(key);
-                linkedHashMap.put(key,result);
+            if(result != null){
                 return result;
             }
         }
         return -1;
     }
 
-    public  void printMap(Map<Integer,Integer> linkedHashMap){
-        for(Map.Entry<Integer,Integer> entry : linkedHashMap.entrySet()){
-            System.out.print(entry.getKey() + " -> "+entry.getValue() +" ");
-        }
-    }
-
     // This method works in O(1)
     public  void set(int key, int value) {
-        Integer pageRef = linkedHashMap.get(key);
-        if(pageRef != null){
-            linkedHashMap.remove(key);
-        }
         linkedHashMap.put(key,value);
     }
 }

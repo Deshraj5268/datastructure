@@ -12,7 +12,7 @@ public class Sort012 {
         int low=l;
         int mid = l;
         int high=r;
-        while (mid<=high){
+        while (mid<=high){// equal because if h point to 0
             switch (arr[mid]){
                 case 0:
                     swap(arr,mid,low);

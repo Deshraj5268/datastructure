@@ -44,6 +44,7 @@ class LRUCache
     * arg 2 : load factor
     * *arg3 :by default it maintain insertion order if we pass access order true then it maintain access order also
     * removeEldestEntry() : it's invoke after every call of put or puttAll() , if true then remove least recently node
+    * For Order attribute, true is passed for last access order(move node at he end) and false is passed for insertion order.
     * */
     public LRUCache(int cap)
     {

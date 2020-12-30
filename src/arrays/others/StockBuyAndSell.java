@@ -42,6 +42,28 @@ public class StockBuyAndSell {
         return stocksArr;
     }
 
+    /*buy and sell one time and you cann't sell before buying the stock
+    * */
+    //in a single pass 
+    public int maxProfitBuyAndSellOneTime(int [] prices){
+        if(prices == null || prices.length < 2){
+            return 0;
+        }
+        int maxProfitVal = 0;
+        int minPrice = prices[0];
+        for(int i=1;i<prices.length;i++){
+            if(maxProfitVal < prices[i]-minPrice){
+                maxProfitVal = prices[i]-minPrice;
+            }
+            if(minPrice > prices[i]){
+                minPrice = prices[i];
+            }
+
+        }
+        return maxProfitVal;
+
+    }
+
     public static void main(String[] args) {
         int [] priceArr = { 100, 180, 260, 310, 40, 535, 695};
         ArrayList<Stock> stockArr = stockBuyAndSell(priceArr);

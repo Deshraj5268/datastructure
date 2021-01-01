@@ -34,7 +34,7 @@ public class PrintPathSrcToDst {
     * taking boolean visited and  pathArr for storing element
     * start traversing the adjList
     * pathArr[pathLenth]=src;
-    * mark visited = false;
+    * mark visited = true;
     * if src == dest then print path
     *    mark visited =false
     * else

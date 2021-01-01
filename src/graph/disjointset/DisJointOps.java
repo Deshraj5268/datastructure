@@ -45,9 +45,10 @@ public class DisJointOps {
     }
 
     public static void unionSet(int [] parent,int x,int y){
-        int xSet = findSet(parent,x);
+        /*int xSet = findSet(parent,x);
         int ySet = findSet(parent,y);
-        parent[ySet] = xSet;
+        parent[ySet] = xSet;*/
+        parent[y]=x;
     }
 
     public static void unionPathSet(int [] parent,int x,int y){

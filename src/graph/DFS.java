@@ -1,5 +1,6 @@
 package graph;
 
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -25,6 +26,27 @@ public class DFS {
         dfsUtil(startVertex,visited);
     }
 
+    public static void dfsItr(int noOfVertex,int startVertex) {
+        boolean[] visited = new boolean[noOfVertex];
+        Deque<Integer> st = new LinkedList<>(); //stack
+        st.addLast(startVertex);
+
+        int top;
+        int node;
+        while (!st.isEmpty()){
+            top = st.removeLast();
+            visited[top] = true;
+            System.out.print(top+" ");
+            Iterator<Integer> itr = adj[top].iterator();
+            while (itr.hasNext()){
+                node = itr.next();
+                if(!visited[node]){
+                    st.addLast(node);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int totalVertex = 4;
         AdjacencyMatrix adjObj =  new AdjacencyMatrix(totalVertex);
@@ -42,5 +64,7 @@ public class DFS {
         System.out.println("Following is Depth First Traversal (starting from vertex )"+startVertex);
 
         dfs(totalVertex,startVertex);
+        System.out.println("\nitr approach ");
+        dfsItr(totalVertex,startVertex);
     }
 }

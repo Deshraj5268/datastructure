@@ -95,7 +95,7 @@ public class Employee implements Comparable<Employee>{
         employeeList.add(e);
         employeeList.add(e2);
         System.out.println("before sorting  :"+employeeList.toString());
-        Collections.sort(employeeList,(em1,em2)->em1.getEmpName().compareTo(em2.getEmpName()));
+        Collections.sort(employeeList,(em1,em2)->em1.getEmpId()>em2.getEmpId()?1:-1);  //positive swap natural order
         System.out.println("after  sorting  :"+employeeList.toString());
     }
 }

@@ -1,52 +1,23 @@
 package tree.binarytree;
 
+import tree.binarytree.traversals.Traversals;
+
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class BTDriver {
 
     public static void main(String[] args) {
         BTTreeService btTreeService = new BTTreeService();
         BTNode root = null;
-        root = btTreeService.insert(root,8);
-        root = btTreeService.insert(root,5);
-        root = btTreeService.insert(root,15);
-        root = btTreeService.insert(root,16);
-        root = btTreeService.insert(root,17);
-        root = btTreeService.insert(root,18);
-        root = btTreeService.insert(root,20);
-        root = btTreeService.insert(root,19);
-        root = btTreeService.insert(root,21);
-        root = btTreeService.insert(root,3);
-        root = btTreeService.insert(root,12);
-        root = btTreeService.insert(root,11);
-        root = btTreeService.insert(root,10);
-        System.out.println("pre-order : ");
-        btTreeService.preOrderItr(root);
-        System.out.println("\nIn-order : ");
-        btTreeService.inOrderItr(root);
-        System.out.println("\nPost-order : ");
-        btTreeService.postOrderItr(root);
-        System.out.println("\nLevel-order : ");
-        btTreeService.levelOrderTrv(root);
+        int [] arr = {8,5,15,16,17,18,20,19,21,2,12,11,10};
+        root = btTreeService.makeBT(arr);
+
+        btTraversals(root);
 
         System.out.println("max :"+btTreeService.findMax(root));
         System.out.println("min :"+btTreeService.findMin(root));
-
-        System.out.println("iterative level order traversal : ");
-        btTreeService.levelOrderRec(root);
-
-        System.out.println("print left view of the tree : ");
-        btTreeService.leftView(root);
-
-        System.out.println("\n print right view of the tree : ");
-        btTreeService.rightView(root);
-
-        System.out.println("\n print left diagonal  view of the tree : ");
-        btTreeService.diagonalLeftView(root);
-
-        System.out.println("\n print bottom view of the tree : ");
-        btTreeService.bottomView(root);
-
-        System.out.println("\n print Top view of the tree : ");
-        btTreeService.topView(root);
 
         int n1= 11;
         int n2 = 5;
@@ -75,5 +46,53 @@ public class BTDriver {
         btTreeService.printDiameter(leftPathArr,rightPathArr,rootDm);
 
 
+    }
+
+    private static void btTraversals(BTNode root) {
+        Traversals traversals = new Traversals();
+
+        System.out.println("pre-order : ");
+        traversals.preOrderItr(root);
+        System.out.println("\nIn-order : ");
+        traversals.inOrderItr(root);
+        System.out.println("\nPost-order : ");
+        traversals.postOrderItr(root);
+        System.out.println("\nLevel-order : ");
+        traversals.levelOrderTrv(root);
+
+        System.out.println("iterative level order traversal : ");
+        traversals.levelOrderRec(root);
+
+        System.out.println("\n print Vertical view of the tree : ");
+        Map<Integer, LinkedList<Integer>> verticalViewTreeMap = traversals.verticalViewItr(root);
+        traversals.printTreeMap(verticalViewTreeMap);
+
+        //{8,5,3,15,12,11,10,25,22,23,24,26}; incorrect output , so sort array based on HD->VD  (root,0,0,resultTree
+        System.out.println("\n print Vertical order of the tree recursively : ");
+        Map<Integer, LinkedList<Integer>> resultTree = new TreeMap<>();
+        traversals.verticalOrderRec(root,0,resultTree);
+        traversals.printTreeMap(resultTree);
+
+
+        System.out.println("\n print Vertical order of the tree as data in tree order recursively : ");
+        Map<Integer, LinkedList<DataWithVD>> resultTree1 = new TreeMap<>();
+        traversals.verticalOrderWithVerticalDistanceRec(root,0,0,resultTree1);
+        resultTree1.values().forEach(x-> x.stream().sorted((vd1,vd2)->(vd1.vd>vd2.vd)?1:-1).forEach(y->System.out.print(y.data+" ")));
+        //btTreeService.printTreeMap(resultTree1);
+
+        System.out.println("\nprint left view of the tree : ");
+        traversals.leftView(root);
+
+        System.out.println("\n print right view of the tree : ");
+        traversals.rightView(root);
+
+        System.out.println("\n print left diagonal  view of the tree : ");
+        traversals.diagonalLeftView(root);
+
+        System.out.println("\n print bottom view of the tree : ");
+        traversals.bottomView(root);
+
+        System.out.println("\n print Top view of the tree : ");
+        traversals.topView(root);
     }
 }

@@ -1,8 +1,8 @@
 package tree.binarytree;
 
 public class PostOrNode {
-    BTNode btNode;
-    boolean pushFlag;
+    public BTNode btNode;
+    public boolean pushFlag;
 
     public PostOrNode() {
     }

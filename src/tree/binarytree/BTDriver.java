@@ -42,6 +42,12 @@ public class BTDriver {
         System.out.println("\n print left diagonal  view of the tree : ");
         btTreeService.diagonalLeftView(root);
 
+        System.out.println("\n print bottom view of the tree : ");
+        btTreeService.bottomView(root);
+
+        System.out.println("\n print Top view of the tree : ");
+        btTreeService.topView(root);
+
         int n1= 11;
         int n2 = 5;
         System.out.println("\n lca of "+n1+" and "+n2);

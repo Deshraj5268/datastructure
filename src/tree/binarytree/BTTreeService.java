@@ -1,9 +1,6 @@
 package tree.binarytree;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class BTTreeService {
 
@@ -202,6 +199,110 @@ public class BTTreeService {
         }
     }
 
+    public void bottomView(BTNode root){
+        if(root == null){
+            System.out.println("empty tree ");
+            return ;
+        }
+        Queue<LeftDiagonalNode> queue = new LinkedList<>();
+        LeftDiagonalNode temp = null;
+        LeftDiagonalNode leftNode = null;
+        LeftDiagonalNode rightNode = null;
+        LeftDiagonalNode leftDiagonalNode = new LeftDiagonalNode(root,0);
+        queue.offer(leftDiagonalNode);
+        Map<Integer,Integer> treeMap = new TreeMap<>();
+
+        while (!queue.isEmpty()){
+            temp =  queue.poll();
+            treeMap.put(temp.hd,temp.btNode.data);
+            if(temp.btNode.left != null){
+                leftNode = new LeftDiagonalNode(temp.btNode.left,temp.hd - 1);
+                queue.offer(leftNode);
+            }
+            if(temp.btNode.right != null){
+                rightNode = new LeftDiagonalNode(temp.btNode.right,temp.hd + 1);
+                queue.offer(rightNode);
+            }
+        }
+        System.out.println(treeMap.values());
+
+        /*Map<Integer,LinkedList<Integer>> map = verticalViewItr(root);
+        Collection<LinkedList<Integer>> set = map.values();
+        System.out.println("vertical order ");
+        set.forEach(x-> System.out.print(x.getLast()+" "));*/
+    }
+
+    public void topView(BTNode root){
+        if(root == null){
+            System.out.println("empty tree ");
+            return ;
+        }
+        Queue<LeftDiagonalNode> queue = new LinkedList<>();
+        LeftDiagonalNode temp = null;
+        LeftDiagonalNode leftNode = null;
+        LeftDiagonalNode rightNode = null;
+        LeftDiagonalNode leftDiagonalNode = new LeftDiagonalNode(root,0);
+        queue.offer(leftDiagonalNode);
+        Map<Integer,Integer> treeMap = new TreeMap<>();
+
+        while (!queue.isEmpty()){
+            temp =  queue.poll();
+            treeMap.putIfAbsent(temp.hd,temp.btNode.data);
+            if(temp.btNode.left != null){
+                leftNode = new LeftDiagonalNode(temp.btNode.left,temp.hd - 1);
+                queue.offer(leftNode);
+            }
+            if(temp.btNode.right != null){
+                rightNode = new LeftDiagonalNode(temp.btNode.right,temp.hd + 1);
+                queue.offer(rightNode);
+            }
+        }
+        System.out.println(treeMap.values());
+
+        /*Map<Integer,LinkedList<Integer>> map = verticalViewItr(root);
+        Collection<LinkedList<Integer>> set = map.values();
+        System.out.println("vertical order 2 ");
+        set.forEach(x-> System.out.print(x.getFirst()+" "));*/
+    }
+
+    /*
+    * perform level order traversal
+    * put node data in tree map with hd as key
+    * put left node with hd-1 ( horizontal distance)
+    * put right node with hd+1
+    * */
+    public Map<Integer,LinkedList<Integer>> verticalViewItr(BTNode root) {
+        Queue<LeftDiagonalNode> queue = new LinkedList<>();
+        LeftDiagonalNode temp = null;
+        LeftDiagonalNode leftNode = null;
+        LeftDiagonalNode rightNode = null;
+        LeftDiagonalNode leftDiagonalNode = new LeftDiagonalNode(root, 0);
+        queue.offer(leftDiagonalNode);
+        Map<Integer, LinkedList<Integer>> treeMap = new TreeMap<>();
+
+        while (!queue.isEmpty()) {
+            temp = queue.poll();
+            LinkedList<Integer> list;
+            if(treeMap.get(temp.hd) == null){
+                list = new LinkedList();
+            }else {
+                list = treeMap.get(temp.hd);
+            }
+            list.addLast(temp.btNode.data);
+            treeMap.put(temp.hd,list);
+
+            if (temp.btNode.left != null) {
+                leftNode = new LeftDiagonalNode(temp.btNode.left, temp.hd - 1);
+                queue.offer(leftNode);
+            }
+            if (temp.btNode.right != null) {
+                rightNode = new LeftDiagonalNode(temp.btNode.right, temp.hd + 1);
+                queue.offer(rightNode);
+            }
+        }
+        return treeMap;
+    }
+
     public void rightView(BTNode root){
         if(root == null){
             System.out.println("empty tree ");
@@ -254,15 +355,15 @@ public class BTTreeService {
         HashMap<Integer,Integer> hashMap = new HashMap<>();
         while (!queue.isEmpty()){
             temp =  queue.poll();
-            if(hashMap.get(temp.count) == null){
-                hashMap.put(temp.count,temp.btNode.data);
+            if(hashMap.get(temp.hd) == null){
+                hashMap.put(temp.hd,temp.btNode.data);
             }
             if(temp.btNode.left != null){
-                leftNode = new LeftDiagonalNode(temp.btNode.left,temp.count+1);
+                leftNode = new LeftDiagonalNode(temp.btNode.left,temp.hd +1);
                 queue.offer(leftNode);
             }
             if(temp.btNode.right != null){
-                rightNode = new LeftDiagonalNode(temp.btNode.right,temp.count);
+                rightNode = new LeftDiagonalNode(temp.btNode.right,temp.hd);
                 queue.offer(rightNode);
             }
         }

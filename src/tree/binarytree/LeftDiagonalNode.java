@@ -2,10 +2,10 @@ package tree.binarytree;
 
 public class LeftDiagonalNode {
     public BTNode btNode;
-    public int count;
+    public int hd;
 
-    public LeftDiagonalNode(BTNode btNode, int count) {
+    public LeftDiagonalNode(BTNode btNode, int hd) {
         this.btNode = btNode;
-        this.count = count;
+        this.hd = hd;
     }
 }

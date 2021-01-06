@@ -11,11 +11,17 @@ public class BTDriver {
     public static void main(String[] args) {
         BTTreeService btTreeService = new BTTreeService();
         BTNode root = null;
-        int [] arr = {8,5,15,16,17,18,20,19,21,2,12,11,10};
+        int [] arr = {8,5,15,16,17,18,20,19,21,12,11,10};
         root = btTreeService.makeBT(arr);
 
         btTraversals(root);
 
+       // otherOps(root,btTreeService);
+
+
+    }
+
+    private static void otherOps(BTNode root, BTTreeService btTreeService) {
         System.out.println("max :"+btTreeService.findMax(root));
         System.out.println("min :"+btTreeService.findMin(root));
 
@@ -44,8 +50,6 @@ public class BTDriver {
         int [] leftPathArr = btTreeService.printPath(rootDm.left,new int[left.h],0,left.h);
         int [] rightPathArr = btTreeService.printPath(rootDm.right,new int[right.h],0,right.h);
         btTreeService.printDiameter(leftPathArr,rightPathArr,rootDm);
-
-
     }
 
     private static void btTraversals(BTNode root) {
@@ -53,14 +57,22 @@ public class BTDriver {
 
         System.out.println("pre-order : ");
         traversals.preOrderItr(root);
+        System.out.println("\npre-order Rec: ");
+        traversals.preOrderRec(root);
+
         System.out.println("\nIn-order : ");
         traversals.inOrderItr(root);
+        System.out.println("\nIn-order Rec: ");
+        traversals.inOrderRec(root);
+
         System.out.println("\nPost-order : ");
         traversals.postOrderItr(root);
+        System.out.println("\nPost-order Rec: ");
+        traversals.postOrderRec(root);
+
         System.out.println("\nLevel-order : ");
         traversals.levelOrderTrv(root);
-
-        System.out.println("iterative level order traversal : ");
+        System.out.println("\niterative level order traversal : ");
         traversals.levelOrderRec(root);
 
         System.out.println("\n print Vertical view of the tree : ");

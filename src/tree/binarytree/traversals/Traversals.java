@@ -20,6 +20,20 @@ public class Traversals {
         }
     }
 
+    public void preOrderRec(BTNode root){
+        if(root == null){
+            return;
+        }
+        System.out.print(root.data+" ");
+
+        if(root.left!=null) {
+            preOrderRec(root.left);
+        }
+        if(root.right!=null){
+            preOrderRec(root.right);
+        }
+    }
+
     public void inOrderItr(BTNode node){
         Stack<BTNode>stack = new Stack<>();
         BTNode temp = node;
@@ -32,6 +46,19 @@ public class Traversals {
                 System.out.print(temp.data+" ");
                 temp = temp.right;
             }
+        }
+    }
+
+    public void inOrderRec(BTNode root){
+        if(root == null){
+            return;
+        }
+        if(root.left != null){
+            inOrderRec(root.left);
+        }
+        System.out.print(root.data +" ");
+        if(root.right != null){
+            inOrderRec(root.right);
         }
     }
 
@@ -54,6 +81,20 @@ public class Traversals {
                 }
             }
         }
+    }
+
+    //LRN
+    public void postOrderRec(BTNode root){
+        if(root == null){
+            return;
+        }
+        if(root.left != null){
+            postOrderRec(root.left);
+        }
+        if(root.right != null){
+            postOrderRec(root.right);
+        }
+        System.out.print(root.data +" ");
     }
 
     public void levelOrderTrv(BTNode root){
@@ -99,7 +140,7 @@ public class Traversals {
 
     /*
      * perform level order traversal (L->R insertion in queue)
-     * print data after at each level
+     * print data after at each level ( after marker point)
      * */
     public void leftView(BTNode root){
         if(root == null){
@@ -111,19 +152,14 @@ public class Traversals {
         queue.offer(null);
         BTNode temp = null;
         System.out.print(root.data+" ");
-        boolean isLfetViewNOde = false;
         while (!queue.isEmpty()){
             temp = queue.poll();
             if(temp == null){
                 if(!queue.isEmpty()){
+                    System.out.print(queue.peek().data+" ");
                     queue.offer(null);
-                    isLfetViewNOde = true;
                 }
             }else {
-                if(isLfetViewNOde){
-                    System.out.print(temp.data+" ");
-                    isLfetViewNOde = false;
-                }
                 if(temp.left != null){
                     queue.offer(temp.left);
                 }
@@ -304,19 +340,14 @@ public class Traversals {
         queue.offer(null);
         BTNode temp = null;
         System.out.print(root.data+" ");
-        boolean isRightViewNOde = false;
         while (!queue.isEmpty()){
             temp = queue.poll();
             if(temp == null){
                 if(!queue.isEmpty()){
+                    System.out.print(queue.peek().data+" ");
                     queue.offer(null);
-                    isRightViewNOde = true;
                 }
             }else {
-                if(isRightViewNOde){
-                    System.out.print(temp.data+" ");
-                    isRightViewNOde = false;
-                }
                 if (temp.right != null){
                     queue.offer(temp.right);
                 }

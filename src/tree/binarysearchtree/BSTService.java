@@ -28,18 +28,18 @@ public class BSTService {
         return (())
     }*/
 
-    public boolean isBSTUsingInOrder(BTNode root,DataNode prev){
+    public boolean isBSTUsingInOrder(BTNode root,int prev){
         if(root == null){
             return true;
         }
-        if(!isBSTUsingInOrder(root.left,prev)){
+        if(root.left !=null && !isBSTUsingInOrder(root.left,prev)){
             return false;
         }
-        if(root.data < prev.data){
+        if(root.data < prev){
             return false;
         }
-        prev.data = root.data;
-        if (!isBSTUsingInOrder(root.right,prev)){
+        prev = root.data;
+        if(root.right!= null && !isBSTUsingInOrder(root.right, prev)){
             return false;
         }
         return true;

@@ -18,7 +18,10 @@ public class TopologicalSort {
         adjObj.addEdge(2, 3);
         adjObj.addEdge(3, 1);
 
+        System.out.println("using BFS ");
         topoLogicalSort(totalVertex);
+        System.out.println("\nusing kahn's algo");
+        kahnsAlgo(totalVertex);
     }
 
 
@@ -42,6 +45,58 @@ public class TopologicalSort {
             System.out.print(stack.removeFirst()+" ");
         }
     }
+
+    /*
+    * calculate indegree of each node
+    *
+    * */
+    public static void kahnsAlgo(int totalVertex){
+
+        int [] inDegree = new int[totalVertex]; // initialize 0
+        calculateInDegree(inDegree,totalVertex);
+
+        //enqueue node whose in-degree is 0
+        Queue<Integer> qu = new LinkedList<>();
+        for(int i=0;i<totalVertex;i++){
+            if(inDegree[i] == 0){
+                qu.offer(i);
+            }
+        }
+
+        int count=0;
+        ArrayList<Integer> resulList = new ArrayList<>();
+        Integer queueNode;
+        while (!qu.isEmpty()){
+            queueNode = qu.poll();
+            resulList.add(queueNode);
+
+            Iterator<Integer> adjNodes = adj[queueNode].iterator();
+            while (adjNodes.hasNext()){
+                Integer node = adjNodes.next();
+                if(--inDegree[node] == 0){
+                    qu.offer(node);
+                }
+            }
+            count++;
+        }
+        if(count != totalVertex){
+            System.out.println("cycle is exist ");
+            return;
+        }
+        System.out.println(resulList.toString());
+
+    }
+
+    private static void calculateInDegree(int[] inDegree,int totalVertex) {
+
+        for(int i=0;i<totalVertex;i++){
+            Iterator<Integer> it = adj[i].iterator();
+            while (it.hasNext()){
+                inDegree[it.next()]++;
+            }
+        }
+    }
+
 
     private static void topoLogicalSortUtil(int vertex, boolean [] visited, Deque<Integer> stack){
         visited[vertex] = true;

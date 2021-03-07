@@ -14,7 +14,7 @@ public class LinkedListDriver {
         list.addNode(50);
         list.display(list.getHead());
         int n =1;
-        ListNode nthNode = list.findNthNodeFromlast(list.getHead(),n);
+        ListNode nthNode = list.findNthNodeFromLast(list.getHead(),n);
         if(nthNode != null){
             System.out.println(n+"thNode: "+nthNode.data);
         }

@@ -27,7 +27,7 @@ public interface LinkedListOpd {
 
     public ListNode deleteEleExceptLast(ListNode node);
 
-    public ListNode findNthNodeFromlast(ListNode head, int n);
+    public ListNode findNthNodeFromLast(ListNode head, int n);
 
     public ListNode findMiddleNode(ListNode head);
 

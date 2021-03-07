@@ -218,7 +218,7 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     }
 
     @Override
-    public ListNode findNthNodeFromlast(ListNode head, int n){
+    public ListNode findNthNodeFromLast(ListNode head, int n){
         if(head == null){
             return null;
         }
@@ -255,6 +255,12 @@ public class LinkedListOpdImpl implements LinkedListOpd {
         return f;
     }
 
+    /*
+    * 
+    * x % L = z proof
+    * slow
+    *
+    * https://www.youtube.com/watch?v=9YTjXqqJEFE*/
     @Override
     public boolean isLoopExist(ListNode head){
         if(head == null || head.next == null){

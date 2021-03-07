@@ -38,7 +38,7 @@ public class FirstNonRepeatingElementInStream {
                 map.put(element,count+1);
                 queue.offer(element);
             }else {
-                value = Math.abs(element)+1;
+                value = Math.abs(value)+1;
                 map.put(element,-value);
                 deleteFrontElementIfCountNegative(queue,map);
             }

@@ -32,6 +32,11 @@ public class PowerSet {
 
     }
 
+
+    /*
+    * start with empty list
+    * add ith element in every list
+    * */
     private static ArrayList<ArrayList<Character>> getSubSetList(String set, int index) {
         ArrayList<ArrayList<Character>> allSubSet = new ArrayList<>();
         if(index < 0){

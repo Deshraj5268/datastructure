@@ -14,9 +14,9 @@ public class BTDriver {
         int [] arr = {8,5,15,16,17,18,20,19,21,12,11,10};
         root = btTreeService.makeBT(arr);
 
-        btTraversals(root);
+        //btTraversals(root);
 
-       // otherOps(root,btTreeService);
+        otherOps(root,btTreeService);
 
 
     }

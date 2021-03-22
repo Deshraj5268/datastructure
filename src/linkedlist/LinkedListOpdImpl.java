@@ -7,6 +7,15 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     private int size;
     private ListNode newHead;
 
+
+    public ListNode arrayToList(int [] arr){
+        this.head = null;
+        for (int data:arr){
+            addLast(data);
+        }
+        return head;
+    }
+
     public ListNode getLast() {
         return last;
     }
@@ -238,6 +247,19 @@ public class LinkedListOpdImpl implements LinkedListOpd {
         return null;
     }
 
+    public ListNode findMiddleWithNullEnded(ListNode head){
+        if(head == null){
+            return head;
+        }
+        ListNode f=head,s=head;
+        while (s.next != null && s.next.next != null){
+            f = f.next;
+            s = s.next.next;
+        }
+        return f;
+    }
+
+
     @Override
     public ListNode findMiddleNode(ListNode head){
         if(head == null || head.next == null){
@@ -256,7 +278,7 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     }
 
     /*
-    * 
+    *
     * x % L = z proof
     * slow
     *

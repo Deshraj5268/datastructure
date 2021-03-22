@@ -38,4 +38,8 @@ public interface LinkedListOpd {
     public ListNode reverseListItr(ListNode head);
 
     public ListNode reverseListRec(ListNode head);
+
+    public ListNode arrayToList(int [] arr);
+
+    public ListNode findMiddleWithNullEnded(ListNode head);
 }

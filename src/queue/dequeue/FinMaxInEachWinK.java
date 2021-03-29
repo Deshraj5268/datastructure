@@ -1,4 +1,4 @@
-package gfg.arrays;
+package queue.dequeue;
 
 import java.util.Deque;
 import java.util.LinkedList;

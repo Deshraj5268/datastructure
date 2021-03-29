@@ -1,4 +1,4 @@
-package linkedlist.dequeue;
+package queue.dequeue;
 
 public class PetrolTour {
 

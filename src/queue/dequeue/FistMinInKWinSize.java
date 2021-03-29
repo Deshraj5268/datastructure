@@ -1,4 +1,4 @@
-package gfg.arrays;
+package queue.dequeue;
 
 public class FistMinInKWinSize {
 

@@ -4,7 +4,7 @@ import java.util.*;
 
 public class BTTreeService {
 
-    public BTNode makeBT(int [] arr){
+    public BTNode createBT(int [] arr){
         if(arr == null || arr.length == 0){
             return new BTNode();
         }

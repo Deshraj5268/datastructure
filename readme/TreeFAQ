@@ -5,7 +5,7 @@ Pre-order (NLR)
 post-order(LRN)
 In-order (LNR)
 Level order
-vertical order traversal (using level order or recursive using Pre-order using treeMap DS)
+vertical order traversal (using level order or recursive  using Pre-order using treeMap DS compare HD or VD (HD less than or Hd1 == hd2 then vd1 selected)
 
 2. all views
 Left view
@@ -13,6 +13,7 @@ Right view
 Bottom view
 Top view
 Diagonal left view ( Left view with keeping right HD as same)
+Print tree in Spiral or ZigZag order ( 1. using 2 Stack 2. using Deque)
 
 3. Height of the tree
 4. Diameter of tree ( longest distance between two leaf node)

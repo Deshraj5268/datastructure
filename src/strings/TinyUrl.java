@@ -1,16 +1,33 @@
 package strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TinyUrl {
 
     protected static final char [] constCharArr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
-
+    protected static  Map<Character,Integer> map;
     public static void main(String[] args) {
         int id = 12345;
+        map = prePareMap();
         String result = idToShortUrl(id);
         System.out.println(result);
         System.out.println(shortUrlToId(result));
+        System.out.println(shortUrlToIdBase62(result));
     }
 
+
+    private static Map<Character,Integer> prePareMap() {
+        Map<Character,Integer> baseMap = new HashMap<>();
+        for (int i=0;i<constCharArr.length;i++) {
+            baseMap.put(constCharArr[i], i);
+        }
+        return baseMap;
+    }
+
+    /*
+    * dnh
+    * */
     public static int shortUrlToId(String url){
         int id=0;
         char charVal;
@@ -23,6 +40,20 @@ public class TinyUrl {
             }else if(charVal >= '0' && charVal <= '9'){
                 id = id* constCharArr.length+(charVal-'0') + 52;
             }
+        }
+        return id;
+    }
+
+    /*
+    * TC O(nLogN)
+    * */
+    public static int shortUrlToIdBase62(String url){
+        int id=0;
+        char charVal;
+        int len = url.length()-1;
+        for(int i = len;i>=0;i--){
+            charVal = url.charAt(i);
+            id += Math.pow(constCharArr.length,len-i)* map.get(charVal); //logn
         }
         return id;
     }

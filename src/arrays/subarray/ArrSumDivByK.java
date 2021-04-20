@@ -6,7 +6,7 @@ public class ArrSumDivByK {
     public static void main(String[] args) {
 
         int [] arr = {4, 5, 0, -2, -3, 1};
-        int k = 0;
+        int k = 4;
         System.out.println(countSumArrSumDivByKOptimize(arr,arr.length,k));
     }
 

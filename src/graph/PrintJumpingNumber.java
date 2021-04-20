@@ -15,9 +15,9 @@ public class PrintJumpingNumber {
         while (!queue.isEmpty() && queue.peek() <= x){
             System.out.print(queue.peek() +" ");
             value = queue.poll();
-            if(value == 0){
+            if(value%10 == 0){
                 queue.offer((value*10)+(value%10+1));
-            }else if(value == 9){
+            }else if(value%10 == 9){
                 queue.offer((value*10)+(value%10-1));
             }else {
                 queue.offer((value*10)+(value%10-1));
@@ -27,7 +27,7 @@ public class PrintJumpingNumber {
     }
 
     public static void main(String[] args) {
-        int x = 125;
+        int x = 10067;
         printJumpingNum(x);
     }
 }

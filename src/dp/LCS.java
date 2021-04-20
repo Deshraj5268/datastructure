@@ -1,7 +1,5 @@
 package dp;
 
-import java.util.Arrays;
-
 public class LCS {
 
     private static int [] memoArr;
@@ -36,7 +34,7 @@ public class LCS {
         return tab;
     }
 
-    public static int lcsDPMemmoziation(String str1,String str2,int m,int n,int [][] arr){
+    public static int lcsDPMemoization(String str1, String str2, int m, int n, int [][] arr){
         if(m == -1 || n == -1){
             return 0;
         }
@@ -44,10 +42,10 @@ public class LCS {
             return arr[m][n];
         }
         if(str1.charAt(m) == str2.charAt(n)){
-            arr[m][n] = 1+lcsDPMemmoziation(str1,str2,m-1,n-1,arr);
+            arr[m][n] = 1+ lcsDPMemoization(str1,str2,m-1,n-1,arr);
             return arr[m][n];
         }else {
-            arr[m][n] = Math.max(lcsDPMemmoziation(str1,str2,m-1,n,arr),lcsDPMemmoziation(str1,str2,m,n-1,arr));
+            arr[m][n] = Math.max(lcsDPMemoization(str1,str2,m-1,n,arr), lcsDPMemoization(str1,str2,m,n-1,arr));
             return arr[m][n];
         }
     }
@@ -89,7 +87,7 @@ public class LCS {
         System.out.println("native "+lcs(str1,str2,str1.length()-1,str2.length()-1));
 
         int [][] arr = new int [str1.length()+1][str2.length()+1];
-        System.out.println("Dp With memoziation "+lcsDPMemmoziation(str1,str2,str1.length()-1,str2.length()-1,arr));
+        System.out.println("Dp With memoziation "+ lcsDPMemoization(str1,str2,str1.length()-1,str2.length()-1,arr));
 
         int [][] optTab = lcsDpTabSpaceOptimize(str1,str2,str1.length(),str2.length());
         System.out.println("Dp with space optimization "+optTab[str1.length()%2][str2.length()]);

@@ -15,7 +15,8 @@ public class TriesTree {
         for(int i=0;i<key.length();i++){
             temp = current.children.get(key.charAt(i));
             if(temp == null){
-                current.children.put(key.charAt(i),new TriesNode());
+                temp = new TriesNode();
+                current.children.put(key.charAt(i),temp);
             }
             current = temp;
         }

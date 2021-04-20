@@ -8,12 +8,15 @@ public class TinyUrl {
     protected static final char [] constCharArr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     protected static  Map<Character,Integer> map;
     public static void main(String[] args) {
-        int id = 12345;
+        int id = 1000000000;//12345;
         map = prePareMap();
         String result = idToShortUrl(id);
         System.out.println(result);
         System.out.println(shortUrlToId(result));
         System.out.println(shortUrlToIdBase62(result));
+
+        long longId = 999999999;
+        System.out.println("long ID : "+idToShortUrLongID(longId));
     }
 
 
@@ -63,6 +66,17 @@ public class TinyUrl {
         int len = constCharArr.length;
         while (id>0){
             sb.append(constCharArr[id%len]);
+            id/=len;
+        }
+        return sb.reverse().toString();
+    }
+    public static String idToShortUrLongID(long id){
+        StringBuilder sb = new StringBuilder();
+        long len = constCharArr.length;
+        int rem;
+        while (id>0){
+            rem = (int) (id%len);
+            sb.append(constCharArr[rem]);
             id/=len;
         }
         return sb.reverse().toString();

@@ -8,21 +8,19 @@ public class O1Knapsack {
     public static int [][] optTabKnapsack;
 
     public static int o1Knapsack(int [] val,int [] wt,int n,int w){
-        if(w == 0 || n == 0){
+        if(w <= 0 || n == 0){
             return 0;
         }
-        if(wt[n-1] > w){
-            return o1Knapsack(val,wt,n-1,w);
+        int profit1 = 0;
+        if(wt[n-1] <= w){
+            profit1 = o1Knapsack(val,wt,n-1,w-wt[n-1])+val[n-1];
         }
-        else {
-            int a = o1Knapsack(val,wt,n-1,w);
-            int b = o1Knapsack(val,wt,n-1,w-wt[n-1])+val[n-1];
-            return Math.max(a,b);
-        }
+        int profit2 = o1Knapsack(val,wt,n-1,w);
+        return Math.max(profit1,profit2);
     }
 
     public static int o1KnapsackMemoization(int [] val,int [] wt,int n,int w,int [][] dpTable){
-        if(n == 0 || w == 0){
+        if(n == 0 || w <= 0){
             return 0;
         }
         if(dpTable[n][w] != 0){

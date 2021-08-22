@@ -27,9 +27,9 @@ public class CountSteps {
     * n=2 ,(ans=2): {{1,1},{2}}
     * n=3 ,(ans=4):  { {1,1,1}, {2,1}
     *               {1,2}, {3} }
-    * n= 4 (ans=7): { {1,1,1},{2,1,1},{1,2,1},{3,1} // using set{3}
+    * n= 4 (ans=7): { {1,1,1,1},{2,1,1},{1,2,1},{3,1} // using set{3}
     *                 {1,1,2},{2,2}                // using set{2}
-    *                 {1,3}                       // using set{2}
+    *                 {1,3}                       // using set{1}
     *               }
     *
     * so if n 2,4,5 steps so you can use same approach
@@ -44,7 +44,7 @@ public class CountSteps {
         }
         return countSteps(n-1) // count step using 1
                 + countSteps(n-2) // count step using 2
-                + countSteps(n-3); // count step using 4
+                + countSteps(n-3); // count step using 3
     }
 
     public static int countStepsDp(int n){

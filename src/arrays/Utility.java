@@ -17,4 +17,8 @@ public class Utility {
         charArr[l] = charArr[m];
         charArr[m] = temp;
     }
+
+    public static boolean isArrayEmpty(int [] arr){
+        return (arr == null || arr.length == 0);
+    }
 }

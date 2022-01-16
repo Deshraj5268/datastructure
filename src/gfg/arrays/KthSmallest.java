@@ -1,9 +1,6 @@
 package gfg.arrays;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class KthSmallest {
 
@@ -17,7 +14,7 @@ public class KthSmallest {
     }
 
     public static int kthSmallUsingMaxHeap(int [] arr,int k){
-        Queue<Integer> maxHeap = new LinkedList<>();
+        Queue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
         for(int i=0;i<k;i++){
             maxHeap.offer(arr[i]);
         }
@@ -26,9 +23,6 @@ public class KthSmallest {
                 maxHeap.poll();
                 maxHeap.offer(arr[j]);
             }
-        }
-        for(int i=0;i<k-1;i++){
-            maxHeap.poll();
         }
         return maxHeap.poll();
 

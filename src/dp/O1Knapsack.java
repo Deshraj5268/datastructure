@@ -50,6 +50,9 @@ public class O1Knapsack {
                 }
             }
         }
+        for(int i=0;i<tabKnapsack.length;i++) {
+            System.out.println(Arrays.toString(tabKnapsack[i]));
+        }
         return tabKnapsack[n][w];
     }
 
@@ -72,9 +75,9 @@ public class O1Knapsack {
     }
 
     public static void main(String[] args) {
-        int val[] = {60, 100, 120};
-        int wt[] = {10, 20, 30};
-        int w = 50;
+        int val[] = {6, 10, 12};
+        int wt[] = {1, 2, 3};
+        int w = 5;
         int n = val.length;
         System.out.println("recursive  : "+o1Knapsack(val,wt,n,w));
         //tabulation

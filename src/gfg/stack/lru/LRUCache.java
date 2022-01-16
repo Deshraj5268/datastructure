@@ -48,7 +48,7 @@ class LRUCache
     * */
     public LRUCache(int cap)
     {
-        // Intialize the cache capacity with the given
+        // Initialize the cache capacity with the given
         // cap
         this.cap = cap;
         this.linkedHashMap = new LinkedHashMap<Integer,Integer>(cap,.75f,true){

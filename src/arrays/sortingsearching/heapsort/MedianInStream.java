@@ -19,7 +19,7 @@ public class MedianInStream {
     }
 
     /*
-    * first approach use add element in insertion sort manner and calculate median
+    * first approach use add element in insertion sorted manner and calculate median
     * */
 
     /*

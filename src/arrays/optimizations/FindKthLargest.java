@@ -1,9 +1,6 @@
 package arrays.optimizations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class FindKthLargest {
 
@@ -11,7 +8,7 @@ public class FindKthLargest {
         if(k < 0 || arr == null || arr.length == 0 || k> arr.length){
             return new int[0];
         }
-        PriorityQueue<Integer> minHeap = new PriorityQueue(k);
+        Queue<Integer> minHeap = new PriorityQueue<>();
         int i=0;
         while(i<k){
             minHeap.offer(arr[i]);

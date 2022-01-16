@@ -10,8 +10,10 @@ public class LIS {
     static int globalMax;
     static int [] LIS;
     public static void main(String[] args) {
+
+
         globalMax = 1;
-        int [] arr = {8,4,12,2,10,6,14,1,9,5,13,3,11,7,15};
+        int [] arr = {2, 1 ,3 ,1 ,6, 2};
                 // { 10, 22, 9, 33, 21, 50, 41, 60 };
         LIS lisObj = new LIS();
         System.out.println(lisObj.lis(arr,arr.length));

@@ -23,7 +23,7 @@ public class RunLengthEncodding {
             }
             sb.append(str.charAt(i));
             sb.append(c);
-            i = (i+1)+(j-1);
+            i = j;
         }
         return sb.toString();
     }

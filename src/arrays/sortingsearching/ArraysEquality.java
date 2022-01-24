@@ -2,9 +2,7 @@ package arrays.sortingsearching;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 /*
 * Author : Deshraj Thakur
@@ -44,25 +42,33 @@ public class ArraysEquality {
     }
 
     public static int arraysEqualitySuingHashMap(int [] arr1,int []arr2){
-       if((arr1 == null || arr2 == null)||((arr1 != null && arr2 != null) &&(arr1.length != arr2.length))){
-            return 0;
-        }
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for(int i=0;i<arr1.length;i++){
-            if(map.get(arr1[i]) != null && map.get(arr1[i]) > 0){
-                map.put(arr1[i],(map.get(arr1[i])+1));
+        Map<Long,Long> map = new HashMap<>();
+        Long value;
+        for(long x:arr1){
+            value = map.get(x);
+            if(value == null){
+                map.put(x,1L);
             }else{
-                map.put(arr1[i],1);
+                map.put(x,value+1);
             }
         }
-        for(int j=0;j<arr2.length;j++){
-           if(map.get(arr2[j]) == null || map.get(arr2[j])<0){
-               return 0;
-           }
-           if(map.get(arr2[j])>0){
-               map.put(arr2[j],(map.get(arr2[j])-1));
-           }
+        for(long y:arr2){
+            value = map.get(y);
+            if(value == null){
+                return 0;
+            }else{
+                map.put(y,value-1);
+            }
         }
+
+        Collection<Long> valueSet = map.values();
+
+        for(Long result:valueSet){
+            if(result != 0){
+                return 0;
+            }
+        }
+
         return 1;
     }
 

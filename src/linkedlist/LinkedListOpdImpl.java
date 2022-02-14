@@ -350,14 +350,65 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     }
 
     public ListNode reverseListRec(ListNode head){
-        if(head == null){
+        /*if(head == null){
             return null;
         }
         ListNode nextNode = head.next;
         head.next = newHead;
         newHead = head;
-        return reverseListRec(nextNode);
+        return reverseListRec(nextNode);*/
+        ListNode newHead = null;
+        newHead = reverseRecUtil(head,newHead);
+        return newHead;
 
+    }
+
+    public ListNode reverseRecUtil(ListNode head,ListNode newHead){
+        if(head == null){
+            return newHead;
+        }
+        ListNode nextNode = head.next;
+        head.next = newHead;
+        newHead = head;
+        return reverseRecUtil(nextNode,newHead);
+    }
+
+    public int findLengthOfList(ListNode head){
+        ListNode temp = head;
+        int c = 0;
+        while (temp != null){
+            temp = temp.next;
+            c++;
+        }
+        return c;
+    }
+
+    @Override
+    public ListNode reverseGroupOfKNode(ListNode head,int k,int remainingLength){
+        if(head == null){
+            return head;
+        }
+        ListNode current,nextNode,prev;
+        current = head;
+        nextNode = prev = null;
+        int c = 0;
+
+        if((remainingLength-k) >= 0) {
+            while (c < k && current != null) {
+                nextNode = current.next;
+                current.next = prev;
+                prev = current;
+                current = nextNode;
+                c++;
+            }
+        }else{
+            return head;
+        }
+
+        if(nextNode != null){
+            head.next = reverseGroupOfKNode(nextNode,k,remainingLength-k);
+        }
+        return prev;
     }
 
 }

@@ -1,9 +1,6 @@
 package javapractice.collection;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Employee implements Comparable<Employee>{
 
@@ -66,7 +63,7 @@ public class Employee implements Comparable<Employee>{
 
         Employee employee = (Employee)object;
         return ((employee.getEmpId() == this.getEmpId()) &&
-                (employee.getCompanyName() == this.getCompanyName() || (employee.getCompanyName() != null && employee.getCompanyName().equals(this.getCompanyName()))));
+                (employee.getCompanyName().equals(this.getCompanyName()) || (employee.getCompanyName() != null && employee.getCompanyName().equals(this.getCompanyName()))));
     }
 
     @Override
@@ -84,6 +81,9 @@ public class Employee implements Comparable<Employee>{
     }
 
     public static void main(String[] args) {
+
+
+
         Employee e = new Employee(2,"raj","peopleStrong");
         Employee e2 = new Employee(1,"deshraj","peopleStrong");
         if(e.equals(e2)){
@@ -94,8 +94,14 @@ public class Employee implements Comparable<Employee>{
         List<Employee> employeeList = new ArrayList<>();
         employeeList.add(e);
         employeeList.add(e2);
+
         System.out.println("before sorting  :"+employeeList.toString());
         Collections.sort(employeeList,(em1,em2)->em1.getEmpId()>em2.getEmpId()?1:-1);  //positive swap natural order
+
         System.out.println("after  sorting  :"+employeeList.toString());
+
+        Collections.sort(employeeList,(x,y)->x.empName.compareTo(y.empName)>0 ? 1:-1);
+        System.out.println("after  sorting  :"+employeeList.toString());
+
     }
 }

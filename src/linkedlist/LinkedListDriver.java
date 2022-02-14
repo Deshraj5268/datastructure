@@ -35,7 +35,7 @@ public class LinkedListDriver {
         System.out.println("is loop exist :"+list1.isLoopExist(list1.getHead()));
 */
         //find middle noe using lenth
-        ListNode middleNode2 = list.findMiddleNodeUsingLength(list.getHead());
+       /* ListNode middleNode2 = list.findMiddleNodeUsingLength(list.getHead());
         if(middleNode2 != null) {
             System.out.println("middle Node using length :"+middleNode2.data);
         }
@@ -50,13 +50,30 @@ public class LinkedListDriver {
         System.out.print("before reversal : \n");
         list1.display(list1.getHead());
 
-        list1.reverseListRec(list1.getHead());
+       ListNode newHead =  list1.reverseListRec(list1.getHead());
         System.out.println("After reversal recursively : \n");
-        list1.display(list1.getNewHead());
+        list1.display(newHead);*/
 
         /*ListNode newHead = list1.reverseListItr(list1.getHead());
         System.out.println("After reversal Iterative : \n");
         list1.display(list1.getNewHead());*/
+
+        LinkedListOpd  list1 = new LinkedListOpdImpl();
+        list1.addNode(1);
+        list1.addNode(2);
+        list1.addNode(3);
+        list1.addNode(4);
+        list1.addNode(5);
+        list1.addNode(6);
+        list1.addNode(7);
+        list1.addNode(8);
+
+        int k = 3;
+        int length = list1.findLengthOfList(list1.getHead());
+        ListNode newHead = list1.reverseGroupOfKNode(list1.getHead(),k,length);
+        System.out.println("reverse of k size list ");
+        list1.display(newHead);
+
 
     }
 }

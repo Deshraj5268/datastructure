@@ -1,5 +1,7 @@
 package linkedlist;
 
+import dp.LIS;
+
 public interface LinkedListOpd {
 
     public  ListNode getHead();
@@ -38,6 +40,9 @@ public interface LinkedListOpd {
     public ListNode reverseListItr(ListNode head);
 
     public ListNode reverseListRec(ListNode head);
+
+    public ListNode reverseGroupOfKNode(ListNode head, int k,int remainingLength);
+    public int findLengthOfList(ListNode head);
 
     public ListNode arrayToList(int [] arr);
 

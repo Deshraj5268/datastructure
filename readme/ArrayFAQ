@@ -8,4 +8,5 @@ A.SubArray:
 
 3. Array Equality ( think all the scenario (n1=n2 ? , duplicate ? etc)
 4. Sort an given array in wave form ( arr[0] <= arr[1] >= arr[2] .. like that )
-5. Sort an givn array which have 0,1,2 elements only.
+5. Sort an given array which have 0,1,2 elements only.
+

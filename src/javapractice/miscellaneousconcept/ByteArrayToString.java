@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
+import javapractice.collection.Employee;
 import org.apache.commons.io.IOUtils;
 
 public class ByteArrayToString {

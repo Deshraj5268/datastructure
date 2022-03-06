@@ -280,9 +280,25 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     /*
     *
     * x % L = z proof
+    * L = y+z ( loop length)
     * slow
     *
-    * https://www.youtube.com/watch?v=9YTjXqqJEFE*/
+    * L+L+a = temp
+    * temp%L -> a
+    * a = z
+    *
+    * or
+    *  2(x*Y) = x+y+z+y
+    *  x = z
+    *
+    * https://www.youtube.com/watch?v=9YTjXqqJEFE
+    * https://www.youtube.com/watch?v=gBTe7lFR3vc&list=PLot-Xpze53leU0Ec0VkBhnf4npMRFiNcB&index=17
+    *
+    * fast = 2 ,s = 1, loop length = n
+    *
+    * n+(1-2) ~ n-1 ( s move 1 step increase and f will decrease speed by 2 )
+    * so every time lenth will reduce by 1 . so O(n)
+    * */
     @Override
     public boolean isLoopExist(ListNode head){
         if(head == null || head.next == null){

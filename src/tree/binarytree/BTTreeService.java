@@ -175,6 +175,29 @@ public class BTTreeService {
         return 1+ Math.max(lh,rh);
     }
 
+    int diameterSimple(BTNode root) {
+        // Your code here
+        Height a = new Height();
+        diameterUtil(root,a);
+        return a.h;
+
+    }
+    public int diameterUtil(BTNode root,Height a){
+
+        if(root == null){
+            return 0;
+        }
+
+        int leftHeight = diameterUtil(root.left,a);
+        int rightHeight = diameterUtil(root.right,a);
+
+
+        a.h = Math.max(a.h,1+leftHeight+rightHeight);
+
+        return 1+Math.max(leftHeight,rightHeight);
+
+    }
+
     public int [] printPath(BTNode root,int [] pathArr,int length,int leafLength){
 
         if(root == null){

@@ -9,27 +9,21 @@ public class CloningWithRandomRef {
     public RandomListNode cloneNextNodeInMiddle(RandomListNode head1){
         RandomListNode temp = head1;
         RandomListNode newNode;
-        RandomListNode currNode;
         while (temp != null){
-            currNode = temp.next;
-            newNode = new RandomListNode(temp.data,temp.random,null);
+            newNode = new RandomListNode(temp.data,temp.random,temp.next);
             temp.next = newNode;
-            newNode.next = currNode;
-            temp = currNode;
+            temp =  newNode.next;
         }
         return head1;
     }
 
     public RandomListNode cloneRandomNodeOfMiddle(RandomListNode head1){
-        RandomListNode newHeadTemp = head1.next;
-        RandomListNode currNode;
-        while (newHeadTemp != null){
-            currNode = newHeadTemp.next;
-            newHeadTemp.random = newHeadTemp.random.next;
-            if(currNode == null){
-                break;
-            }
+        RandomListNode newHeadTemp = head1;
+        RandomListNode currNode = head1;
+        while (currNode != null){
             newHeadTemp = currNode.next;
+            newHeadTemp.random = currNode.random.next;
+            currNode = newHeadTemp.next;
         }
         return head1;
     }

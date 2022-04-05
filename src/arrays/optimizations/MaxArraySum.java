@@ -110,6 +110,23 @@ class MaxArraySum
         return (flag? maxSum: negSum);
     }
 
+    public int maxSubArray(int[] nums) {
+        int [] maxSubArr = new int[nums.length];
+        int max = maxSubArr[0] = nums[0];
+        for(int i=1;i<nums.length;i++){
+            if(maxSubArr[i-1] > 0){
+                maxSubArr[i] = maxSubArr[i-1]+nums[i];
+
+            }else{
+                maxSubArr[i] = nums[i];
+            }
+            if(max < maxSubArr[i]){
+                max = maxSubArr[i];
+            }
+        }
+        return max;
+    }
+
     public static int maxSubSumArrayTLFree(int [] arr){
         if (arr == null || arr.length == 0){
             return 0;

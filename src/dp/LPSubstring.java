@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 public class LPSubstring {
 
     public static void main(String[] args) {
@@ -55,6 +57,9 @@ public class LPSubstring {
                 }
             }
         }
+       /* for(boolean [] aarr : table) {
+            System.out.println(Arrays.toString(aarr));
+        }*/
         System.out.println(max+ " count "+c);
         printPalindromeStr(str,start,end);
 

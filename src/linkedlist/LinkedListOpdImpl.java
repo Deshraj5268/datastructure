@@ -1,5 +1,7 @@
 package linkedlist;
 
+import dp.LIS;
+
 public class LinkedListOpdImpl implements LinkedListOpd {
 
     private ListNode last;
@@ -426,5 +428,6 @@ public class LinkedListOpdImpl implements LinkedListOpd {
         }
         return prev;
     }
+
 
 }

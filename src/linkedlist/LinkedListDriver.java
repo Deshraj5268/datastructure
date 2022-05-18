@@ -76,6 +76,23 @@ public class LinkedListDriver {
         System.out.println("\nreverse of k size list ");
         list1.display(newHead);
 
+        LinkedListOpd  list2 = new LinkedListOpdImpl();
+        list1.addNode(1);
+        list1.addNode(2);
+        list1.addNode(3);
+        list1.addNode(4);
+        list1.addNode(5);
+        list1.addNode(6);
+        list1.addNode(7);
+        list1.addNode(8);
+
+        System.out.println("before  reverse");
+        list1.display(list1.getHead());
+       // int k = 2;
+
+        System.out.println("\nreverse of k size list ");
+        list2.display(newHead);
+
 
     }
 }

@@ -74,7 +74,7 @@ public class TrappingRainWater {
     * current index height and minimum of left max height and right max height
     *
     * left right two bars
-    * if left bars<= right Bar  then move left
+    * if left bars<= right Bar  then increment left
     *   water += max(0,waterLevel) //waterLevel= leftBar-arr[i]
     *   leftBar = max(leftBar,arr[i])
     *

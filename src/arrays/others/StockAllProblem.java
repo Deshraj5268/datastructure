@@ -1,4 +1,4 @@
-package stack;
+package arrays.others;
 
 
 import java.util.Arrays;
@@ -64,7 +64,7 @@ public class StockAllProblem {
 
     /*
     * Final Profit = (Initial Profit — Buying Price) + Selling Price
-    * at most two transactions i.e.,  sell the stock before buying agai
+    * at most two transactions i.e.,  sell the stock before buying again
     * */
     public static void stockBuyAndSellThird123(int [] prices){
         int firstBuy,firstSell,secondBuy,secondSell;

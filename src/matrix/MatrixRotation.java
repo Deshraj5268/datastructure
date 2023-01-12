@@ -17,7 +17,7 @@ public class MatrixRotation {
     private static void transposeMatrix(int [][] matrix, int n){
         //top left corner transpose of matrix first row --> column
         for(int i=0;i<n;i++){
-            for(int j=i;j<n;j++){
+            for(int j=i+1;j<n;j++){
                 swapMatrix(matrix,i,j);
             }
         }

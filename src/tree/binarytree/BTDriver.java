@@ -14,9 +14,9 @@ public class BTDriver {
         int [] arr = {8,5,15,16,17,18,20,19,21,12,11,10};
         root = btTreeService.createBT(arr);
 
-        //btTraversals(root);
+      //  btTraversals(root);
 
-        otherOps(root,btTreeService);
+       otherOps(root,btTreeService);
 
 
     }
@@ -50,6 +50,8 @@ public class BTDriver {
         int [] leftPathArr = btTreeService.printPath(rootDm.left,new int[left.h],0,left.h);
         int [] rightPathArr = btTreeService.printPath(rootDm.right,new int[right.h],0,right.h);
         btTreeService.printDiameter(leftPathArr,rightPathArr,rootDm);
+        int dm = btTreeService.diameterSimple(root);
+        System.out.println("\nsimplest way of cal diameter : "+dm);
     }
 
     private static void btTraversals(BTNode root) {

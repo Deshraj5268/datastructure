@@ -16,7 +16,7 @@ Diagonal left view ( Left view with keeping right HD as same)
 Print tree in Spiral or ZigZag order ( 1. using 2 Stack 2. using Deque)
 
 3. Height of the tree
-4. Diameter of tree ( longest distance between two leaf node)
+4. Diameter of tree ( longest distance between two leaf node ..  need not be through root node)
 5. LCA
 6. Tree is BST or not
 7. path from root to leaf node

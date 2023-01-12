@@ -419,11 +419,11 @@ public class LinkedListOpdImpl implements LinkedListOpd {
                 current = nextNode;
                 c++;
             }
-        }else{
+        }else{ // other need not be reverse
             return head;
         }
 
-        if(nextNode != null){
+        if(current != null){
             head.next = reverseGroupOfKNode(nextNode,k,remainingLength-k);
         }
         return prev;

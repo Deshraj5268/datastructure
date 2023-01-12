@@ -117,6 +117,9 @@ public class Traversals {
     }
 
     public void levelOrderRec(BTNode root){
+        if(root == null){
+            return;
+        }
         BTTreeService btTreeService = new BTTreeService();
         int height = btTreeService.heightRec(root);
         for(int d=0;d<=height;d++){

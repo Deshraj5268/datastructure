@@ -67,16 +67,17 @@ public class LinkedListDriver {
         list1.addNode(6);
         list1.addNode(7);
         list1.addNode(8);
+        list1.addNode(9);
 
         System.out.println("before groupOf k");
         list1.display(list1.getHead());
-        int k = 2;
+        int k = 3;
         int length = list1.findLengthOfList(list1.getHead());
         ListNode newHead = list1.reverseGroupOfKNode(list1.getHead(),k,length);
-        System.out.println("\nreverse of k size list ");
+        System.out.println("\nreverse of k size list and k is "+k);
         list1.display(newHead);
 
-        LinkedListOpd  list2 = new LinkedListOpdImpl();
+        /*LinkedListOpd  list2 = new LinkedListOpdImpl();
         list1.addNode(1);
         list1.addNode(2);
         list1.addNode(3);
@@ -91,7 +92,7 @@ public class LinkedListDriver {
        // int k = 2;
 
         System.out.println("\nreverse of k size list ");
-        list2.display(newHead);
+        list2.display(newHead);*/
 
 
     }

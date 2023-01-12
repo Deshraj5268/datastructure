@@ -1,6 +1,6 @@
 package queue.dequeue;
 
-public class FistMinInKWinSize {
+public class FirstMinInKWinSize {
 
     //First negative integer in every window of size k
     public static void firstMinInWindowSizeK(int [] arr,int n,int k){

@@ -37,7 +37,7 @@ public class QueueUsingStack {
     * load distributor algo
     *
     * 1.  pop element from stack 2 (s2) until s2 is empty
-    * 2.  poped element pushed into s1 stack
+    * 2.  popped element pushed into s1 stack
     * 3.  push new element in s1
     * */
     public void enqueue(int val){
@@ -51,7 +51,7 @@ public class QueueUsingStack {
      * load distributor algo
      *
      * 1.  pop element from stack 1 (s1) until s1 is empty
-     * 2.  return poped element from s2 stack
+     * 2.  return popped element from s2 stack
      * */
     public int dequeue(){
         while (!s1.isEmpty()){

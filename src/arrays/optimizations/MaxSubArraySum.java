@@ -7,7 +7,7 @@ import java.util.Arrays;
 * In another word . we have to find maximum difference between two elements with i<j condition
 * */
 
-class MaxArraySum
+class MaxSubArraySum
 {
     public static int maxSubArraySum(int [] arr){
         if(arr == null || arr.length == 0){

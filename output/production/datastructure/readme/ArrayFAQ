@@ -1,0 +1,12 @@
+https://github.com/Deshraj5268/datastructure/tree/master/src/arrays
+
+A.SubArray:
+1. Find sub array for given sum:
+   Followed-- largest Sub arr, arr contain negative num or negative sum
+
+2. Product array puzzle ( product all element except itself)
+
+3. Array Equality ( think all the scenario (n1=n2 ? , duplicate ? etc)
+4. Sort an given array in wave form ( arr[0] <= arr[1] >= arr[2] .. like that )
+5. Sort an given array which have 0,1,2 elements only.
+

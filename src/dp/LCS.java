@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 public class LCS {
 
     private static int [] memoArr;
@@ -28,9 +30,9 @@ public class LCS {
             }
         }
 
-        /*for(int i=0;i<=m;i++){
+        for(int i=0;i<=m;i++){
             System.out.println(Arrays.toString(tab[i]));
-        }*/
+        }
         return tab;
     }
 

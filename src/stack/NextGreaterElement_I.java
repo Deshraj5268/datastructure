@@ -7,13 +7,23 @@ import java.util.Stack;
 
 public class NextGreaterElement_I {
 
+    /*
+    * https://leetcode.com/problems/next-greater-element-i/
+    *
+    * original arrays [4, 1, 2]
+      using stack [-1, 2, 4]
+      original arrays [1, 2, 3, 4, 3]
+      using stack [2, 3, 4, -1, 4]
+      original arrays [4, 3, 2, 1]
+      using stack [-1, 4, 4, 4]
+     */
     public static void main(String[] args) {
         int [][] mat = {{4,1,2}};
         int [][] mat2 = {{1,3,4,2}};
         for(int i=0;i<mat.length;i++){
             System.out.println("original arrays "+ Arrays.toString(mat[i]) +" "+Arrays.toString(mat2[i]));
             int [] result = nextGreaterElement(mat[i],mat2[i]);
-            System.out.println("using stack "+Arrays.toString(result));
+            System.out.println("output using stack "+Arrays.toString(result));
         }
     }
 

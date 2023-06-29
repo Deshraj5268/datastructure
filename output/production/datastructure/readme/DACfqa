@@ -1,0 +1,25 @@
+1.Merger sort
+2. QuickSort :
+3.Partition method: lomuto, Hoare
+4. heap : Median in array of stream
+
+=> Binary searched based questions:
+Binary search in array : https://leetcode.com/problems/binary-search/discuss/423162/Binary-Search-101
+1. Array element should be unique or sorted in NATURE ( 1 1 1 1 1 1 1 0 0 0 --> find first index of 1 or 1 2 3 5 6 7 8 search target
+https://techiedelight.com/practice/
+https://www.tutorialcup.com/tag/binary-search
+https://igotanoffer.com/blogs/tech/binary-search-interview-questions
+https://leetcode.com/study-plan/binary-search/?progress=ihxmd2j
+https://leetcode.com/problems/guess-number-higher-or-lower/submissions/
+
+>Given the sorted rotated array nums of unique elements, return the minimum element of this array in O(log n) time.
+
+>Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+Integers in each row are sorted from left to right.
+The first integer of each row is greater than the last integer of the previous row.
+
+>Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order with O(log n) runtime complexity.
+
+>Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+>Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).

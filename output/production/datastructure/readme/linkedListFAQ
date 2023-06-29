@@ -1,0 +1,17 @@
+good questions :
+https://www.geeksforgeeks.org/must-do-coding-questions-for-product-based-companies/?ref=ghm#LinkedList
+https://www.youtube.com/watch?v=S5bfdUTrKLM&list=PLot-Xpze53leU0Ec0VkBhnf4npMRFiNcB
+https://www.geeksforgeeks.org/top-20-linked-list-interview-question/
+
+Stack using linked list.
+Clone a linked list with next and random reference.
+Find middle node of linked list.
+Is LInkedList palindrome or not.
+Find loop in singly linkedlist ( subsequent questions).
+Find nth node from last.
+Reverse a linked list(Iterative and recursive.
+Merge two linked list.
+Reverse linked list in group (k)
+Reorder list ( ex 1-2-3-4 ==> 1-4-2-3)
+flatern linkedlist (Node { data,down,next)
+Rotate a Linked List.(subsequent circular way rotation)

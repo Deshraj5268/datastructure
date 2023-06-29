@@ -12,22 +12,26 @@ public class PrintJumpingNumber {
             queue.offer(i);
         }
         int value;
+        int nextNumber;
+        int prevNumber;
         while (!queue.isEmpty() && queue.peek() <= x){
             System.out.print(queue.peek() +" ");
             value = queue.poll();
+            nextNumber = (value*10)+(value%10+1);
+            prevNumber = (value*10)+(value%10-1);
             if(value%10 == 0){
-                queue.offer((value*10)+(value%10+1));
+                queue.offer(nextNumber);
             }else if(value%10 == 9){
-                queue.offer((value*10)+(value%10-1));
+                queue.offer(prevNumber);
             }else {
-                queue.offer((value*10)+(value%10-1));
-                queue.offer((value*10)+(value%10+1));
+                queue.offer(nextNumber);
+                queue.offer(prevNumber);
             }
         }
     }
 
     public static void main(String[] args) {
-        int x = 10067;
+        int x = 105;
         printJumpingNum(x);
     }
 }

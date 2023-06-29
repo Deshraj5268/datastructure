@@ -19,6 +19,13 @@ public class SearchInSortedAndRotatedArray {
             return -1;
         }
         int mid = low+(high-low)/2;
+        //in case of duplicate
+        if(arr[mid] == arr[low] && arr[mid] == arr[high]){
+            low++;
+            high--;
+            return findIndexInSortedRotatedArray(arr,low,high,target);
+            //if all duplicate worst case s O(N) -- linear search
+        }
         if(arr[mid] == target){
             return mid;
         }

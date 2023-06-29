@@ -1,0 +1,37 @@
+https://github.com/Deshraj5268/datastructure/tree/master/src/dp
+
+1.Power Set: generate all sub set for a given set ( select or not)
+  1.1 01KnapsackProblem
+  1.2 SubsetSum problem
+  1.3 Equal sum partition
+  1.4 count of subset sum
+  1.5 target sum
+  1.6 number of subset is equal to given difference
+
+2. Common Sub-sequences
+   2.1 Longest common sub-sequences
+3. Fibonacci series
+   3.1 count steps
+
+categories :
+1. 0/1 knapsack(6)
+  1.1 01KnapsackProblem
+  1.2 SubsetSum problem
+  1.3 Equal sum partition
+  1.4 count of subset sum
+  1.5 target sum
+  1.6 number of subset is equal to given difference
+2. unbounded knapsack
+3. fibonacci
+4. LCS
+5. LIS
+6. kadane's algo
+7. Matrix chain multiplication
+8. DP on trees
+9. DP on grid
+10. others
+
+
+
+
+

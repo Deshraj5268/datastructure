@@ -1,0 +1,2 @@
+1. Given an integer array, find the next greater element for every array element.
+     The next greater element of a number x is the first greater number to the right of x in the array

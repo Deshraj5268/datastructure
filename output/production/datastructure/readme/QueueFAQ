@@ -1,0 +1,11 @@
+Basic:
+1. Implement queue using two stack.
+2. Implement stack using two queue ( extended using one queue )
+
+
+1. Petrol pump problem
+2. Implement LRU
+
+DeQueue
+1. Maximum element in window size K for given array.
+2. maximum and minimum element in window size K for given array

@@ -18,23 +18,7 @@ public class SubSetSum {
     }
 
     public static boolean isSubSetSumUsingTab(int [] arr,int n,int sum ){
-        tabSum = new boolean[n+1][sum+1];
-        for(int j=0;j<=sum;j++){
-            tabSum[0][j] = false;//sum is not zero
-        }
-        for(int i=0;i<=n;i++){
-            tabSum[i][0] = true;//sum is  zero
-        }
-        for(int i=1;i<=n;i++){
-            for(int j=1;j<=sum;j++){
-                if(arr[i-1]>j) {
-                    tabSum[i][j] = tabSum[i-1][j];
-                }
-                if(j>=arr[i-1]){
-                    tabSum[i][j] = tabSum[i-1][j] || tabSum[i-1][j-arr[i-1]];
-                }
-            }
-        }
+        tabSum = subSetSumTable(arr, n, sum);
 
         //print matrix
 
@@ -44,6 +28,35 @@ public class SubSetSum {
 
         return tabSum[n][sum];
 
+    }
+
+    public static boolean [][] subSetSumTable(int[] arr, int n, int sum) {
+        tabSum = new boolean[n +1][sum +1];
+        for(int j = 0; j<= sum; j++){
+            tabSum[0][j] = false;//sum is not zero
+        }
+        for(int i = 0; i<= n; i++){
+            tabSum[i][0] = true;//sum is  zero
+        }
+        for(int i = 1; i<= n; i++){
+            for(int j = 1; j<= sum; j++){
+                if(arr[i-1]>j) {
+                    tabSum[i][j] = tabSum[i-1][j];
+                }
+                if(j>= arr[i-1]){
+                    tabSum[i][j] = tabSum[i-1][j] || tabSum[i-1][j- arr[i-1]];
+                }
+            }
+        }
+        return tabSum;
+    }
+
+    public static int calculateSum(int [] arr){
+        int sum =0;
+        for(int data:arr){
+            sum+= data;
+        }
+        return sum;
     }
 
     public static void main(String[] args) {

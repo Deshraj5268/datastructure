@@ -1,4 +1,4 @@
-package dp;
+package src.dp.lcsvariation;
 
 import java.util.Arrays;
 

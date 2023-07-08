@@ -5,6 +5,20 @@ Basic:
 
 1. Petrol pump problem
 2. Implement LRU
+3. Sliding Window based problem (fixed size, variable size)
+    Fixed window
+    1. Min /max subArray of size k
+    2. 1st negative of every window size k
+    3. count occurrence of anagram
+    4. Max of all sub array of size k
+    5. max of min for every window size k
+
+    Variable window
+    1. Largest / smallest sub array of sum k
+    2. Largest sub-string of k distinct character
+    3. length of largest sub string of no repeated character
+    4. Pick toy
+    5. minimum window substring
 
 DeQueue
 1. Maximum element in window size K for given array.

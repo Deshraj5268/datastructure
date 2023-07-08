@@ -7,6 +7,7 @@ https://github.com/Deshraj5268/datastructure/tree/master/src/dp
   1.4 count of subset sum
   1.5 target sum
   1.6 number of subset is equal to given difference
+  1.7 Minimum sum partition
 
 2. Common Sub-sequences
    2.1 Longest common sub-sequences
@@ -30,6 +31,17 @@ categories :
 8. DP on trees
 9. DP on grid
 10. others
+
+Longest common subsequnce
+1. print LCS
+2. shortest common subsequence(SCS)
+3. print SCS
+4. min no. of insertion and deletion a->b
+5. longest repeating subsequences
+6. length of longest subsequence of a str
+which is a substring in L
+7.subsequence pattern matching
+
 
 
 

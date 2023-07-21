@@ -51,7 +51,9 @@ public class MaxSumSubArrayWinK {
             if((j-i+1) < k){ //less than the window size k
                 j++;
             }else{
-                maxSubArrSum = Math.max(maxSubArrSum,currentSum);
+                if(maxSubArrSum < currentSum){
+                    maxSubArrSum = currentSum;
+                }
                 currentSum -= arr[i];
                 i++;
                 j++;

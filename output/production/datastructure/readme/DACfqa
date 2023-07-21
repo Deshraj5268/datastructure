@@ -23,3 +23,5 @@ The first integer of each row is greater than the last integer of the previous r
 >Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
 
 >Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+
+1. two Arrays A, B find Union & intersection.

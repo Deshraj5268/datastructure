@@ -1,6 +1,6 @@
 package arrays.sortingsearching;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 import static arrays.Utility.swap;
 
@@ -14,14 +14,10 @@ public class QuickSort {
             if(pv <= arr[j]){
                 i--;
                 //swap
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                swap(arr,i,j);
             }
         }
-        int temp = arr[i];
-        arr[i] = arr[q];
-        arr[q] = temp;
+        swap(arr,i,q);
         return i;
     }
 
@@ -46,8 +42,9 @@ public class QuickSort {
     }
 
     public static void quickSort(int [] arr,int s,int e){
-        if(s<=e){
+        if(s<e){
             int m = hoaresPartition(arr,s,e);
+            //System.out.println(Arrays.toString(arr));
             quickSort(arr,s,m-1);
             quickSort(arr,m+1,e);
         }
@@ -56,10 +53,13 @@ public class QuickSort {
     public static void main(String[] args) {
         int [] arr = {10, 7, 8, 9, 1, 5};
         int n = arr.length-1;
+
+        System.out.println("input : "+ Arrays.toString(arr));
         quickSort(arr,0,n);
-        for(int i = 0;i<=n;i++){
-            System.out.print(arr[i]+" ");
-        }
+       // for(int i = 0;i<=n;i++){
+
+        System.out.println("output : "+ Arrays.toString(arr));
+       // }
         /*Scanner sc = new Scanner(System.in);
         int t= sc.nextInt();
         while(t>0){

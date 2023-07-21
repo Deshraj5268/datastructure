@@ -61,7 +61,7 @@ public class ArrayRotation {
         int[] arr = {1, 2, 3, 4, 5};
         int d = 2;
         d = d%arr.length;
-        System.out.println("before " +Arrays.toString(arr));
+        System.out.println("before " +Arrays.toString(arr) +"d :"+d);
         arrayRotationByD(arr,d,arr.length);
         System.out.println("after "+Arrays.toString(arr));
 

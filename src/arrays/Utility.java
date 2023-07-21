@@ -7,9 +7,11 @@ public class Utility {
     }
 
     public static void swap(int[] arr, int l, int m) {
-        int temp = arr[l];
-        arr[l] = arr[m];
-        arr[m] = temp;
+        if(l!=m) {
+            int temp = arr[l];
+            arr[l] = arr[m];
+            arr[m] = temp;
+        }
     }
 
     public static void swap(char[] charArr, int l, int m) {

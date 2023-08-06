@@ -1,0 +1,18 @@
+https://www.youtube.com/watch?v=utDu3Q7Flrw&list=PLot-Xpze53ldBT_7QA8NVot219jFNr_GI
+
+1. DFS :
+DSA -> Stack/HashSet
+complexity O(n) - n number of nodes
+2. BFS :
+DSA -> Queue/HashSet
+complexity O(n) - n number of nodes
+3. Union-find
+DS Algo -> Arrays
+complexity O(nlogn) - n number of nodes
+4.Topological sort (Directed cyclic graph)
+DS ALgo : DFS
+ problem : Alien dictionary
+5. Dijkstra's shortest path algo
+ complexity : O(E logV)
+ DS ALGO : Heap /hashset
+  problem : network delay time

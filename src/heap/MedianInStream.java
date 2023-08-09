@@ -24,7 +24,8 @@ public class MedianInStream {
 
     /*
     *  -----max heap----| ------min heap print from starting  so it form sorted data stream at given point
-    * before adding data in Max first check if minHeap data is less then the current
+    * first insert into max heap of left side
+    * before adding data in Max first check if minHeap data is less than the current
     *   then temp = delete.minHeap
     *        minHeap.add(element)
     *       maxHeap.add(temp);
@@ -34,7 +35,7 @@ public class MedianInStream {
         int temp;
 
         //for max heap (left side )
-        if((maxHeap.size()+minHeap.size())%2 == 0){  //
+        if((maxHeap.size()+minHeap.size())%2 == 0){
             if(!minHeap.isEmpty() && minHeap.peek() < num){
                 temp = minHeap.poll();
                 minHeap.offer(num);

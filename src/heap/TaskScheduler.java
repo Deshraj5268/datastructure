@@ -21,34 +21,42 @@ public class TaskScheduler {
         System.out.println("result : "+result);
     }
 
+    /*
+    * calculate count of each task
+    * store into maxheap
+    * initialize start time =0
+    * pull the data from heap decrease the task count
+    * store this data to queue with addition to ideal time (n+current time)
+    * pull the data from queue if the queue not empty and  current time>= Peek data
+    * */
     public static int leastInterval(char[] tasks, int n) {
         int [] charCount = new int[26];
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         Queue<Pair<Integer,Integer>> queue = new LinkedList<>();
-        for(int i=0;i<tasks.length;i++){
-            charCount[tasks[i]-'A']++;
+        for (char task : tasks) {
+            charCount[task - 'A']++;
         }
-        for(int i=0;i<charCount.length;i++){
-            if(charCount[i]>0){
-                pq.add(charCount[i]);
+        for (int j : charCount) {
+            if (j > 0) {
+                pq.add(j);
             }
         }
-        int t=0;
+        int time=0;
         int val;
         while(!pq.isEmpty() || !queue.isEmpty()){
-            t++;
+            time++;
             if(!pq.isEmpty()){
                 val = pq.poll();
                 val--;
                 if(val>0){
-                    queue.add(new Pair(val,t+n));
+                    queue.add(new Pair(val,time+n));
                 }
             }
-            if(!queue.isEmpty() && queue.peek().getValue() <= t){
+            if(!queue.isEmpty() && queue.peek().getValue() <= time){
                 pq.add(queue.poll().getKey());
             }
         }
-        return t;
+        return time;
 
     }
 }

@@ -23,7 +23,7 @@ public class PriorityQueueJava {
 
     public static void main(String[] args) {
 
-        Queue<Integer> pq = new PriorityQueue<>(); // by default is min heap
+        Queue<Integer> pq = new PriorityQueue<>(); // by default is min heap ,because we get min at the top
 
         for(int i=10;i>0;i--){
             pq.offer(i);
@@ -39,6 +39,7 @@ public class PriorityQueueJava {
         arrayList.add(24);
         arrayList.add(25);
 
+        // build heap approach O(n) internally
         Queue<Integer> pq1 = new PriorityQueue(arrayList);
         for(int i=0;i<arrayList.size();i++){
             System.out.print(pq1.remove()+ " ");

@@ -23,7 +23,11 @@ public class CycleInDG {
         System.out.println(isCycleInDG(totalVertex));
     }
 
-    private static boolean isCycleInDG(int totalVertex) {
+    public CycleInDG(LinkedList<Integer>[] adj){
+        this.adj = adj;
+    }
+
+    public static boolean isCycleInDG(int totalVertex) {
         visited = new boolean[totalVertex];
         recStackArr = new boolean[totalVertex];
         for(int i=0;i<totalVertex;i++){
@@ -44,9 +48,11 @@ public class CycleInDG {
         recStackArr[i] = true;
         visited[i] = true;
         LinkedList<Integer> adjList = adj[i];
-        for (int v:adjList){
-            if(isCycleUtil(v)){
-                return true;
+        if(adjList != null) {
+            for (int v : adjList) {
+                if (isCycleUtil(v)) {
+                    return true;
+                }
             }
         }
         recStackArr[i] = false;

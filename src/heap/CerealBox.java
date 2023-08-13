@@ -30,7 +30,7 @@ public class CerealBox {
         if(k < 10){
             k = 10;
         }
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); // default is max heap
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); // default is min heap
         Integer[] what = Arrays.stream( a ).boxed().toArray( Integer[]::new );
         pq.addAll(Arrays.asList(what));
        /* for(int val:a){

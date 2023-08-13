@@ -21,7 +21,12 @@ public class TopologicalSort {
         System.out.println("using BFS ");
         topoLogicalSort(totalVertex);
         System.out.println("\nusing kahn's algo");
-        kahnsAlgo(totalVertex);
+        List<Integer> resulList = kahnsAlgo(totalVertex,adj);
+        if(resulList.size() != totalVertex){
+            System.out.println("cycle is exist ");
+            return;
+        }
+        System.out.println(resulList.toString());
     }
 
 
@@ -50,62 +55,82 @@ public class TopologicalSort {
     * calculate indegree of each node
     *
     * */
-    public static void kahnsAlgo(int totalVertex){
+    public static  List<Integer> kahnsAlgo(int totalVertex,LinkedList<Integer>[] adj){
 
-        int [] inDegree = new int[totalVertex]; // initialize 0
-        calculateInDegree(inDegree,totalVertex);
+        int [] inDegree = calculateInDegree(totalVertex,adj);
+        Queue<Integer> qu = getIndegrees(totalVertex, inDegree);
+        List<Integer> resulList = getTopologicalOrderedNodes(qu,inDegree,adj);
+        /*if(resulList.size() != totalVertex){
+            System.out.println("cycle is exist ");
+            return;
+        }
+        System.out.println(resulList.toString());*/
+        return resulList;
+    }
 
+    public static Queue<Integer> getIndegrees(int totalVertex, int[] inDegree) {
         //enqueue node whose in-degree is 0
         Queue<Integer> qu = new LinkedList<>();
-        for(int i=0;i<totalVertex;i++){
+        for(int i = 0; i< totalVertex; i++){
             if(inDegree[i] == 0){
                 qu.offer(i);
             }
         }
+        return qu;
+    }
 
-        int count=0;
+    public static List<Integer> getTopologicalOrderedNodes(Queue<Integer> qu,int [] inDegree,LinkedList<Integer>[] adj){
         ArrayList<Integer> resulList = new ArrayList<>();
         Integer queueNode;
         while (!qu.isEmpty()){
             queueNode = qu.poll();
             resulList.add(queueNode);
 
-            Iterator<Integer> adjNodes = adj[queueNode].iterator();
-            while (adjNodes.hasNext()){
-                Integer node = adjNodes.next();
-                if(--inDegree[node] == 0){
-                    qu.offer(node);
+            if(adj[queueNode] != null) {
+                Iterator<Integer> adjNodes = adj[queueNode].iterator();
+                while (adjNodes.hasNext()) {
+                    Integer node = adjNodes.next();
+                    if (inDegree[node] != -1 && --inDegree[node] == 0) {
+                        qu.offer(node);
+                    }
                 }
             }
-            count++;
         }
-        if(count != totalVertex){
-            System.out.println("cycle is exist ");
-            return;
-        }
-        System.out.println(resulList.toString());
-
+        return resulList;
     }
 
-    private static void calculateInDegree(int[] inDegree,int totalVertex) {
-
+    public static int[] calculateInDegree(int totalVertex,LinkedList<Integer>[] adj) {
+        int[] inDegree = new int[totalVertex];
+        //Arrays.fill(inDegree,-1);
         for(int i=0;i<totalVertex;i++){
-            Iterator<Integer> it = adj[i].iterator();
-            while (it.hasNext()){
-                inDegree[it.next()]++;
+            if(adj[i]!=null) {
+                Iterator<Integer> it = adj[i].iterator();
+                while (it.hasNext()) {
+                    int val = it.next();
+                    if(inDegree[val] == -1){
+                        inDegree[val] = 0;
+                    }
+                    inDegree[val]++;
+                }
+            }else{
+                if(inDegree[i]<1)
+                inDegree[i] = -1;
             }
         }
+        return inDegree;
     }
 
 
     private static void topoLogicalSortUtil(int vertex, boolean [] visited, Deque<Integer> stack){
         visited[vertex] = true;
-        Iterator<Integer> nodeItr = adj[vertex].iterator();
-        int node;
-        while (nodeItr.hasNext()){
-            node = nodeItr.next();
-            if(!visited[node]){
-                topoLogicalSortUtil(node,visited,stack);
+        if(adj[vertex] != null) {
+            Iterator<Integer> nodeItr = adj[vertex].iterator();
+            int node;
+            while (nodeItr.hasNext()) {
+                node = nodeItr.next();
+                if (!visited[node]) {
+                    topoLogicalSortUtil(node, visited, stack);
+                }
             }
         }
         stack.addFirst(vertex);

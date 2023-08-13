@@ -39,12 +39,12 @@ public class HeapSort {
         int temp = arr[i];
         arr[i] = arr[initial];
         arr[initial] = temp;
-        heapiFy(arr,initial,i);
+        heapiFy(arr,initial,i-1);
     }
 
     public static void buildHeap(int [] arr,int initial,int n){
         //build max heap
-        for(int i = n/2-1;i>=initial;i--){ // start with n/2 second last level go to down up to end
+        for(int i = n/2-1;i>=initial;i--){ // start with n/2 second last level and process top down way and this process till root
             heapiFy(arr,i,n);
         }
     }
@@ -56,8 +56,9 @@ public class HeapSort {
                       };
         int initial = 0;
         for (int i=0;i<mat.length;i++) {
+            System.out.println("input data : "+Arrays.toString(mat[i]));
             heapSort(mat[i], initial, mat[i].length);
-            System.out.println("sorted data .. ");
+            System.out.println("heap sorted data .. ");
             System.out.println(Arrays.toString(mat[i]));
         }
     }

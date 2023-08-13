@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
+/*
+* another similler problem
+* */
 public class NextGreaterElement {
 
     public static void main(String[] args) {

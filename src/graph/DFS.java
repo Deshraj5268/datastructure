@@ -47,6 +47,12 @@ public class DFS {
         }
     }
 
+    /*
+    * 0->1->2
+    * 1->2
+    * 2->0->3
+    * 3->3
+    * */
     public static void main(String[] args) {
         int totalVertex = 4;
         AdjacencyMatrix adjObj =  new AdjacencyMatrix(totalVertex);
@@ -59,9 +65,9 @@ public class DFS {
         adjObj.addEdge(2, 3);
         adjObj.addEdge(3, 3);
 
-        int startVertex = 2;
+        int startVertex = 0;
 
-        System.out.println("Following is Depth First Traversal (starting from vertex )"+startVertex);
+        System.out.println("Following is Depth First Traversal (starting from vertex ) "+startVertex);
 
         dfs(totalVertex,startVertex);
         System.out.println("\nitr approach ");

@@ -34,11 +34,8 @@ public class Fibonacci {
         if(n == 0 || n == 1){
             return n;
         }
-        if(fibMemoizationArr[n-1] != 0){
-            return fibMemoizationArr[n-1];
-        }
-        if(fibMemoizationArr[n-2]!= 0){
-            return fibMemoizationArr[n-2];
+        if(fibMemoizationArr[n] != 0){
+            return fibMemoizationArr[n];
         }
         fibMemoizationArr[n] = fibMemoization(n-1)+fibMemoization(n-2);
         return fibMemoizationArr[n];
@@ -70,7 +67,7 @@ public class Fibonacci {
 
         //memoization
         fibMemoizationArr = new int[n+1];
-        System.out.println("memoization : "+fibTabulation(n));
+        System.out.println("memoization : "+fibMemoization(n));
 
         //pre-calculation
         System.out.println("pre-calculation :"+fibNumWithPreCal(n));

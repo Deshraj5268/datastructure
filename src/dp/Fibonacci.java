@@ -1,12 +1,19 @@
 package dp;
 
 public class Fibonacci {
-    public static int first = 0;
-    public static int second = 1;
     public static int [] fibMemoizationArr;
 
     public static int fib(int n){
-        if(first == n || second == n){
+        /*
+        * always handle the base condition ex initial two value a = 0 , b = 2
+        * f(0) = 0
+        * f(1) = ?
+        * f(2) = 2
+        * so in this case we can say f(1) = 1
+        * if(n == 0 || n == 1 || n ==2 ){ return n;}
+        *
+        * */
+        if(n == 0 || n == 1){
             return n;
         }
         int fib =  fib(n-1)+fib(n-2);
@@ -15,8 +22,8 @@ public class Fibonacci {
 
     public static int fibTabulation(int n){
         int [] fibArr = new int[n+1];
-        fibArr[0] = first;
-        fibArr[1] = second;
+        fibArr[0] = 0;
+        fibArr[1] = 1;
         for(int i=2;i<=n;i++){
             fibArr[i] = fibArr[i-1]+fibArr[i-2];
         }
@@ -24,7 +31,7 @@ public class Fibonacci {
     }
 
     public static int fibMemoization(int n){
-        if(first == n || second == n){
+        if(n == 0 || n == 1){
             return n;
         }
         if(fibMemoizationArr[n-1] != 0){
@@ -38,8 +45,8 @@ public class Fibonacci {
     }
 
     public static int fibNumWithPreCal(int n){
-        int f = first;
-        int s= second;
+        int f = 0;
+        int s= 1;
         int nthNum=0;
         if(n == f || n == s){
             return n;
@@ -55,7 +62,7 @@ public class Fibonacci {
     public static void main(String[] args) {
         int n = 9;//nth fib num
         System.out.println("nth number : "+n);
-        System.out.println("initial values: "+first+" "+second);
+        System.out.println("initial values: "+ 0 +" "+1);
         System.out.println("recursive : "+fib(n));
 
         //tabulation

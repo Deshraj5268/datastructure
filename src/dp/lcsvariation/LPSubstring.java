@@ -1,4 +1,6 @@
-package dp;
+package dp.lcsvariation;
+
+import dp.Common;
 
 import java.util.Arrays;
 
@@ -10,9 +12,16 @@ public class LPSubstring {
         lpsSubString(str);
         System.out.println("\nusing Dp ");
         lpsDp(str);
+        System.out.println("\nusing lcssubstring Dp ");
+        lpsubStringUsingLCS(str);
     }
 
 
+    public static void lpsubStringUsingLCS(String str1){
+        String str1reverse = new StringBuilder(str1).reverse().toString();
+        int  lcs =  LCSubstring.lcSubstringDP(str1,str1reverse);
+        System.out.println(lcs);
+    }
 
     public static void lpsDp(String str){
         if(str == null || str.isEmpty()){

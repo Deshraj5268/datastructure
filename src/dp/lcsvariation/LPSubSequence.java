@@ -1,4 +1,4 @@
-package dp;
+package dp.lcsvariation;
 
 public class LPSubSequence {
 
@@ -8,6 +8,19 @@ public class LPSubSequence {
         System.out.println(lpSubSequence(arr,0,arr.length-1));
 
         System.out.println(lpsDp(arr,arr.length));
+        System.out.println("lps using lcs "+lpsUsingLCS(str));
+    }
+
+
+    /*
+    * lcs ( str,strRverse) ==> LPS
+    * */
+    public static int lpsUsingLCS(String str1){
+        String str1reverse = new StringBuilder(str1).reverse().toString();
+        int m = str1.length();
+        int n = str1reverse.length();
+       int [][] lcs =  LCS.lcsDpTab(str1,str1reverse,m,n);
+       return lcs[m][n];
     }
 
     public static int lpsDp(char [] arr,int n){

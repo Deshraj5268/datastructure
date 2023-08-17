@@ -1,4 +1,6 @@
-package src.dp.lcsvariation;
+package dp.lcsvariation;
+
+import java.util.Arrays;
 
 public class LCSubstring {
 
@@ -6,7 +8,7 @@ public class LCSubstring {
         String s1 ="ABCDGH";
         String s2 = "ACDGHR";
         System.out.println("input s1: "+s1 +" s2: "+s2);
-        int result = lcSubstring(s1,s2);
+        int result = lcSubstringDP(s1,s2);
         System.out.println("output : "+result);
         int recResult = lcSubstringRec(s1,s2,s1.length()-1,s2.length()-1,0);
         System.out.println("recResult : "+recResult);
@@ -16,7 +18,7 @@ public class LCSubstring {
     * same way of LCS but both are not matching then start with 0
     * if same then add 1 and take max of previous result , (1+Sof(l1-1,l2-1)
     * */
-    public static int lcSubstring(String s1,String s2){
+    public static int lcSubstringDP(String s1, String s2){
         int l1= s1.length();
         int l2 = s2.length();
         int result = 0;
@@ -33,7 +35,16 @@ public class LCSubstring {
                 }
             }
         }
+       /* printMetrix(tab);
+        dp.lcsvariation.LCS.printLCS(tab,s1,s2,result);*/
         return result;
+    }
+
+    private static void printMetrix(int[][] tab) {
+        System.out.println("result metrix");
+        for(int i=0;i<tab.length;i++){
+            System.out.println(Arrays.toString(tab[i]));
+        }
     }
 
     public static int lcSubstringRec(String s1,String s2,int l1,int l2,int count){

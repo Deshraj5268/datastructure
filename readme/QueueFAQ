@@ -1,6 +1,7 @@
 Basic:
-1. Implement queue using two stack.
+1. Implement queue using two stack (push ,pop heavy or balanced way)
 2. Implement stack using two queue ( extended using one queue )
+3. Implement circular queue( use capacity approach to check full, empty ness)
 
 
 1. Petrol pump problem

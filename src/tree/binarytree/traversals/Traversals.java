@@ -77,7 +77,7 @@ public class Traversals {
                     temp = postOrNode.btNode.right;
                 }else{
                     System.out.print(postOrNode.btNode.data +" ");
-                   // temp = null; not required
+                    temp = null; //not required
                 }
             }
         }

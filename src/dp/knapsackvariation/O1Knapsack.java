@@ -1,4 +1,4 @@
-package src.dp.knapsackvariation;
+package dp.knapsackvariation;
 
 import java.util.Arrays;
 
@@ -75,9 +75,9 @@ public class O1Knapsack {
     }
 
     public static void main(String[] args) {
-        int val[] = {6, 10, 12};
-        int wt[] = {1, 2, 3};
-        int w = 5;
+        int val[] = {1, 2, 3};
+        int wt[] = {4, 5, 1};
+        int w = 4;
         int n = val.length;
         System.out.println("recursive  : "+o1Knapsack(val,wt,n,w));
         //tabulation

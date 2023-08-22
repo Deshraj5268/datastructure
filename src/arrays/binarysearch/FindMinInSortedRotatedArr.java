@@ -13,6 +13,35 @@ public class FindMinInSortedRotatedArr {
 
     }
 
+
+    /*
+    * https://www.youtube.com/watch?v=nIVW4P8b1VA
+    *
+    * if arr[l] <= arr[r] then array is sorted then return arr[l]
+    *  m = (l+h)/2
+    * if(arr[l]<= arr[m]) then l = m+1 .. move to right
+    * else h = m
+    * */
+    public int findMin(int[] arr) {
+        if(arr == null || arr.length ==0){
+            return -1;
+        }
+        int len = arr.length;
+        int l=0,h=len-1,m;
+        while(l<=h){
+            if(arr[l] <= arr[h]){
+                return arr[l];
+            }
+            m=l+(h-l)/2;
+            if(arr[l] <= arr[m]){//left sorted
+                l = m+1;
+            }else{
+                h = m;
+            }
+        }
+        return 0;
+    }
+
     /*
     * array was in sorted increasing and elements are unique** then rotate towards right
     *

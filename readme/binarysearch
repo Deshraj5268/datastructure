@@ -1,0 +1,19 @@
+=> Binary searched based questions:
+1. video : https://www.youtube.com/playlist?list=PL_z_8CaSLPWeYfhtuKHj-9MpYb6XQJ_f2
+
+Binary search in array : https://leetcode.com/problems/binary-search/discuss/423162/Binary-Search-101
+1. Array element should be unique or sorted in NATURE ( 1 1 1 1 1 1 1 0 0 0 --> find first index of 1 or 1 2 3 5 6 7 8 search target
+https://techiedelight.com/practice/
+https://www.tutorialcup.com/tag/binary-search
+https://igotanoffer.com/blogs/tech/binary-search-interview-questions
+https://leetcode.com/study-plan/binary-search/?progress=ihxmd2j
+https://leetcode.com/problems/guess-number-higher-or-lower/submissions/
+
+Observation :
+0. by default Element should be unique and element in ascending/increasing order [99.99] case but ask is element in ascending or desc
+1. reducing by 2 : n/2, n/4 , n/8 ... n/2^k = 1 , [ k = logn]
+2. multiplying by 2 : 2, 2^2 , 2^3 ... 2^k = n [ k = logn]
+3. Binary Search on Answer Concept [sorted by nature ex. 0,0,0,0,0,0,.... 1,1,1,1 --> find position of starting one [2nd approach ]]
+
+1. First/last occurrence of target element in sorted array , follow up count of repeated element.
+2. Number of time a sorted array rotated

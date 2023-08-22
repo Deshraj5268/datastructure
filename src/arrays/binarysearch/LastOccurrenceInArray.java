@@ -2,15 +2,26 @@ package arrays.binarysearch;
 
 import arrays.Utility;
 
+
+/*
+* https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+* */
 public class LastOccurrenceInArray {
 
     public int lastFirstOccurrenceOfElement(int[] arr, int low, int high, int target){
         if(Utility.isArrayEmpty(arr)){
             return -1;
         }
+        //base condition
+        if(arr.length == 1 && arr[0] == target){
+            return 0;
+        }
         int l = low;
         int h = high;
-        int m = low;
+        int m;
+        if(target < arr[l] || target > arr[h]){
+            return -1;
+        }
         while (l<=h){
             m = l+(h-l)/2;
             if((h == m && arr[m] == target) || (arr[m] == target && arr[m] < arr[m+1])){
@@ -45,7 +56,7 @@ public class LastOccurrenceInArray {
             if(result[i] != expectedArr[i]){
                 System.out.println(result[i]+ " "+expectedArr[i]);
             }else {
-                System.out.println("result is as expected for index matrix "+ i);
+                System.out.println("result->"+result[i] +":"+expectedArr[i]+" is as expected for index matrix "+ i);
             }
         }
     }

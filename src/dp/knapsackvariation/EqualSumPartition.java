@@ -1,4 +1,4 @@
-package src.dp.knapsackvariation;
+package dp.knapsackvariation;
 
 import java.util.Arrays;
 

@@ -22,11 +22,10 @@ public class CountOfSubSetSum {
         }
         for(int i=1;i<=n;i++){
             for(int j=1;j<=sum;j++){
-                if(arr[i-1]>j) {
+                if(arr[i-1] <= j){
+                    tabSum[i][j] = tabSum[i-1][j] + tabSum[i-1][j - arr[i-1]];
+                }else{
                     tabSum[i][j] = tabSum[i-1][j];
-                }
-                if(j>=arr[i-1]){
-                    tabSum[i][j] = tabSum[i-1][j] + tabSum[i-1][j-arr[i-1]];
                 }
             }
         }

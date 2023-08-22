@@ -20,7 +20,7 @@ public class BinaryIndexTree {
         int [] binaryIndexArr = new int[n+1];
 
         for(int i=1;i<n;i++){
-            System.out.print(i+" inirial  ");
+            System.out.print(i+" initial  ");
             update(binaryIndexArr,i,n,arr[i-1]);
             System.out.println();
         }

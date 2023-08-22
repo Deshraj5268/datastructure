@@ -1,4 +1,4 @@
-package src.dp.knapsackvariation;
+package dp.knapsackvariation;
 
 import java.util.Arrays;
 
@@ -32,6 +32,27 @@ public class UnboundedKnapsack {
         return dp[n][W];
     }
 
+
+    public static int o1UnKnapsackTabulation(int [] wt,int [] val,int n,int w){
+        int [][] tabKnapsack = new int[n+1][w+1];
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=w;j++){
+                if(i == 0 || j == 0){
+                    tabKnapsack[i][j] = 0;
+                }else if(wt[i-1] <= j){
+                    tabKnapsack[i][j] = Math.max(val[i-1]+tabKnapsack[i][j-wt[i-1]],tabKnapsack[i-1][j]);
+                }else {
+                    tabKnapsack[i][j] = tabKnapsack[i-1][j];
+                }
+            }
+        }
+        for(int i=0;i<tabKnapsack.length;i++) {
+            System.out.println(Arrays.toString(tabKnapsack[i]));
+        }
+        return tabKnapsack[n][w];
+    }
+
+
     public static int unboundedKnapsackTabulation(int [] wt,int [] val,int n,int W){
         int [] tab = new int[W+1];//default value set to 0
         for(int i=0;i<=W;i++){
@@ -59,5 +80,8 @@ public class UnboundedKnapsack {
             System.out.println(Arrays.toString(dp[i]));
         }*/
         System.out.println(unboundedKnapsackTabulation(wt,val,n,W));
+
+        System.out.println("using o1 knapsack variation "+o1UnKnapsackTabulation(wt,val,n,W));
+
     }
 }

@@ -1,4 +1,4 @@
-package dp;
+package dp.fibonacci;
 
 public class Fibonacci {
     public static int [] fibMemoizationArr;

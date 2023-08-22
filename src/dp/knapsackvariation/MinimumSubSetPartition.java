@@ -1,4 +1,4 @@
-package src.dp.knapsackvariation;
+package dp.knapsackvariation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +17,7 @@ public class MinimumSubSetPartition {
    /*
    * s1-s2 = minimum
    * 0------sum
+   * s1+s2 = sum
    * 
    * s1-(sum-s1)= minimum
    * abs(2*s1-sum) == minimum

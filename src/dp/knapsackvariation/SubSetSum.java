@@ -1,4 +1,6 @@
-package src.dp.knapsackvariation;
+package dp.knapsackvariation;
+
+import java.util.Arrays;
 
 public class SubSetSum {
 
@@ -22,9 +24,9 @@ public class SubSetSum {
 
         //print matrix
 
-        /*for(int i=0;i<=n;i++){
-            for(int j=0;j<=)
-        }*/
+        for(int i=0;i<=n;i++){
+            System.out.println(Arrays.toString(tabSum[i]));
+        }
 
         return tabSum[n][sum];
 

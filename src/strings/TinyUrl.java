@@ -2,13 +2,22 @@ package strings;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class TinyUrl {
 
-    protected static final char [] constCharArr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
-    protected static  Map<Character,Integer> map;
+    protected static final char[] constCharArr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+    protected static Map<Character, Integer> map;
+    private Random random = new Random();
+    private static int NUM_CHARS_SHORT_LINK;
+
+    /*
+    * URL with length 5, will give 62⁵ = ~916 Million URLs
+URL with length 6, will give 62⁶ = ~56 Billion URLs
+URL with length 7, will give 62⁷ = ~3500 Billion URLs
+    * */
     public static void main(String[] args) {
-        int id = 1000000000;//12345;
+        int id = 63;//12345;
         map = prePareMap();
         String result = idToShortUrl(id);
         System.out.println(result);
@@ -16,7 +25,30 @@ public class TinyUrl {
         System.out.println(shortUrlToIdBase62(result));
 
         long longId = 999999999;
-        System.out.println("long ID : "+idToShortUrLongID(longId));
+        System.out.println("long ID : " + idToShortUrLongID(longId));
+
+        NUM_CHARS_SHORT_LINK = 7;
+    }
+
+
+    /*
+     * https://medium.com/@sandeep4.verma/system-design-scalable-url-shortener-service-like-tinyurl-106f30f23a82
+     * */
+    public String generateRandomShortUrl() {
+
+        char[] result = new char[NUM_CHARS_SHORT_LINK];
+        //  while (true) {
+        for (int i = 0; i < NUM_CHARS_SHORT_LINK; i++) {
+            int randomIndex = random.nextInt(constCharArr.length - 1);
+            result[i] = constCharArr[randomIndex];
+        }
+        String shortLink = new String(result);
+        // make sure the short link isn't already used
+           /* if (!DB.checkShortLinkExists(shortLink)) {
+                return shortLink;;
+            }*/
+        //  }
+        return shortLink;
     }
 
 

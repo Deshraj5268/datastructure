@@ -141,7 +141,7 @@ public class ZigZagDiagonal {
     * c==0, r++     |           |
     *               ------------
     *                  r == n-1 , c++
-    * 
+    *
     *
     * */
     public int[] findDiagonalOrderOptimize(int[][] matrix) {

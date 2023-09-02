@@ -4,9 +4,9 @@ package arrays.others;
 * input : aabbcc
 * output : a2b2c2
 * */
-public class RunLengthEncodding {
+public class RunLengthEncoding {
 
-    public String charEncodding(String str){
+    public String charEncoding(String str){
         if(str == null || str.isEmpty()){
             return "";
         }
@@ -32,7 +32,7 @@ public class RunLengthEncodding {
         String str = "aabbcc";
         /*char [] arr = {'c','b'};
         str = String.valueOf(arr);*/
-        RunLengthEncodding runLengthEncodding = new RunLengthEncodding();
-        System.out.println(runLengthEncodding.charEncodding(str));
+        RunLengthEncoding runLengthEncoding = new RunLengthEncoding();
+        System.out.println(runLengthEncoding.charEncoding(str));
     }
 }

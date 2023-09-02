@@ -2,7 +2,7 @@ package arrays.others;
 
 public class FindExelColumnForNumber {
 
-    public static String findColomnForNumber(int n){
+    public static String findColumnForNumber(int n){
         StringBuilder sb = new StringBuilder();
         int reminder = 0;
         while (n > 0){
@@ -14,6 +14,21 @@ public class FindExelColumnForNumber {
                 sb.append((char)(reminder-1 + 'A'));
                 n = (n/26);
             }
+        }
+        return sb.reverse().toString();
+    }
+
+    /*
+    *
+    * https://www.youtube.com/watch?v=UcTKk2y_3s4
+    * */
+    public static String findColumnForNumberSimple(int n){
+        StringBuilder sb = new StringBuilder();
+        int ch;
+        while (n > 0){
+            ch = (n-1)%26 + 'A'; // A -1 , B-2 .. Z -26 . so (n-1)%26
+            sb.append((char)ch);
+            n = (n-1)/26;
         }
         return sb.reverse().toString();
     }
@@ -57,12 +72,12 @@ public class FindExelColumnForNumber {
     public static void main(String[] args) {
         int n = 52;
         String str;
-        for(int i= 25;i<50;i++) {
-            str = findColomnForNumber(i);
-            System.out.print((i)+str + " :");
-            System.out.println(findStrToNumber(str));
+        for(int i= 25;i<29;i++) {
+            str = findColumnForNumberSimple(i);// findColumnForNumber(i);
+            System.out.print("num :"+(i)+" Chars : "+str );
+          //  System.out.println(findStrToNumber(str));
 
-            System.out.println("optimize "+findStrToNumberOptimize(str));
+            System.out.println(" optimize "+findStrToNumberOptimize(str));
         }
         /*System.out.println();
         String str = "A";

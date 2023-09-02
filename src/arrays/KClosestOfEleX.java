@@ -35,7 +35,7 @@ public class KClosestOfEleX {
 /** solution :
  * create max heap for k element(without including target x)
  * loop for remaining element (n-k)
- * 1.if current element less then peak element without including target x
+ * 1.if current element less than peak element without including target x
  *      poll element and add current element
  *
 * */

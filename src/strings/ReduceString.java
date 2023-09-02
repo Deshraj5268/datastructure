@@ -7,24 +7,28 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashSet;
 
+
+/*
+* https://www.geeksforgeeks.org/reduce-the-string-to-minimum-length-with-the-given-operation/
+* */
 public class ReduceString {
 
     public static int reduceStringUptoMinLength(String str){
         if(str == null || str.isEmpty()){
             return 0;
         }
-        Deque<Character> st = new ArrayDeque();
-        st.push(str.charAt(0));
+        Deque<Character> satck = new ArrayDeque();
+        satck.push(str.charAt(0));
         char out;
         for(int i =1;i<str.length();i++){
             out = Character.toUpperCase(str.charAt(i));
-            if(!st.isEmpty() && out == Character.toUpperCase((Character)st.peek())){
-                st.pop();
+            if(!satck.isEmpty() && out == Character.toUpperCase((Character)satck.peek())){
+                satck.pop();
             }else{
-                st.push(out);
+                satck.push(out);
             }
         }
-        return st.size();
+        return satck.size();
     }
 
     public static void main(String[] args) {

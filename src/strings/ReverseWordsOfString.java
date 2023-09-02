@@ -28,9 +28,9 @@ public class ReverseWordsOfString {
 
     public static void main(String[] args) throws Exception {
         BufferedReader inp = new BufferedReader(new InputStreamReader(System.in));
-        int t =Integer.parseInt(inp.readLine());
+        int t =1;//Integer.parseInt(inp.readLine());
         while(t>0) {
-            String str = inp.readLine();
+            String str = "i.like.this.program.very.much";//inp.readLine();
             System.out.println(/*strObj.*/reverseWordsOFString(str));
             t--;
         }

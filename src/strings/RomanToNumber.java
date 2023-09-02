@@ -6,7 +6,7 @@ import java.util.Map;
 public class RomanToNumber {
 
     // Finds decimal value of a given roman numeral
-    public int romanToDecimal(String str) { //M is worst case 10^4 ,str lenth(10^6) : 10^4*10^6=10^10(in range )
+    public int romanToDecimal(String str) { //M is worst case 10^4 ,str length(10^6) : 10^4*10^6=10^10(in range )
         // code here
         if(str == null || str.isEmpty()){
             return -1;

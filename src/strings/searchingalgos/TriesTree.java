@@ -36,4 +36,46 @@ public class TriesTree {
         }
         return current.endOfWord;
     }
+
+    public boolean startsWith(String prefix) {
+        TriesNode currentNode=this.root,temp;
+        char ch;
+        for(int i=0;i<prefix.length();i++){
+            ch = prefix.charAt(i);
+            temp = currentNode.children.get(ch);
+            if(temp == null){
+                return false;
+            }
+            currentNode = temp;
+        }
+        return true;
+    }
+
+    public boolean partialSearch(String word) {
+        return searchHelper(word,root,0);
+
+    }
+
+    public boolean searchHelper(String word,TriesNode currentNode,int index){
+        TriesNode temp;
+        char ch;
+        for(int i=index;i<word.length();i++){
+            ch = word.charAt(i);
+            if(ch == '.' ){
+                for(TriesNode entry : currentNode.children.values()){
+                    if(entry != null && searchHelper(word,entry,i+1)){
+                        return true;
+                    }
+                }
+                return false;
+            }else{
+                temp = currentNode.children.get(ch);
+                if(temp == null){
+                    return false;
+                }
+                currentNode = temp;
+            }
+        }
+        return currentNode.endOfWord;
+    }
 }

@@ -9,7 +9,8 @@ public class Palindrome {
     public static void main(String[] args) {
 
         String [] strs = {"","ABA","raaca ksd",
-        "A man, a plan, a canal: Panama"};
+        "A man, a plan, a canal: Panama",
+        "&&*#(@","      "};
         boolean result;
         for (String str:strs){
             System.out.println("input : "+str);
@@ -29,6 +30,7 @@ public class Palindrome {
         int left = 0;
         int right = str.length()-1;
         char leftChar,rightChar;
+        boolean isAllSpecial=true;
         while (left<right){
             leftChar = str.charAt(left);
             rightChar = str.charAt(right);
@@ -37,12 +39,16 @@ public class Palindrome {
             }else if(!(isLowerCaseLetter(rightChar) || isUpperCaseLetter(rightChar) || isDigitLetter(rightChar))){
                 right--;
             }else {
+                isAllSpecial = false;
                 if((Character.toUpperCase(leftChar) != Character.toUpperCase(rightChar))){
                     return false;
                 }
                 left++;
                 right--;
             }
+        }
+        if(isAllSpecial){
+            return false;
         }
         return true;
 

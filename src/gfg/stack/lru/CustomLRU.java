@@ -25,7 +25,7 @@ public class CustomLRU implements LRU {
             list.addLast(list.removeNode(pageRef));
         }else{
             if(list.size == frameSize){
-                map.remove(list.removeFirst());
+                map.remove(list.removeFirst().data);
             }
             DListNode pageNode = list.addLast(pageNumber);
             map.put(pageNumber,pageNode);

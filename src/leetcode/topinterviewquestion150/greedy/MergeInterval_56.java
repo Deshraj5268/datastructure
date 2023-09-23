@@ -27,6 +27,20 @@ public class MergeInterval_56 {
     // sort the based on start time
     // then check endTime of previous pair is greater than satrtTime of next slot
     //so update end time with max(endTimeOFPrev , endTimeOfNextSlot)
+
+    /*
+    *{1,3},{2,6},{8,10},{15,18}
+    *
+    *    1------------3
+    *       2---------------------6
+    *                                   8---------------10
+    *                                                       15 -----18
+    *
+    * Ans
+    * 1----------------------------6   8----------------10  15------18
+    *
+    * so merge the overlapping into one interval
+    * */
     public static int[][] merge(int[][] intervals) {
         if(intervals.length <=1){
             return intervals;

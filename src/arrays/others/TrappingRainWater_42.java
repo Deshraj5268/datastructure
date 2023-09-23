@@ -2,7 +2,7 @@ package arrays.others;
 
 
 /*https://www.youtube.com/watch?v=C8UjlJZsHBw*/
-public class TrappingRainWater {
+public class TrappingRainWater_42 {
 
     /*input length 3 to n
     * */

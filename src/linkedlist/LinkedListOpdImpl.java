@@ -299,7 +299,7 @@ public class LinkedListOpdImpl implements LinkedListOpd {
     * fast = 2 ,s = 1, loop length = n
     *
     * n+(1-2) ~ n-1 ( s move 1 step increase and f will decrease speed by 2 )
-    * so every time lenth will reduce by 1 . so O(n)
+    * so every time length will reduce by 1 . so O(n)
     * */
     @Override
     public boolean isLoopExist(ListNode head){

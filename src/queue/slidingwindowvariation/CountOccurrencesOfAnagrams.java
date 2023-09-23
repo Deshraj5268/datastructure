@@ -1,4 +1,4 @@
-package src.queue.slidingwindowvariation;
+package queue.slidingwindowvariation;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -11,14 +11,12 @@ public class BFS {
     public static void bfsUtil(int startVertex,boolean [] visited){
         Queue<Integer> qu = new LinkedList<>();
         qu.offer(startVertex);
-        int newVertex;
+       // int newVertex;
         int queueddata;
         while (!qu.isEmpty()){
             queueddata = qu.poll();
             System.out.print(queueddata+" ");
-            Iterator<Integer> it = adj[queueddata].listIterator();
-            while (it.hasNext()) {
-                newVertex = it.next();
+            for(int newVertex:adj[queueddata]){
                 if (!visited[newVertex]) {
                     visited[newVertex] = true;
                     qu.offer(newVertex);

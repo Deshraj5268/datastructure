@@ -33,7 +33,7 @@ public class PrintJumpingNumber {
     public static void printSpacialNumber(int m, int n){
         System.out.print(0+ " ");
         Queue<Integer> queue = new LinkedList<>();
-        for (int i=1;(i<=9 && i<=m);i++){
+        for (int i=1;(i<=9 && i<=n);i++){
             queue.offer(i);
         }
         int value;
@@ -58,8 +58,8 @@ public class PrintJumpingNumber {
     }
 
     public static void main(String[] args) {
-        int x = 105;
-      //  printJumpingNum(x);
-        printSpacialNumber(12,100);
+        int x = 10;
+      //  printSpacialNumber(x);
+        printSpacialNumber(12,30);
     }
 }

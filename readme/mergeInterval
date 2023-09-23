@@ -1,0 +1,9 @@
+1. find minimum number of platform/chair etc for given intervals
+2. merge overlapping intervals
+3. Insert new interval if conflict merge them
+4. remove covered interval
+5. non overlapping interval while removing min number of intervals
+
+
+solution
+https://github.com/Deshraj5268/datastructure/tree/master/src/leetcode/topinterviewquestion150/greedy

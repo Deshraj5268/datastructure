@@ -13,8 +13,25 @@ public class LPSubstring {
         System.out.println("\nusing Dp ");
         lpsDp(str);
         System.out.println("\nusing lcssubstring Dp ");
+        str = "aazx#$%%122   ";
+        String newStr = str.replaceAll("[^a-zA-Z]+","");
+        System.out.println(newStr);
+        newStr = removeAllSpacialChar(str);
+        System.out.println(newStr);
         lpsubStringUsingLCS(str);
     }
+
+    private static String removeAllSpacialChar(String str) {
+        StringBuilder sb = new StringBuilder();
+        for(int i=0;i<str.length();i++){
+            if(Character.isLetter(str.charAt(i))){
+                sb.append(str.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
+
 
 
     public static void lpsubStringUsingLCS(String str1){

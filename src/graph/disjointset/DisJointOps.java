@@ -13,7 +13,7 @@ public class DisJointOps {
     }
 
     public static int findWeightedSet(int [] parent,int i){
-        //weight or path length or rank will added in negative way
+        //weight or path length or rank will be added in negative way
         if(parent[i] < 0){
             return i;
         }
@@ -21,7 +21,7 @@ public class DisJointOps {
     }
 
     public static int findPathSet(int [] parent,int i){
-        //weight or path length or rank will added in negative way
+        //weight or path length or rank will be added in negative way
         if(parent[i] == -1){
             return i;
         }

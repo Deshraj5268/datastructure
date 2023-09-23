@@ -111,8 +111,8 @@ public class IslandProblem {
                 }
 
             }
-            /*System.out.println("print one");
-            printMatrix(mat,0,0,m,n);*/
+            System.out.println("print one");
+            printMatrix(mat,0,0,m,n);
 
         }
         return islandCount;

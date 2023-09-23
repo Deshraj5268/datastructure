@@ -54,9 +54,7 @@ public class PrintPathSrcToDst {
             return;
         }
         Iterator<Integer> itr = adj[srcV].iterator();
-        int tempV = 0;
-        while (itr.hasNext()){
-            tempV = itr.next();
+        for(int tempV :adj[srcV]){
             if(!visited[tempV]){
                 printAllPathUtil(tempV,dstV,pathArr,pathLength);
             }

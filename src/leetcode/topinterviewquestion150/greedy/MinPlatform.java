@@ -1,6 +1,7 @@
-package arrays.sortingsearching;
+package leetcode.topinterviewquestion150.greedy;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 public class MinPlatform {
 
@@ -9,8 +10,11 @@ public class MinPlatform {
         int [] arr = {900, 940, 950, 1100, 1500, 1800};
         int [] dep = {910, 1200, 1120, 1130, 1900, 2000};
         int minPlatform = minPlatform(arr,dep);
-
         System.out.println(minPlatform);
+        minPlatform = minPlatformWithMinHeap(arr,dep);
+        System.out.println("minPlatform using minHeap "+minPlatform);
+        minPlatform = minPlatFormWithoutExtraSpace(arr,dep);
+        System.out.println("minPlatform using minPlatFormWithoutExtraSpace "+minPlatform);
 
     }
 
@@ -65,6 +69,36 @@ public class MinPlatform {
         return result;
     }
 
+
+    /*
+    *  sort based on arrival time
+    * add first endTIme
+    * check all newArrival <= minHeap.peek() then increase counter
+    *  else poll the data from queue
+    *  add endTime in minQueue
+    * */
+    public static int minPlatformWithMinHeap(int [] arrival,int [] departure){
+        int [][] arrDep = new int[arrival.length][2];
+
+        for(int i=0;i<arrival.length;i++){
+            arrDep[i][0] = arrival[i];
+            arrDep[i][1] = departure[i];
+        }
+        Arrays.sort(arrDep,(x,y)->x[0]-y[0]); // sort based on arrival time
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        minHeap.add(arrDep[0][1]); // added first dept time
+        int minPlat=1;
+        for(int i=1;i<arrDep.length;i++){
+
+            if(arrDep[i][0] <= minHeap.peek()){ // second Arrival onboard are less than the min of Departure then inc count
+                minPlat++;
+            }else{
+                minHeap.poll();
+            }
+            minHeap.add(arrDep[i][1]);
+        }
+        return minPlat;
+    }
 }
 
 class ArrDeptInfo{

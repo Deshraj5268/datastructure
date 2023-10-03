@@ -1,7 +1,10 @@
-package dp.knapsackvariation;
+package dp.knapsackvariation.unbondedknapsack;
 
 import java.util.Arrays;
 
+/*
+* https://www.youtube.com/watch?v=I-l6PBeERuc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=16
+* */
 public class MinNumberOfCoinChange {
 
     public static void main(String[] args) {
@@ -14,7 +17,9 @@ public class MinNumberOfCoinChange {
         int [][] tab = new int[n+1][sum+1];
         //row initialization
         for(int j=0;j<=sum;j++){
-            tab[0][j] = Integer.MAX_VALUE-1; // infinite way if we don't have coins
+            tab[0][j] = Integer.MAX_VALUE-1; // infinite way if we don't have coins , once we get coin then will add it
+            // , it rotates to -Ve
+
         }
         for(int i=0;i<=n;i++){
             tab[i][0] = 0; // 0 way , if we have sum ==0 , so no matter how many coins we have
@@ -23,7 +28,7 @@ public class MinNumberOfCoinChange {
         for(int i=1;i<=n;i++){
             for(int j=1;j<=sum;j++){
                 if(coins[i-1] <= j){
-                    tab[i][j] = Math.min((1+tab[i][j-coins[i-1]]),tab[i-1][j]);
+                    tab[i][j] = Math.min((1+tab[i][j-coins[i-1]]),tab[i-1][j]); // 1 signifies that Val which is coin added
                 }else{
                     tab[i][j] = tab[i-1][j];
                 }

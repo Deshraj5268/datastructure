@@ -8,7 +8,7 @@ import java.util.List;
 public class MinimumSubSetPartition {
 
     public static void main(String[] args) {
-        int [] arr = {1, 6, 11, 5};
+        int [] arr = {1, 6, 11, 5};//{5,100,200,-10,-10,-50}
         System.out.println("input : "+ Arrays.toString(arr));
         int minSum = minimumSubsetPartition(arr,arr.length);
         System.out.println("minSum : "+minSum);

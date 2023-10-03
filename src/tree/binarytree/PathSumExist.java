@@ -6,7 +6,7 @@ public class PathSumExist {
     public static void main(String[] args) {
         int [] arr = {8,5,9,3};
         BTNode root = new BTTreeService().createBT(arr);
-        boolean isPathSumExist = isPathSumExist(root,0);
+        boolean isPathSumExist = isPathSumExist(root,16);
         System.out.println("result : "+isPathSumExist);
     }
     public static boolean isPathSumExist(BTNode root,int targetSum){

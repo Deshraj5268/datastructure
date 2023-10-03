@@ -1,4 +1,4 @@
-package dp.knapsackvariation;
+package dp.knapsackvariation.unbondedknapsack;
 
 import java.util.Arrays;
 
@@ -46,7 +46,7 @@ public class CoinChange {
     public static int coinChangeUn01Variation(int [] arr,int n,int sum){
         coinChangeArr = new int[n+1][sum+1];
 
-        for(int j=0;j<=n;j++){
+        for(int j=0;j<=sum;j++){
             coinChangeArr[0][j] = 0;
         }
         for(int i=0;i<=n;i++){

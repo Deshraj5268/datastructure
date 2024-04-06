@@ -14,9 +14,9 @@ public class MaxSumWOSlct2 {
         }
         int [] arrSum = new int[arr.length];
         arrSum[0] = arr[0];
-        arrSum[1] = (arr[0]>arr[1])? arr[0]: arr[1];
+        arrSum[1] = Math.max(arr[0], arr[1]);
         for(int i=2;i<arr.length;i++){
-            arrSum[i] = (arrSum[i-1]>(arrSum[i-2]+arr[i]))? arrSum[i-1]: arrSum[i-2]+arr[i];
+            arrSum[i] = Math.max(arrSum[i - 1], (arrSum[i - 2] + arr[i]));
         }
         System.out.println(Arrays.toString(arrSum));
         return arrSum[arr.length-1];

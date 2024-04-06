@@ -40,6 +40,8 @@ public class SortByAnotherArray {
         int [] arr1= {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8};
         int [] baseArr2 = {2, 1, 8, 3};
 
+        System.out.println("arr1 : "+Arrays.toString(arr1));
+        System.out.println("arr2 : "+Arrays.toString(baseArr2));
         Integer [] arr1Obj =  sortByAnotherArray(arr1,baseArr2);
         System.out.println(Arrays.toString(arr1Obj));
 

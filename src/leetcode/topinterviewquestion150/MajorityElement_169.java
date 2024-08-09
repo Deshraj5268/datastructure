@@ -2,6 +2,10 @@ package leetcode.topinterviewquestion150;
 
 import java.util.Arrays;
 
+/*
+* Article
+* https://www.geeksforgeeks.org/boyer-moore-majority-voting-algorithm/
+* */
 public class MajorityElement_169 {
 
     public static void main(String[] args) {
@@ -15,6 +19,7 @@ public class MajorityElement_169 {
         }
     }
 
+    /* Majority element always exist*/
     public static int majorityElement(int[] nums) {
         int majority = nums[0];
         int count=1;

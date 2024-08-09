@@ -10,3 +10,15 @@ A.SubArray:
 4. Sort an given array in wave form ( arr[0] <= arr[1] >= arr[2] .. like that )
 5. Sort an given array which have 0,1,2 elements only.
 
+
+
+6. Move zeros at the end
+https://leetcode.com/problems/move-zeroes/description/
+similar 6
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
+https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&envId=top-interview-150
+
+
+
+

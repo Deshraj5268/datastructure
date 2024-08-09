@@ -28,7 +28,7 @@ public class PriorityQueueJava {
         for(int i=10;i>0;i--){
             pq.offer(i);
         }
-        for(int i=0;i<10;i++){
+        while (!pq.isEmpty()){
             System.out.print(pq.poll() +" ");
         }
 
@@ -50,16 +50,21 @@ public class PriorityQueueJava {
         CustomHeapData c3 = new CustomHeapData(2,0);
         CustomHeapData c4 = new CustomHeapData(1,3);
 
-        Queue<CustomHeapData> cPQ = new PriorityQueue<>((x,y)->{
+        //Queue<CustomHeapData> cPQ = new PriorityQueue<>(Comparator.comparingInt(x -> x.key));
+       /* Queue<CustomHeapData> cPQ = new PriorityQueue<>((x,y)->{
             return x.key>y.key ?1:-1;
-        });
+        });*/
+        Queue<CustomHeapData> cPQ = new PriorityQueue<>((x,y)-> x.key-y.key);
         cPQ.add(c1);
         cPQ.add(c2);
         cPQ.add(c3);
         cPQ.add(c4);
 
         System.out.println("custom heap");
-        cPQ.stream().forEach(obj-> System.out.print(obj.toString()+" "));
+        while (!cPQ.isEmpty()){
+            System.out.println(cPQ.poll().toString());
+        }
+       // cPQ.stream().forEach(obj-> System.out.print(obj.toString()+" "));
 
     }
 

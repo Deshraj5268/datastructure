@@ -1,2 +1,11 @@
 https://neetcode.io/practice
 
+1. Heap basics ( min/max heap), complexity , basic implementation
+2. How java support heap ( PriorityQueue )
+
+
+Good links :
+https://leetcode.com/discuss/general-discussion/1127238/master-heap-by-solving-23-questions-in-4-patterns-category
+https://www.geeksforgeeks.org/top-50-problems-on-heap-data-structure-asked-in-interviews/
+https://www.fullstack.cafe/blog/heap-interview-questions
+https://www.techinterviewhandbook.org/algorithms/heap/

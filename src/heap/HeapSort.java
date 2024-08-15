@@ -9,7 +9,7 @@ public class HeapSort {
         int left = 2*i+1; // 2*i+(1-i)
         int right = 2*i+2; // 2*i+(2-i) i=0,1,2 ..
         int min = i;
-        if(left < n && arr[left]<arr[i]/*arr[max]<arr[left]*/){ // n inclusive
+        if(left < n && arr[left]<arr[i]/*arr[max]<arr[left]*/){ // n exclusive
             min = left;
         }
         if(right < n && arr[right]<arr[min] /*arr[max]<arr[right]*/){
@@ -21,7 +21,6 @@ public class HeapSort {
             arr[min] = temp;
             heapiFy(arr,min,n);
         }
-        return;
     }
 
     public static void heapSort(int [] arr,int initial,int n){
@@ -39,7 +38,7 @@ public class HeapSort {
         int temp = arr[i];
         arr[i] = arr[initial];
         arr[initial] = temp;
-        heapiFy(arr,initial,i-1);
+        heapiFy(arr,initial,i);
     }
 
     public static void buildHeap(int [] arr,int initial,int n){
@@ -51,9 +50,10 @@ public class HeapSort {
 
     public static void main(String[] args) {
         int [][] mat = {
-                     {99, 49, 57, 106, 29, 88, 15, 5, 190, 88, 86, 179, 17, 7, 15,29,69,1} // so use n/2-1 instead of n/2
-                    ,{12, 11, 13, 5, 6, 7}
-                      };
+                {99, 49, 57, 106, 29, 88, 15, 5, 190, 88, 86, 179, 17, 7, 15,29,69,1}, // so use n/2-1 instead of n/2
+                {12, 11, 13, 5, 6, 7},
+                {10,11,3,7,2}
+        };
         int initial = 0;
         for (int i=0;i<mat.length;i++) {
             System.out.println("input data : "+Arrays.toString(mat[i]));

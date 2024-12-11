@@ -65,9 +65,9 @@ public class ArrayRotation {
         arrayRotationByD(arr,d,arr.length);
         System.out.println("after "+Arrays.toString(arr));
 
-        int [] arr1 = {1, 2, 3, 4, 5};
+        int [] arr1 = {1, 2, 3, 4, 5,6,7};
         System.out.println("before " +Arrays.toString(arr1));
-        arrayRotationByDUsingDoubleArr(arr1,d,arr1.length);
+        arrayRotationByDUsingDoubleArr(arr1,3,arr1.length);
         System.out.println("using doubling array  after "+Arrays.toString(arr1));
 
     }

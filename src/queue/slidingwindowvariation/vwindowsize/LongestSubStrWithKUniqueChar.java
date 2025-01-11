@@ -2,8 +2,12 @@ package queue.slidingwindowvariation.vwindowsize;
 
 import java.util.HashMap;
 import java.util.Map;
+/*
+* https://www.geeksforgeeks.org/find-the-longest-substring-with-k-unique-characters-in-a-given-string/
+* */
 
-public class LongestSubStrWithUniqueChar {
+
+public class LongestSubStrWithKUniqueChar {
 
     public static void main(String[] args) {
         String input = "aabacbebebe";//aaaa

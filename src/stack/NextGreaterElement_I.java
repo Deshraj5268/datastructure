@@ -10,12 +10,8 @@ public class NextGreaterElement_I {
     /*
     * https://leetcode.com/problems/next-greater-element-i/
     *
-    * original arrays [4, 1, 2]
-      using stack [-1, 2, 4]
-      original arrays [1, 2, 3, 4, 3]
-      using stack [2, 3, 4, -1, 4]
-      original arrays [4, 3, 2, 1]
-      using stack [-1, 4, 4, 4]
+    * Input: nums1 = [4,1,2], nums2 = [1,3,4,2]
+        Output: [-1,3,-1]
      */
     public static void main(String[] args) {
         int [][] mat = {{4,1,2}};

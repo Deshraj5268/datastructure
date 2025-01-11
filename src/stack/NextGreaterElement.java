@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /*
-* another similler problem
+* another similar problem
 * */
 public class NextGreaterElement {
 

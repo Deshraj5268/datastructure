@@ -2,6 +2,9 @@ package src.queue.slidingwindowvariation.vwindowsize;
 
 import java.util.Arrays;
 
+/*
+* https://www.geeksforgeeks.org/longest-sub-array-sum-k/
+* */
 public class LengthOfLargestSubArrSumK {
 
     public static void main(String[] args) {

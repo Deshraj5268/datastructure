@@ -2,3 +2,7 @@
      The next greater element of a number x is the first greater number to the right of x in the array
 2. Monotonic Stack Patterns 
 https://leetcode.com/discuss/study-guide/2347639/A-comprehensive-guide-and-template-for-monotonic-stack-based-problems
+
+3. Convert infix to postfix expression
+   and ( multi digit)  extended question is how to handle if more than one digit is present between operator ( "123 * 2432 + 1")
+

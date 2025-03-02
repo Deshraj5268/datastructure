@@ -5,8 +5,8 @@ import java.util.Stack;
 public class InfixToPostfixConversion {
 
     public static void main(String[] args) {
-        String [] exps = {"A+B-C" , "A*B*C", "A*B+C/D" , "1+2+3", "A+B*C+D", "((A+B)-C*(D/E))+F"};
-        String [] postfixs = {"AB+C-", "AB*C*", "AB*CD/+", "12+3+", "ABC*+D+", "AB+CDE/*-F+"};
+        String [] exps = {/*"ADFSR+B-C" , "A*B*C", "A*B+C/D" , */"1+2+3"/*, "A+B*C+D", "((A+B)-C*(D/E))+F"*/};
+        String [] postfixs = {/*"ADFSR B + C -", "A B * C *", "A B * C D / +",*/ " 1 2 + 3 +"/*, "A B C * + D +", "A B + C D E / * - F +"*/};
         String infixExpression;
         for(int i=0;i<exps.length;i++) {
             infixExpression = exps[i];
@@ -37,27 +37,35 @@ public class InfixToPostfixConversion {
         for(int i=0;i<infixExpression.length();i++){
             out = infixExpression.charAt(i);
             if(isOperand(out)){
-                postfixExpression.append(out);
+               // postfixExpression.append(out);
+
+                //multi digit handling
+                while (i < infixExpression.length() && isOperand(infixExpression.charAt(i))) {
+                    postfixExpression.append(infixExpression.charAt(i));
+                    i++;
+                }
+                postfixExpression.append(' ');
+                i--;
             } else if(out == '('){
                 operatorStack.push(out);
             } else if(out == ')'){
                 while (operatorStack.peek() != '('){
-                    postfixExpression.append(operatorStack.pop());
+                    postfixExpression.append(operatorStack.pop()).append(' ');
                 }
                 operatorStack.pop();
             }
             else{
                 while (!operatorStack.isEmpty() && findPrecedence(out) <= findPrecedence(operatorStack.peek())){
-                    postfixExpression.append(operatorStack.pop());
+                    postfixExpression.append(operatorStack.pop()).append(' ');
                 }
                 operatorStack.push(out);
             }
         }
         while (!operatorStack.isEmpty()){
-            postfixExpression.append(operatorStack.pop());
+            postfixExpression.append(operatorStack.pop()).append(' ');;
         }
 
-        return postfixExpression.toString();
+        return postfixExpression.toString().trim();
     }
 
     private static boolean isOperand(char out) {

@@ -5,7 +5,7 @@ import java.util.Stack;
 class  myString{
     String str = "raj";
 }
-public class ExpresionEvaluation {
+public class ExpressionEvaluation {
 
 
     public float evaluateExp(String exp){

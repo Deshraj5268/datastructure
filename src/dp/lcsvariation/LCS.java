@@ -30,9 +30,9 @@ public class LCS {
             }
         }
 
-        /*for(int i=0;i<=m;i++){
+        for(int i=0;i<=m;i++){
             System.out.println(Arrays.toString(tab[i]));
-        }*/
+        }
         return tab;
     }
 
@@ -54,9 +54,9 @@ public class LCS {
 
     public static int[][]  lcsDpTabSpaceOptimize(String str1,String str2,int m,int n){
         int [][] tab = new int[2][n+1];
-        int bi = 0;
+        int bi = 0;// binary index
         for(int i=0;i<=m;i++){
-            bi = i & 1;
+            bi = i & 1; // even or odd
             for(int j=0;j<=n;j++){
                 if(i == 0 || j == 0){
                     tab[bi][j] = 0;

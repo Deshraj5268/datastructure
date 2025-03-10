@@ -1,5 +1,7 @@
 package dp;
 
+
+/* https://www.geeksforgeeks.org/count-of-possible-paths-from-top-left-to-bottom-right-of-a-m-x-n-matrix-by-moving-right-down-or-diagonally/ */
 public class CountPath {
 
     private static int[][] memoization;
@@ -8,7 +10,8 @@ public class CountPath {
         int m = 2;
         int n = 3;
         int result = countPath(m,n);
-        System.out.println(result);
+        int expectedResult = 3;
+        System.out.println(result + result == expectedResult);
         System.out.println(countPathTabBottomUp(m,n));
         memoization = new int[m][n];
         System.out.println(countPathMemoization(m-1,n-1));

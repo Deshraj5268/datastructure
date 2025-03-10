@@ -6,6 +6,15 @@ package dp.lcsvariation;
 * */
 public class LRepeatedSubsequence {
 
+
+    /*
+    *
+    * For example, consider the sequence ATACTCGGA.
+        The length of the longest repeating subsequence is 4The
+     *    longest repeating subsequence is ATCG
+     * A T A C T C G G A
+     * A T A C T C G G A
+     *  */
     public static void main(String[] args) {
         String [] str1Mat = {"AABEDCDD","sea","leetcode"};
         int result;

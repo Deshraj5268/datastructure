@@ -34,7 +34,7 @@ public class SubSetSum {
 
     public static boolean [][] subSetSumTable(int[] arr, int n, int sum) {
         tabSum = new boolean[n +1][sum +1];
-        for(int j = 0; j<= sum; j++){
+        for(int j = 1; j<= sum; j++){
             tabSum[0][j] = false;//sum is not zero
         }
         for(int i = 0; i<= n; i++){

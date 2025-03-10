@@ -6,7 +6,7 @@ public class SubStrings {
         String str = "abcd";
         generateAllSubStringLengthWise(str);
         System.out.println("printAllSubstring ");
-       // printAllSubstring(str);
+        printAllSubstring(str);
     }
 
     /*

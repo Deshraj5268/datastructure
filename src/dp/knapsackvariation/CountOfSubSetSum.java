@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class CountOfSubSetSum {
 
     public static void main(String[] args) {
-        int sum =1;//6
-        int [] arr =  {1, 1, 1, 1};// {1, 2, 3, 3};
+        int sum =9;//1;//6
+        int [] arr =  {3, 34, 4, 12, 5, 2};//{1, 1, 1, 1};// {1, 2, 3, 3};
         System.out.println("input array : "+ Arrays.toString(arr)+" sum : "+sum);
         int result = countSubSetSum(arr,arr.length,sum);
         System.out.println("count of subset sum "+result);

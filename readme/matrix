@@ -1,4 +1,4 @@
 1. Rotate matrix by 90/180 degree ( clockwise , anticlockwise)
-2. Print matrix diagonally
+2. Print matrix diagonally , diagonal sum of matrix
 3. Print matrix diagonally zigzag way ( hashMap approach (row+col sum)
 4. print matrix spiral way

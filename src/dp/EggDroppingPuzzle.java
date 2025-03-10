@@ -6,7 +6,7 @@ package dp;
 *find the critical floor, but merely to decide floors from which eggs should be dropped
 * so that total number of trials are minimized.
 * */
-public class EggDroppinPuzzle {
+public class EggDroppingPuzzle {
 
     //n : # eggs , k : floors
     public int eggDropping(int n,int k){
@@ -56,11 +56,11 @@ public class EggDroppinPuzzle {
 
 
     public static void main(String[] args) {
-        EggDroppinPuzzle eggDroppinPuzzle = new EggDroppinPuzzle();
+        EggDroppingPuzzle eggDroppingPuzzle = new EggDroppingPuzzle();
         int n = 2;
         int k = 10;
-        int result = eggDroppinPuzzle.eggDropping(n,k);
+        int result = eggDroppingPuzzle.eggDropping(n,k);
         System.out.println(result);
-        System.out.println("Using DP : "+eggDroppinPuzzle.eggDroppingDp(n,k));
+        System.out.println("Using DP : "+ eggDroppingPuzzle.eggDroppingDp(n,k));
     }
 }

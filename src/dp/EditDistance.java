@@ -1,5 +1,15 @@
 package dp;
 
+
+/*https://www.geeksforgeeks.org/edit-distance-dp-5/
+*
+* Given two strings s1 and s2 and below operations that can be performed on s1.
+* The task is to find the minimum number of edits (operations) to convert ‘s1‘ into ‘s2‘.
+
+Insert: Insert any character before or after any index of s1
+Remove: Remove a character of s1
+Replace: Replace a character at any index of s1 with some other character.
+* */
 public class EditDistance {
 
     public static void main(String[] args) {

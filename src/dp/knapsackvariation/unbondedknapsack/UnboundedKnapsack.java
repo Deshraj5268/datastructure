@@ -40,7 +40,7 @@ public class UnboundedKnapsack {
                 if(i == 0 || j == 0){
                     tabKnapsack[i][j] = 0;
                 }else if(wt[i-1] <= j){
-                    tabKnapsack[i][j] = Math.max(val[i-1]+tabKnapsack[i][j-wt[i-1]],tabKnapsack[i-1][j]);
+                    tabKnapsack[i][j] = Math.max(val[i-1]+tabKnapsack[i][j-wt[i-1]],tabKnapsack[i-1][j]); //tabKnapsack[i][j-wt[i-1] reusing same
                 }else {
                     tabKnapsack[i][j] = tabKnapsack[i-1][j];
                 }

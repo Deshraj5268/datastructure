@@ -52,7 +52,7 @@ public class PrintDiagonal {
 Iterate to print diagonals from row k = 0 to rowCount - 1.
 1: Start with row = k and col = 0
 2: Print the element matrix[row][col]
-3: Decrement row by 1 Increment col by 1till row greater than or equal to 0 and  col less than columnCount
+3: Decrement row by 1 Increment col by 1 till row greater than or equal to 0 and  col less than columnCount
 
 Step 2 Details: Print next columnCount – 1 diagonals
 Iterate to print diagonals from column k = 1 to columnCount - 1
@@ -100,7 +100,7 @@ Iterate to print diagonals from column k = 1 to columnCount - 1
     *
     * create hashmap
     * 0-> 1
-    * 1->3,4
+    * 1->2,4
     * 2->3,5,7
     * 3->6,8
     * 4->9

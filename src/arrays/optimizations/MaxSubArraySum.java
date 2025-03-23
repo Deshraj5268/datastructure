@@ -9,6 +9,47 @@ import java.util.Arrays;
 
 class MaxSubArraySum
 {
+
+
+
+   /* public int maxSubArray(int[] nums) {
+
+        int n = nums.length;
+        int [] dPSum = new int[n];
+        dPSum[0] = nums[0];
+        int maxSum =  dPSum[0];
+        for(int i=1;i<n;i++){
+
+           //approach 1
+          /* if(currentSum + nums[i] > nums[i]){
+              currentSum = currentSum + nums[i];
+           }else{
+            currentSum = nums[i];
+           }
+           if(maxSum < currentSum){
+             maxSum = currentSum;
+           }*/
+
+         // Approach 2
+            /* currentSum = Math.max(nums[i], currentSum + nums[i]);
+           maxSum = Math.max(maxSum, currentSum);
+           */
+
+            // Appraoch 3
+             /*
+            //kadan's algo M[i] = max(M[i-1]+nums[i] , nums[i])
+            if(dPSum[i-1] + nums[i] > nums[i]){
+                dPSum[i] = dPSum[i-1] + nums[i];
+            }else{
+                dPSum[i] = nums[i];
+            }
+            if(dPSum[i] > maxSum){
+                maxSum = dPSum[i];
+            }
+        }
+        return maxSum;
+    }*/
+
     public static int maxSubArraySum(int [] arr){
         if(arr == null || arr.length == 0){
             return 0;

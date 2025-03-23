@@ -21,6 +21,21 @@ public class QuickSort {
         return i;
     }
 
+    //last element as pivot lomuto partition scheem
+    public static int pivotAsStart(int [] arr,int s,int e){
+        int pv = arr[s];// pivot as start
+        int i = s;
+        for(int j = i+1 ; j <= e; j++){
+            if(pv >= arr[j]){
+                i++;
+                swap(arr,i,j);
+            }
+        }
+        swap(arr,s,i);
+       // System.out.println("pivot as start after partition: "+Arrays.toString(arr));
+        return i;
+    }
+
     public static int hoaresPartition(int [] arr,int p,int q){
         int left = p;
         int right = q;
@@ -43,7 +58,7 @@ public class QuickSort {
 
     public static void quickSort(int [] arr,int s,int e){
         if(s<e){
-            int m = hoaresPartition(arr,s,e);
+            int m = pivotAsStart(arr,s,e);
             //System.out.println(Arrays.toString(arr));
             quickSort(arr,s,m-1);
             quickSort(arr,m+1,e);

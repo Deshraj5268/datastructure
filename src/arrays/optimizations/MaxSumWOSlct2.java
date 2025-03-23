@@ -24,6 +24,7 @@ public class MaxSumWOSlct2 {
 
     public static void main(String[] args) {
         int [] arr = {5, 5, 10, 100, 10, 5};
+        System.out.println(Arrays.toString(arr));
         System.out.println("array sum : "+maxSubArrSumWOSelecting2ConEle(arr));
     }
 }

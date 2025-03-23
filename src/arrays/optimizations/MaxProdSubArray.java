@@ -1,8 +1,11 @@
-package arrays.subarray;
+package arrays.optimizations;
 
+
+import java.util.Arrays;
 
 /*
 * https://www.youtube.com/watch?v=hJ_Uy2DzE08
+* https://www.youtube.com/watch?v=lXVy6YWFcRM : also good
 * */
 public class MaxProdSubArray {
     public static void main(String[] args) {
@@ -11,9 +14,11 @@ public class MaxProdSubArray {
                 {1,2,3,-4,2},
                 {-1,-5,-6},
                 {0,0,-20,0},
-                {-2,3,4,2}
+                {-2,3,4,2},
+                {2,3,-2,4}
         };
         for(int i=0;i<mat.length;i++){
+            System.out.println("inout array : "+ Arrays.toString(mat[i]));
            long max =  maxProductKadansWay(mat[i],mat[i].length);
             System.out.println(max);
         }

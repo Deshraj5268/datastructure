@@ -2,6 +2,7 @@ package graph;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BFS {
@@ -11,15 +12,19 @@ public class BFS {
     public static void bfsUtil(int startVertex,boolean [] visited){
         Queue<Integer> qu = new LinkedList<>();
         qu.offer(startVertex);
+        visited[startVertex] = true;
        // int newVertex;
         int queueddata;
         while (!qu.isEmpty()){
             queueddata = qu.poll();
             System.out.print(queueddata+" ");
-            for(int newVertex:adj[queueddata]){
-                if (!visited[newVertex]) {
-                    visited[newVertex] = true;
-                    qu.offer(newVertex);
+            List<Integer> edges = adj[queueddata];
+            if(edges != null) {
+                for (int newVertex : edges) {
+                    if (!visited[newVertex]) {
+                        visited[newVertex] = true;
+                        qu.offer(newVertex);
+                    }
                 }
             }
         }

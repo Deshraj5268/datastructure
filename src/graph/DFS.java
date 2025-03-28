@@ -1,8 +1,6 @@
 package graph;
 
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.*;
 
 public class DFS {
 
@@ -11,12 +9,12 @@ public class DFS {
     public static void dfsUtil(int startVertex, boolean [] visited){
         System.out.print(startVertex+" ");
         visited[startVertex] = true;
-        Iterator<Integer> it = adj[startVertex].iterator();
-        int newVertex;
-        while (it.hasNext()){
-            newVertex = it.next();
-            if(!visited[newVertex]){
-                dfsUtil(newVertex,visited);
+        List<Integer> edges = adj[startVertex];
+        if(edges != null) {
+            for (Integer edge : edges) {
+                if (!visited[edge]) {
+                    dfsUtil(edge, visited);
+                }
             }
         }
     }
@@ -28,20 +26,21 @@ public class DFS {
 
     public static void dfsItr(int noOfVertex,int startVertex) {
         boolean[] visited = new boolean[noOfVertex];
-        Deque<Integer> st = new LinkedList<>(); //stack
-        st.addLast(startVertex);
+        Stack<Integer> st = new Stack<>(); //stack
+        st.push(startVertex);
 
         int top;
-        int node;
         while (!st.isEmpty()){
-            top = st.removeLast();
+            top = st.pop();
             visited[top] = true;
             System.out.print(top+" ");
-            Iterator<Integer> itr = adj[top].iterator();
-            while (itr.hasNext()){
-                node = itr.next();
-                if(!visited[node]){
-                    st.addLast(node);
+            List<Integer> edges = adj[top];
+            if(edges != null){
+                for(Integer edge : edges){
+                    if(!visited[edge]){
+                        visited[edge] = true;
+                        st.push(edge);
+                    }
                 }
             }
         }
@@ -54,16 +53,20 @@ public class DFS {
     * 3->3
     * */
     public static void main(String[] args) {
-        int totalVertex = 4;
+        int totalVertex = 5;
         AdjacencyMatrix adjObj =  new AdjacencyMatrix(totalVertex);
         adj = adjObj.getAdj();
 
         adjObj.addEdge(0, 1);
         adjObj.addEdge(0, 2);
         adjObj.addEdge(1, 2);
+        adjObj.addEdge(1, 0);
         adjObj.addEdge(2, 0);
+        adjObj.addEdge(2, 1);
         adjObj.addEdge(2, 3);
-        adjObj.addEdge(3, 3);
+        adjObj.addEdge(2, 4);
+        adjObj.addEdge(3, 2);
+        adjObj.addEdge(4, 4);
 
         int startVertex = 0;
 

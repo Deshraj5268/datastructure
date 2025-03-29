@@ -1,8 +1,9 @@
 https://www.youtube.com/watch?v=utDu3Q7Flrw&list=PLot-Xpze53ldBT_7QA8NVot219jFNr_GI
 
 1. DFS :
-DSA -> Stack/HashSet
+DSA -> Stack/HashSet , Stack/Array
 complexity O(n) - n number of nodes
+Array or hashmap for visited check
 2. BFS :
 DSA -> Queue/HashSet
 complexity O(n) - n number of nodes
@@ -23,3 +24,5 @@ Application:
  https://www.geeksforgeeks.org/applications-advantages-and-disadvantages-of-graph/?ref=lbp
 DFS :
 
+BFS :
+1. Print jumping number(diff of adjacent digit should be 1)

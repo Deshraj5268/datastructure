@@ -13,14 +13,14 @@ public class TopologicalSort {
 
         adjObj.addEdge(5, 2);
         adjObj.addEdge(5, 0);
-        adjObj.addEdge(4, 0);
+        adjObj.addEdge(0, 4);
         adjObj.addEdge(4, 1);
         adjObj.addEdge(2, 3);
         adjObj.addEdge(3, 1);
 
-        System.out.println("using BFS ");
+        System.out.println("using DFS ");
         topoLogicalSort(totalVertex);
-        System.out.println("\nusing kahn's algo");
+        System.out.println("\n using kahn's algo");
         List<Integer> resulList = kahnsAlgo(totalVertex,adj);
         if(resulList.size() != totalVertex){
             System.out.println("cycle is exist ");
@@ -87,11 +87,12 @@ public class TopologicalSort {
             resulList.add(queueNode);
 
             if(adj[queueNode] != null) {
-                Iterator<Integer> adjNodes = adj[queueNode].iterator();
-                while (adjNodes.hasNext()) {
-                    Integer node = adjNodes.next();
-                    if (inDegree[node] != -1 && --inDegree[node] == 0) {
-                        qu.offer(node);
+                List<Integer> edges = adj[queueNode];
+                if(edges != null) {
+                    for (Integer edge : edges) {
+                        if (inDegree[edge] != -1 && --inDegree[edge] == 0) {
+                            qu.offer(edge);
+                        }
                     }
                 }
             }
@@ -101,26 +102,20 @@ public class TopologicalSort {
 
     public static int[] calculateInDegree(int totalVertex,LinkedList<Integer>[] adj) {
         int[] inDegree = new int[totalVertex];
-        //Arrays.fill(inDegree,-1);
-        for(int i=0;i<totalVertex;i++){
-            if(adj[i]!=null) {
-                Iterator<Integer> it = adj[i].iterator();
-                while (it.hasNext()) {
-                    int val = it.next();
-                    if(inDegree[val] == -1){
-                        inDegree[val] = 0;
-                    }
-                    inDegree[val]++;
+        for(int i=0;i<totalVertex;i++) {
+            List<Integer> edges = adj[i];
+            if (edges != null) {
+                for (Integer edge : edges) {
+                    inDegree[edge]++;
                 }
-            }else{
-                if(inDegree[i]<1)
-                inDegree[i] = -1;
             }
         }
+       // System.out.println("indgree : "+Arrays.toString(inDegree));
         return inDegree;
     }
 
 
+    //dfs
     private static void topoLogicalSortUtil(int vertex, boolean [] visited, Deque<Integer> stack){
         visited[vertex] = true;
         if(adj[vertex] != null) {

@@ -24,8 +24,8 @@ public class PrintJumpingNumber {
             }else if(value%10 == 9){
                 queue.offer(prevNumber);
             }else {
-                queue.offer(nextNumber);
                 queue.offer(prevNumber);
+                queue.offer(nextNumber);
             }
         }
     }
@@ -60,6 +60,7 @@ public class PrintJumpingNumber {
     public static void main(String[] args) {
         int x = 10;
       //  printSpacialNumber(x);
-        printSpacialNumber(12,30);
+        //printSpacialNumber(12,30);
+        printSpacialNumber(250);
     }
 }

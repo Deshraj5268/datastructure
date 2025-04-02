@@ -2,7 +2,7 @@ package tree.binarytree;
 
 public class PostOrNode {
     public BTNode btNode;
-    public boolean pushFlag;
+    public boolean pushFlag; // is node visited or not
 
     public PostOrNode() {
     }

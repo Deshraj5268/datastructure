@@ -111,7 +111,7 @@ public class IslandProblem {
                 }
 
             }
-            System.out.println("print one");
+            System.out.println("print without space approach data");
             printMatrix(mat,0,0,m,n);
 
         }

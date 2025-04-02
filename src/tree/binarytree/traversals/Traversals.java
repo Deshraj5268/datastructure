@@ -62,6 +62,8 @@ public class Traversals {
         }
     }
 
+    //LRN
+
     public void postOrderItr(BTNode root){
         Stack<PostOrNode> stack = new Stack<>();
         BTNode temp = root;
@@ -82,8 +84,6 @@ public class Traversals {
             }
         }
     }
-
-    //LRN
     public void postOrderRec(BTNode root){
         if(root == null){
             return;
@@ -256,14 +256,12 @@ public class Traversals {
 
         while (!queue.isEmpty()) {
             temp = queue.poll();
-            LinkedList<Integer> list;
-            if(treeMap.get(temp.hd) == null){
+            LinkedList<Integer> list = treeMap.get(temp.hd);
+            if(list == null){
                 list = new LinkedList();
-            }else {
-                list = treeMap.get(temp.hd);
+                treeMap.put(temp.hd,list);
             }
             list.addLast(temp.btNode.data);
-            treeMap.put(temp.hd,list);
 
             if (temp.btNode.left != null) {
                 leftNode = new LeftDiagonalNode(temp.btNode.left, temp.hd - 1);

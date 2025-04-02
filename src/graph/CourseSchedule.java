@@ -4,6 +4,9 @@ import graph.disjointset.DisJointOps;
 
 import java.util.*;
 
+/*
+* https://leetcode.com/problems/course-schedule/description/
+* */
 public class CourseSchedule {
 
     public static void main(String[] args) {
@@ -63,19 +66,73 @@ public class CourseSchedule {
         visited[curr] = 1;
         return false;
     }
-    public static boolean canFinish(int numCourses, int[][] prerequisites){
+
+    /*
+    * pre pare adjList
+    * (a,b) --> [a->b]
+    * */
+    public static boolean canFinish(int numCourses, int[][] prerequisites) {
+
+        List<Integer> [] adj = new ArrayList[numCourses];
+        for(int i=0;i<adj.length;i++){
+            adj[i] = new ArrayList<>();
+        }
+        // prepare adjList
+        for(int i=0;i<prerequisites.length;i++){
+            adj[prerequisites[i][0]].add(prerequisites[i][1]);
+        }
+
+        List<Integer> result = topoLogicalSort(adj,  numCourses);
+        return result.size() == numCourses;
+
+    }
+
+    public static List<Integer> topoLogicalSort(List<Integer>[] adj, int numCourses){
+        // Topological sort -- Kahan's algo
+        //calculate indegree
+
+        int [] inDegree = new int[numCourses];
+        for(int i=0;i<adj.length;i++){
+            for(Integer edge : adj[i]){
+                inDegree[edge]++;
+            }
+        }
+
+        Queue<Integer> pq = new PriorityQueue<>();
+        for(int i=0;i<inDegree.length;i++){
+            if(inDegree[i] == 0){
+                pq.add(i);
+            }
+        }
+
+        Integer node;
+        List<Integer> result = new LinkedList<>();
+        while(!pq.isEmpty()){
+            node = pq.poll();
+            result.add(node);
+
+            for(Integer edge : adj[node]){
+                if(--inDegree[edge] == 0){
+                    pq.add(edge);
+                }
+            }
+        }
+        return result;
+    }
+
+    /* public static boolean canFinish(int numCourses, int[][] prerequisites){
        // Map<Integer, List<Integer>> map = prepareCourseMap(prerequisites);
         LinkedList<Integer>[] adj = prepareAdjList(prerequisites,numCourses);
         CycleInDG cycleInDG = new CycleInDG(adj);
         return !CycleInDG.isCycleInDG(numCourses);
        // TopologicalSort.kahnsAlgo(numCourses,adj);
-       /* List<Integer> result = TopologicalSort.kahnsAlgo(numCourses,adj);
-        *//*int [] inDegree = TopologicalSort.calculateInDegree(numCourses,adj);
+       *//* List<Integer> result = TopologicalSort.kahnsAlgo(numCourses,adj);
+        *//**//*int [] inDegree = TopologicalSort.calculateInDegree(numCourses,adj);
         Queue<Integer> qu = TopologicalSort.getIndegrees(numCourses,inDegree);
-        return qu.size() != 0;*//*
+        return qu.size() != 0;*//**//*
         System.out.print("result list : "+result.toString()+"\n");
-        return result.size() != 0 && result.size() == numCourses;*/
-    }
+        return result.size() != 0 && result.size() == numCourses;*//*
+    }*/
 
     private static  LinkedList<Integer>[] prepareAdjList(int[][] prerequisites,int numCourses) {
         LinkedList<Integer> [] adj = new LinkedList[numCourses];

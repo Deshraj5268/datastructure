@@ -1,4 +1,4 @@
-package dp;
+package dp.kadansAlgo;
 
 public class MaxSubArrSumWOAdjElement {
 

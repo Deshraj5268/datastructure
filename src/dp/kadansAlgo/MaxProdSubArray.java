@@ -1,4 +1,4 @@
-package arrays.optimizations;
+package dp.kadansAlgo;
 
 
 import java.util.Arrays;

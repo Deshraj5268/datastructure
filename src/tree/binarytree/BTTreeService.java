@@ -108,6 +108,19 @@ public class BTTreeService {
 
     }
 
+    boolean hasPathSum(BTNode root, int target) {
+        // Your code here
+        if(root == null){
+            return false;
+        }
+        int sum = target - root.data;
+        if(root.left == null && root.right == null && sum == 0){
+            return true;
+        }
+        return hasPathSum(root.left, sum) || hasPathSum(root.right, sum);
+
+    }
+
     public BTNode findLca(BTNode root,int n1,int n2){
         if(root == null){
             return null;

@@ -8,6 +8,9 @@ public class BTNode {
 
     public BTNode() {
     }
+    public BTNode(int data) {
+        this.data = data;
+    }
 
     public BTNode(int data, BTNode left, BTNode right) {
         this.data = data;

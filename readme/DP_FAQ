@@ -1,4 +1,7 @@
 https://github.com/Deshraj5268/datastructure/tree/master/src/dp
+DP problem based on standard problem :
+https://www.linkedin.com/posts/ramanwalia_i-sat-down-for-3-4-hours-to-find-20-dp-patterns-activity-7310640125317656576-iZVF/?utm_source=share&utm_medium=member_android&rcm=ACoAAA1swuwBZx53J_7TSO-kg2qgCColXGITmjk
+
 
 1.Power Set: generate all sub set for a given set ( select or not)
   1.1 01KnapsackProblem

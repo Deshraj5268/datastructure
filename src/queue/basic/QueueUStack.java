@@ -28,7 +28,7 @@ public class QueueUStack {
         deQueueLight();
         deQueueLight();
 
-        System.out.println("  dequeue and enqueue :");
+        System.out.println("  dequeue and enqueue optimized:");
         stack1 = new Stack<>();
         stack2 = new Stack<>();
         deQueue();

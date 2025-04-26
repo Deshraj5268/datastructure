@@ -16,6 +16,9 @@ public class PalindromeII {
             System.out.println("input : "+str);
             result = isPalindrome(str);
             System.out.println("Output : "+result);
+            String newStr = str.replaceAll("[^A-Za-z0-9]", "");
+            boolean strResult= isPalindromeWithSpacial(newStr, 0, newStr.length()-1);
+            System.out.println("strResult :" +strResult);
         }
 
     }
@@ -45,6 +48,37 @@ public class PalindromeII {
                     leftIndex++;
                     rightIndex--;
                 }
+            }
+        }
+        return true;
+
+    }
+
+    public static boolean isPalindromeWithSpacial(String str , int left, int right) {
+        if(str == null || str.isEmpty()){
+            return false;
+        }
+        while(left < right){
+            if(Character.toUpperCase(str.charAt(left)) != Character.toUpperCase(str.charAt(right))){
+                return isPalindromeWithSpacialUtil(str, left+1, right) ||
+                        isPalindromeWithSpacialUtil(str, left, right-1);
+            }
+            left++;
+            right--;
+        }
+        return true;
+
+    }
+    public static boolean isPalindromeWithSpacialUtil(String str , int left, int right) {
+        if(str == null || str.isEmpty()){
+            return false;
+        }
+        while(left < right){
+            if(Character.toUpperCase(str.charAt(left)) != Character.toUpperCase(str.charAt(right))){
+                return false;
+            }else {
+                left++;
+                right--;
             }
         }
         return true;

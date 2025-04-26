@@ -38,6 +38,7 @@ public class CardProb_950 {
 
     public static void main(String[] args) {
         int [] arr = {17,13,11,2,3,5,7};
+        System.out.println("input : "+Arrays.toString(arr));
         int [] result = deckRevealedIncreasing(arr);
         System.out.println(Arrays.toString(result));
 

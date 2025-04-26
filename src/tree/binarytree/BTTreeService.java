@@ -243,5 +243,58 @@ public class BTTreeService {
         }
     }
 
+    /* https://www.geeksforgeeks.org/serialize-deserialize-binary-tree/ */
+    /*
+    * travers in level order way
+    * if node is null then add -1
+    * otherwise add node value and add lef, right node of tree
+    * return result list
+    * */
+    public List<Integer> serialize(BTNode root){
+        List<Integer> result = new ArrayList<>();
+        Queue<BTNode> queue = new LinkedList<>();
+        queue.add(root);
+        BTNode curr;
+        while (!queue.isEmpty()){
+            curr = queue.poll();
+            if(curr == null){
+                result.add(-1);
+                continue;
+            }
+            result.add(curr.data);
+            queue.add(curr.left);
+            queue.add(curr.right);
+        }
+        return result;
+    }
+
+    public BTNode deserialize(List<Integer> list){
+        if(list.get(0) == -1){
+            return null;
+        }
+        Queue<BTNode> queue = new LinkedList<>();
+        BTNode root = new BTNode(list.get(0));
+        queue.add(root);
+        BTNode curr = null;
+        int i = 1;
+        while (!queue.isEmpty()){
+            curr = queue.poll();
+
+            if(list.get(i) != -1){
+                BTNode left = new BTNode(list.get(i));
+                curr.left = left;
+                queue.add(left);
+            }
+            i++;
+            if(list.get(i) != -1){
+                BTNode right = new BTNode(list.get(i));
+                curr.right = right;
+                queue.add(right);
+            }
+            i++;
+        }
+        return root;
+    }
+
 
 }

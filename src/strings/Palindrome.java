@@ -11,11 +11,14 @@ public class Palindrome {
         String [] strs = {"","ABA","raaca ksd",
         "A man, a plan, a canal: Panama",
         "&&*#(@","      "};
-        boolean result;
+        boolean result, resultRemoveSpacialChar;
         for (String str:strs){
             System.out.println("input : "+str);
             result = isPalindrome(str);
+            resultRemoveSpacialChar = isPalindromeWithSpacial(str);
             System.out.println("Output : "+result);
+            System.out.println("result using remove spacial : "+resultRemoveSpacialChar);
+            System.out.println();
         }
 
     }
@@ -52,6 +55,26 @@ public class Palindrome {
         }
         return true;
 
+    }
+
+    public static boolean isPalindromeWithSpacial(String str) {
+        if(str == null){
+            return false;
+        }
+        String woSpacialChar = str.replaceAll("[^A-Za-z0-9]", "");
+        int left = 0;
+        int right = woSpacialChar.length()-1;
+
+      //  System.out.println(woSpacialChar);
+        while(left < right){
+            if(Character.toUpperCase(woSpacialChar.charAt(left)) != Character.toUpperCase(woSpacialChar.charAt(right))){
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
     }
 
     private static boolean isDigitLetter(char letter) {

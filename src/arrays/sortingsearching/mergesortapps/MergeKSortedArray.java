@@ -1,9 +1,14 @@
 package arrays.sortingsearching.mergesortapps;
 
+import linkedlist.ListNode;
+
 import java.util.*;
 
 import static matrix.MatrixRotation.printMatrix;
 
+/*
+* https://leetcode.com/problems/merge-k-sorted-lists/
+* */
 public class MergeKSortedArray {
 
     public static void main(String[] args) {
@@ -20,6 +25,35 @@ public class MergeKSortedArray {
         System.out.println("sorted array using kway merging approach : "+Arrays.toString(newSortedArr));
 
 
+    }
+
+    public ListNode mergeKLists(ListNode[] lists) {
+        if(lists == null || lists.length == 0){
+            return null;
+        }
+        PriorityQueue<ListNode> pq = new PriorityQueue<>((node1, node2)
+                -> node1.data - node2.data);
+
+        for(ListNode node : lists){
+            if(node != null){
+                pq.add(node);
+            }
+        }
+
+        ListNode smallestNode;
+
+        ListNode dummyNode = new ListNode();
+        ListNode currentNode = dummyNode;
+
+        while(!pq.isEmpty()){
+            smallestNode = pq.poll();
+            if(smallestNode.next != null){
+                pq.add(smallestNode.next);
+            }
+            currentNode.next = smallestNode;
+            currentNode = currentNode.next;
+        }
+        return dummyNode.next;
     }
 
     public static int [] sortKArrayBruteForce(int [][] mat,int k,int n){
@@ -100,7 +134,4 @@ public class MergeKSortedArray {
         }
         return newArray;
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-package src.queue.slidingwindowvariation;
+package queue.slidingwindowvariation;
 
 
 import java.util.Arrays;
@@ -19,8 +19,9 @@ public class FirstNegativeInEveryWinK {
                               };
         long [] result;
         for(int i=0;i<arrays.length;i++){
+            System.out.println("input : "+ Arrays.toString(arrays[i]) +" and winSize : "+winSizes[i]);
             result = printFirstNegativeInteger(arrays[i],arrays[i].length,winSizes[i]);
-            System.out.println("resultOpt : "+Arrays.toString(result)+ " \n expected :"+Arrays.toString(outputArr[i]));
+            System.out.println("resultOpt : "+Arrays.toString(result)+ " \nexpected :"+Arrays.toString(outputArr[i]));
         }
     }
 

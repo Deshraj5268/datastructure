@@ -50,9 +50,9 @@ public class FinMaxInEachWinK {
             while(!dq.isEmpty() && (i-k + 1) >dq.peekFirst()) {
                 dq.removeFirst();
             }
-            if(!dq.isEmpty()){
+           /* if(!dq.isEmpty()){
                 System.out.println(dq.peekFirst());
-            }
+            }*/
             // removing last element until current data is less than
             while(!dq.isEmpty() &&  nums[dq.peekLast()] < nums[i]) {
                 dq.removeLast();
@@ -67,8 +67,8 @@ public class FinMaxInEachWinK {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1, -1};//{ 12, 1, 78, 90, 57, 89, 56 };
-        int k = 1;
+        int arr[] = {1,2,3,1,4,5,2,3,6};//{ 12, 1, 78, 90, 57, 89, 56 };
+        int k = 3;
         /*Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while (t-->0){

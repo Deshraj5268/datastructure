@@ -1,9 +1,9 @@
-package dp;
+package dp.mcmvariation;
 
 
 
 /*
-*find the critical floor, but merely to decide floors from which eggs should be dropped
+* find the critical floor, but merely to decide floors from which eggs should be dropped
 * so that total number of trials are minimized.
 * */
 public class EggDroppingPuzzle {

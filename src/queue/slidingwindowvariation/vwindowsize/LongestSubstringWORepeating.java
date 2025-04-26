@@ -1,4 +1,4 @@
-package src.queue.slidingwindowvariation.vwindowsize;
+package queue.slidingwindowvariation.vwindowsize;
 
 import java.util.HashMap;
 import java.util.HashSet;

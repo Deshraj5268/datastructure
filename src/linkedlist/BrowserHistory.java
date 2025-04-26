@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class BrowserHistory {
 
-    Stack<String> stack1 = new Stack<>();
-    Stack<String> stack2 = new Stack<>();
+    Stack<String> backwardHistory = new Stack<>();
+    Stack<String> forwardHistory = new Stack<>();
 
     /*
     * using two stack
@@ -32,33 +32,33 @@ public class BrowserHistory {
 
 
     public BrowserHistory(String homepage) {
-        stack1.push(homepage);
+        backwardHistory.push(homepage);
     }
 
     public void visit(String url) {
-        while(!stack2.isEmpty()){
-            stack2.pop();
+        while(!forwardHistory.isEmpty()){
+            forwardHistory.pop();
         }
-        stack1.push(url);
+        backwardHistory.push(url);
     }
 
     public String back(int steps) {
 
-        while(steps != 0 && stack1.size() > 1){
-            stack2.push(stack1.pop());
+        while(steps != 0 && backwardHistory.size() > 1){
+            forwardHistory.push(backwardHistory.pop());
             steps--;
         }
 
-        return stack1.peek();
+        return backwardHistory.peek();
     }
 
     public String forward(int steps) {
-        while(steps != 0 && !stack2.isEmpty()){
+        while(steps != 0 && !forwardHistory.isEmpty()){
             steps--;
-            stack1.push(stack2.pop());
+            backwardHistory.push(forwardHistory.pop());
         }
 
-        return stack1.peek();
+        return backwardHistory.peek();
     }
 }
 

@@ -1,9 +1,9 @@
 package strings;
 
-public class GenerateLexicographycalStr {
+public class GenerateLexicographicallyStr {
 
     /*
-    *fill a initially the fill max value(z-a) from last
+    *fill an initially the fill max value(z-a) from last
     * */
     public static String generateLexical(int k,int n){
         char [] charArr = new char[n];

@@ -10,9 +10,12 @@ import java.util.HashSet;
 
 /*
 * https://www.geeksforgeeks.org/reduce-the-string-to-minimum-length-with-the-given-operation/
+* https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/
+*
 * */
 public class ReduceString {
 
+    // even number of adjacent element removal
     public static int reduceStringUptoMinLength(String str){
         if(str == null || str.isEmpty()){
             return 0;

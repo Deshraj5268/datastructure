@@ -15,7 +15,9 @@ public class LongestCommonPrefix_14 {
         String prefix = strs[0];
         int strLen;
         int j;
-        for(String str : strs){
+        String str;
+        for(int i=1;i<strs.length;i++){
+            str = strs[i];
             strLen = str.length();
             j = 0;
             while(j<Math.min(prefix.length(),strLen) && str.charAt(j) == prefix.charAt(j)){

@@ -5,6 +5,7 @@ public class LemonadeChange_860 {
     public static void main(String[] args) {
         int [] bills = {5,5,10};
         boolean result = lemonadeChange(bills);
+        System.out.println(result);
     }
 
     public static boolean lemonadeChange(int[] bills) {

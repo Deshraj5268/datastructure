@@ -65,8 +65,7 @@ public class KClosestPointToK {
             return points;
         }
         PriorityQueue<DistanceAndPoint> maxHeap = new PriorityQueue<>(
-                (x,y)-> {return y.euclidean<x.euclidean? -1:1; }
-        );
+                (x,y)-> Double.compare(y.euclidean, x.euclidean));
         Pair<Integer,Integer> origin = new Pair<>(0,0);
         Pair<Integer,Integer> currentPair;
         DistanceAndPoint heapCustomData;

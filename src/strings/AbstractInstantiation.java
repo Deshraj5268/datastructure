@@ -9,14 +9,14 @@ abstract class A{
 
 
 
-public class AbtractInstantiation extends A{
+public class AbstractInstantiation extends A{
 
-    public AbtractInstantiation(){
-        System.out.println("i m in AbtractInstantiation");
+    public AbstractInstantiation(){
+        System.out.println("i m in AbstractInstantiation");
 
     }
 
     public static void main(String[] args) {
-        A a = new AbtractInstantiation();
+        A a = new AbstractInstantiation();
     }
 }

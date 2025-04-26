@@ -3,6 +3,7 @@ package tree.binarytree;
 import tree.binarytree.traversals.Traversals;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -52,6 +53,22 @@ public class BTDriver {
         btTreeService.printDiameter(leftPathArr,rightPathArr,rootDm);
         int dm = btTreeService.diameterSimple(root);
         System.out.println("\nsimplest way of cal diameter : "+dm);
+
+        convertSerializedToDeserialized(root, btTreeService);
+
+
+    }
+
+    private static void convertSerializedToDeserialized(BTNode root, BTTreeService btTreeService) {
+        System.out.println("serialised to deserialized view");
+        System.out.println("before serialized :");
+        Traversals traversals = new Traversals();
+        traversals.levelOrderTrv(root);
+        System.out.println();
+        List<Integer> serializedList = btTreeService.serialize(root);
+        System.out.println(serializedList.toString());
+        BTNode desBTNode = btTreeService.deserialize(serializedList);
+        traversals.levelOrderTrv(desBTNode);
     }
 
     private static void btTraversals(BTNode root) {

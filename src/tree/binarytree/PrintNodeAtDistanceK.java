@@ -30,6 +30,14 @@ public class PrintNodeAtDistanceK {
         System.out.println(result.toString());
     }
 
+    /*
+    * To efficiently travel away from the target node one step at a time, we need to be able to access
+    * all adjacent nodes (left, right and parent) of each node. While the left and right child nodes are
+    *  directly accessible through pointers, accessing the parent node requires maintaining an additional
+    *  hashmap of the node as key and value as its parent. The approach involves three primary steps: first,
+    *  creating parent-child mappings through BFS, then
+    * locating and storing the target node, and finally, employing DFS from the target node to identify nodes at distance 'K'.
+    * */
     public static List<Integer> distanceK(BTNode root, BTNode target, int k) {
         if(root == null){
             return new ArrayList<>();

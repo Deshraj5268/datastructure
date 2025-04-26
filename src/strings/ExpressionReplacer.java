@@ -3,6 +3,10 @@ package strings;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/*
+* asked in Google
+* */
 public class ExpressionReplacer {
 
     static Map<String,String> dictionary = new HashMap<>();

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class HeapSort {
 
+    // we can write iteratively to minimize space
     // min heap
     public static void heapiFy(int [] arr, int i, int n){
         int left = 2*i+1; // 2*i+(1-i)
@@ -38,7 +39,7 @@ public class HeapSort {
         int temp = arr[i];
         arr[i] = arr[initial];
         arr[initial] = temp;
-        heapiFy(arr,initial,i);
+        heapiFy(arr,initial,i); // i exclusive
     }
 
     public static void buildHeap(int [] arr,int initial,int n){

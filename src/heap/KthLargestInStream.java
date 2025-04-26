@@ -25,7 +25,7 @@ public class KthLargestInStream {
     * https://leetcode.com/problems/kth-largest-element-in-a-stream/
     * create min heap for k elements
     * if peek() < current element then remove peek ( i.e out the kth largest element because peek element is lesser
-     * Ex (3,4,2) --> 4 3 2 so 2 is kth(3) largest now 6 come ( 6 4 3) and 2 will be remove
+     * Ex (3,4,2) --> 4 3 2 so 2 is kth(3) largest now 6 come ( 6 4 3) and 2 will be removed
     * */
     public static int[] kthLargest(int k, int[] arr, int n) {
         int [] kthArr = new int [n];

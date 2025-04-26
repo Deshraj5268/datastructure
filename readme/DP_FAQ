@@ -25,7 +25,27 @@ categories :
   1.4 count of subset sum
   1.5 target sum
   1.6 number of subset is equal to given difference
-2. unbounded knapsack
+
+2 Longest common subsequence
+  2.1 print LCS
+  2.2 shortest common subsequence(SCS)
+  2.3 print SCS
+  2.4 min no. of insertion and deletion a->b
+  2.5 longest repeating subsequences
+  2.6 length of longest subsequence of a str
+          which is a substring in L
+  2.7 subsequence pattern matching
+
+3 MCM ( Matrix chain multiplication )
+  3.1 Printing MCM
+  3.2 Evaluate expression to true / boolean parenthesization
+  3.3 min/ max value of an expr
+  3.4 palindrome partitioning
+  3.5 scramble string
+  3.6 egg dropping problem
+
+
+2. unbounded knapsack : coin change
 3. fibonacci
 4. LCS
 5. LIS
@@ -36,15 +56,11 @@ categories :
 10. Count path in matrix or co-ordinate
 10. others
 
-Longest common subsequence
-1. print LCS
-2. shortest common subsequence(SCS)
-3. print SCS
-4. min no. of insertion and deletion a->b
-5. longest repeating subsequences
-6. length of longest subsequence of a str
-which is a substring in L
-7.subsequence pattern matching
+
+
+
+Matrix chain multiplication
+Egg dropping
 
 
 

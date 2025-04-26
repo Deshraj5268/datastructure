@@ -1,9 +1,6 @@
 package strings;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.*;
 
 public class WordCount {
 
@@ -14,10 +11,13 @@ public class WordCount {
         arrayList.add("deshraj singh");
         arrayList.add("chandraj singh");
         arrayList.add("world is so beautiful");
-        //TreeMap<String,Integer> result = wordCount(arrayList);
+        Map<String,Integer> result = wordCount(arrayList);
+        for(Map.Entry<String,Integer> entry : result.entrySet()){
+            System.out.println(entry.getKey() + " : "+entry.getValue());
+        }
     }
 
-    /*private static TreeMap<String,Integer> wordCount(ArrayList<String> arrayList) {
+    private static Map<String,Integer> wordCount(ArrayList<String> arrayList) {
         HashMap<String,Integer> hashMap = new HashMap<>();
         for(String line:arrayList){
             String [] tempArr = line.split(" ");
@@ -29,6 +29,8 @@ public class WordCount {
                 }
             }
         }
-        TreeMap<String ,Integer> treeMap = new TreeMap<>(hashMap,(x,y) ->{ return hashMap.get(x) > hashMap.get(y) ?})
-    }*/
+        SortedMap<String,Integer> map = new TreeMap<>();
+        map.putAll(hashMap);
+        return map;
+    }
 }

@@ -28,7 +28,7 @@ public class LFUUsingDLL {
 
     /*
     * Map< key, Node>
-    FeqMap<freq, List<Node>
+    FeqMap<freq, List<Node>>
     * Node { key, val, freq}
     *
     * if key present

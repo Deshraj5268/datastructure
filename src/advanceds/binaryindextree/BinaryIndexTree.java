@@ -16,6 +16,20 @@ public class BinaryIndexTree {
     }
 
 
+
+    /*
+    *  array size is 10 --> 2^4 is sufficient
+    *
+    *                     [0]
+    *                     (0000)
+    *       [1]        [2]      [4]            [8]
+    *      (0001)     (0010)   (0100)        (1000)
+    *             [3]        [5]   [6]      [9]    [10]
+    *           (0011)    (0101)  (0110)   (1001)  (1010)
+    *                            [7]
+    *                         (0111)
+    *
+    * */
     public static int [] constructBinaryIndexTree(int [] arr, int n){
         int [] binaryIndexArr = new int[n+1];
 

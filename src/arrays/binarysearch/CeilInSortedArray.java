@@ -1,6 +1,6 @@
 package arrays.binarysearch;
 
-public class CeilInsortedArray {
+public class CeilInSortedArray {
 
     public static int binarySearch(int [] arr,int l,int r,int data){
         int m;
@@ -27,12 +27,12 @@ public class CeilInsortedArray {
 
     public static void main(String[] args) {
         int [] arr = {1, 2, 8, 10, 12, 19};
-        int floor = 11;
-        int index = binarySearch(arr,0,arr.length-1,floor);
+        int ceil = 11;
+        int index = binarySearch(arr,0,arr.length-1,ceil);
         if(index != -1) {
-            System.out.println("value for "+floor + " floor is present at index : " + index);
+            System.out.println("value for "+ceil + " ceil is present at index : " + index + " and value is "+arr[index]);
         }else{
-            System.out.println("floor  is not present in array for "+floor);
+            System.out.println("ceil  is not present in array for "+ceil);
         }
     }
 }

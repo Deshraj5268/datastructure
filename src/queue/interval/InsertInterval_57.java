@@ -1,4 +1,4 @@
-package leetcode.topinterviewquestion150.greedy;
+package queue.interval;
 
 
 import leetcode.topinterviewquestion150.Utils;

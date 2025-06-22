@@ -84,7 +84,7 @@ public class PrintNodeAtDistanceK {
 
 
     // iterative solution
-    // linking parent node mapping as well, so node can travese left,right as well as parent node
+    // linking parent node mapping as well, so node can traverse left,right as well as parent node
     public static Map<BTNode, BTNode> makeParentMap(BTNode root){
         Map<BTNode,BTNode> parentTrack = new HashMap<>();
         if(root == null){

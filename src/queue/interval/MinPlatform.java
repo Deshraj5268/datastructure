@@ -1,4 +1,4 @@
-package leetcode.topinterviewquestion150.greedy;
+package queue.interval;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

@@ -29,6 +29,10 @@ public class CountOfSubSetSum {
                 }
             }
         }
+
+        for(int [] tab: tabSum){
+            System.out.println(Arrays.toString(tab));
+        }
         return tabSum[n][sum];
     }
 }

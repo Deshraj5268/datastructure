@@ -31,7 +31,7 @@ public class LargestNumberFromArr {
                 public int compare(String x, String y) {
                     StringBuilder sbXY = new StringBuilder(x).append(y);
                     StringBuilder sbYX = new StringBuilder(y).append(x);
-                    return (sbXY.toString().compareTo(sbYX.toString()) > 0 ? -1 : 1);
+                    return (sbYX.toString().compareTo(sbXY.toString()));
                 }
             });
             StringBuilder sb = new StringBuilder();

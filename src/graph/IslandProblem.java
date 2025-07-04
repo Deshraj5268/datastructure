@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class IslandProblem {
 
-    //use for 8 direction movement (like complete 1 row and 3 column: take (1,1) as referenceand look row and col array)
+    //use for 8 direction movement (like complete 1 row and 3 column: take (1,1) as reference and look row and col array)
     int [] rowNumber = {-1,-1,-1,0,0,1,1,1};
     int [] colNumber = {-1,0,1,-1,1,-1,0,1};
 

@@ -50,7 +50,7 @@ public class Employee implements Comparable<Employee>{
         }
         /*
         * Don't use getClass() to compare object equality because Hibernate uses proxy and
-         * this check will always fail. instead use instanceof operator, it respect proxy because
+         * this check will always fail. instead use instanceof operator, it respects proxy because
           * they have IS-A relationship with actual object.
         * */
         if(object == null || object.getClass() != this.getClass()){

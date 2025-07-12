@@ -1,5 +1,9 @@
 package linkedlist;
 
+
+/*
+* https://leetcode.com/problems/copy-list-with-random-pointer/description/
+* */
 public class CloningWithRandomRef {
 
     /*
@@ -22,7 +26,10 @@ public class CloningWithRandomRef {
         RandomListNode currNode = head1;
         while (currNode != null){
             newHeadTemp = currNode.next;
-            newHeadTemp.random = currNode.random.next;
+            // ex [[7,null],[13,0],[11,4],[10,2],[1,0]]
+            if(currNode.random != null) {
+                newHeadTemp.random = currNode.random.next;
+            }
             currNode = newHeadTemp.next;
         }
         return head1;

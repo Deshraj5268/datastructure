@@ -6,8 +6,8 @@ public class PartitionLinkedList {
         if(node == null || node.next == null){
             return node;
         }
-        ListNode lHead,lTail,hHead,hTail,current;
-        lHead=lTail=hHead=hTail=null;
+        ListNode lHead,lTail,rHead,rTail,current;
+        lHead=lTail=rHead=rTail=null;
         current = node;
 
         while(current != null){
@@ -19,24 +19,24 @@ public class PartitionLinkedList {
                     lTail = lTail.next;
                 }
             }else {
-                if(hHead == null){
-                    hTail = hHead = current;
+                if(rHead == null){
+                    rTail = rHead = current;
                 }else{
-                    hTail.next = current;
-                    hTail = hTail.next;
+                    rTail.next = current;
+                    rTail = rTail.next;
                 }
             }
             current = current.next;
         }
 
-        if(hTail != null){
-            hTail.next = null;
+        if(rTail != null){
+            rTail.next = null;
         }
 
         if(lTail == null){
-            return hHead;
+            return rHead;
         }
-        lTail.next = hHead;
+        lTail.next = rHead;
         return lHead;
 
 

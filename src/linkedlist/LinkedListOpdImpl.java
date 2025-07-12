@@ -309,17 +309,17 @@ public class LinkedListOpdImpl implements LinkedListOpd {
         if(head.next == head){
             return true;
         }
-        ListNode f = head;
-        ListNode s = head;
-        while (f != null && s.next != null){
-            s = s.next.next;
-            if(s == null){
+        ListNode slow = head;
+        ListNode fast = head;
+        while (slow != null && fast.next != null){
+            fast = fast.next.next;
+            if(fast == null){
                 return false;
             }
-            if(s == f){
+            if(fast == slow){
                 return true;
             }
-            f = f.next;
+            slow = slow.next;
         }
         return false;
     }
@@ -406,16 +406,16 @@ public class LinkedListOpdImpl implements LinkedListOpd {
         if(head == null){
             return head;
         }
-        ListNode current,nextNode,prev;
+        ListNode current,nextNode,newNode;
         current = head;
-        nextNode = prev = null;
+        nextNode = newNode = null;
         int c = 0;
 
         if((remainingLength-k) >= 0) {
             while (c < k && current != null) {
                 nextNode = current.next;
-                current.next = prev;
-                prev = current;
+                current.next = newNode;
+                newNode = current;
                 current = nextNode;
                 c++;
             }
@@ -426,7 +426,34 @@ public class LinkedListOpdImpl implements LinkedListOpd {
         if(current != null){
             head.next = reverseGroupOfKNode(nextNode,k,remainingLength-k);
         }
-        return prev;
+        return newNode;
+    }
+
+    // https://www.geeksforgeeks.org/problems/reverse-a-linked-list-in-groups-of-given-size/1
+    /*
+    * Given the head a linked list, the task is to reverse every k node in the linked list.
+    * If the number of nodes is not a multiple of k then the left-out nodes in the end,
+    * should be considered as a group and must be reversed.
+    * */
+    public static ListNode reverseKGroup(ListNode head, int k) {
+        // code here
+        ListNode newNode, nextNode, currentNode;
+        int c = 0;
+        newNode = nextNode = null;
+        currentNode = head;
+
+        while(c < k && currentNode != null){
+            nextNode = currentNode.next;
+            currentNode.next = newNode;
+            newNode = currentNode;
+            currentNode = nextNode;
+            c++;
+        }
+
+        if(currentNode != null){
+            head.next = reverseKGroup(nextNode, k);
+        }
+        return newNode;
     }
 
 

@@ -1,7 +1,7 @@
 https://neetcode.io/practice
 
 1. Heap basics ( min/max heap), complexity , basic implementation
-2. How java support heap ( PriorityQueue )
+2. How java support heap ( PriorityQueue : default is minHeap )
 
 
 Good links :

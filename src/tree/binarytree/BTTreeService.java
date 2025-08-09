@@ -168,18 +168,18 @@ public class BTTreeService {
                 Math.max(ld,rd));
     }
 
-    public int diameterUsingHeight(BTNode root,Height height,BTNode rootDmNode,Height left,Height right){
+    public int diameterUsingHeight(BTNode root,Height height,BTNode rootDmNode,Height leftH,Height rightH){
         if(root == null){
             return 0;
         }
 
-        int lh = diameterUsingHeight(root.left,height,rootDmNode,left,right);
-        int rh = diameterUsingHeight(root.right,height,rootDmNode,left,right);
+        int lh = diameterUsingHeight(root.left,height,rootDmNode,leftH,rightH);
+        int rh = diameterUsingHeight(root.right,height,rootDmNode,leftH,rightH);
 
         if(height.h < lh+rh+1) {
             height.h = lh + rh + 1;
-            left.h = lh;
-            right.h = rh;
+            leftH.h = lh;
+            rightH.h = rh;
             rootDmNode.data = root.data;
             rootDmNode.left = root.left;
             rootDmNode.right = root.right;
@@ -294,6 +294,28 @@ public class BTTreeService {
             i++;
         }
         return root;
+    }
+
+    public static boolean isSymmetric(BTNode root)
+    {
+        // add your code here;
+        if(root == null){
+            return true;
+        }
+        return symmetricUtil(root.left,root.right);
+
+    }
+    public static boolean symmetricUtil(BTNode root1,BTNode root2){
+
+        if(root1 == null && root2 == null){
+            return true;
+        }
+        if(root1 == null || root2 == null){
+            return false;
+        }
+        return (root1.data == root2.data && symmetricUtil(root1.left,root2.right)
+                && symmetricUtil(root1.right,root2.left));
+
     }
 
 

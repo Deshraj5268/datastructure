@@ -41,17 +41,15 @@ public class MedianInStream {
         //for max heap (left side )
         if((maxHeap.size()+minHeap.size())%2 == 0){
             if(!minHeap.isEmpty() && minHeap.peek() < num){
-                temp = minHeap.poll();
+                maxHeap.offer(minHeap.poll());
                 minHeap.offer(num);
-                maxHeap.offer(temp);
             }else{
                 maxHeap.offer(num);
             }
         }else{
             if(!maxHeap.isEmpty() && maxHeap.peek() > num){
-                temp = maxHeap.poll();
+                minHeap.offer(maxHeap.poll());
                 maxHeap.offer(num);
-                minHeap.offer(temp);
             }else{
                 minHeap.offer(num);
             }

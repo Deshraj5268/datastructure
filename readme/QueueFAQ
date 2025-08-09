@@ -7,6 +7,7 @@ Basic:
 1. Petrol pump problem
 2. Implement LRU
 3. Sliding Window based problem (fixed size, variable size)
+https://www.geeksforgeeks.org/dsa/sliding-window-problems-identify-solve-and-interview-questions/
     Fixed window
     1. Min /max subArray of size k
     2. 1st negative of every window size k

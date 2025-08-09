@@ -12,6 +12,7 @@ public class LCSubstring {
         System.out.println("output : "+result);
         int recResult = lcSubstringRec(s1,s2,s1.length()-1,s2.length()-1,0);
         System.out.println("recResult : "+recResult);
+        System.out.println("print substring length : "+printLCSubstring(s1,s2));
     }
 
     /*
@@ -38,6 +39,26 @@ public class LCSubstring {
        /* printMetrix(tab);
         dp.lcsvariation.LCS.printLCS(tab,s1,s2,result);*/
         return result;
+    }
+
+    public static String printLCSubstring(String s1, String s2){
+        int m = s1.length();
+        int n = s2.length();
+        int [][] tab = new int[m+1][n+1];
+        int maxLength = 0;
+        int endIndex = 0;
+        for(int i=1;i<=m;i++){
+            for(int j=1;j<=n;j++){
+                if(s1.charAt(i-1) == s2.charAt(j-1)){
+                    tab[i][j] = 1+ tab[i-1][j-1];
+                    if(maxLength < tab[i][j]){
+                        maxLength = tab[i][j];
+                        endIndex = i;
+                    }// otherwise 0 which is default value
+                }
+            }
+        }
+        return s1.substring(endIndex-maxLength , endIndex);
     }
 
     private static void printMetrix(int[][] tab) {

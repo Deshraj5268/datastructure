@@ -1,3 +1,6 @@
+--> For thread-safe use: prefer ConcurrentLinkedQueue (non-blocking) or BlockingQueue (like ArrayBlockingQueue) for multi-threaded cases.
+--> Use Deque for both stack and queue behavior (ArrayDeque is faster than Stack and LinkedList).
+
 1. Given an integer array, find the next greater element for every array element.
      The next greater element of a number x is the first greater number to the right of x in the array
 2. Monotonic Stack Patterns 

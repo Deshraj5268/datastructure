@@ -1,6 +1,5 @@
 package graph;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class PrintPathSrcToDst {
@@ -31,18 +30,18 @@ public class PrintPathSrcToDst {
     }
 
     /*
-    * taking boolean visited and  pathArr for storing element
-    * start traversing the adjList
-    * pathArr[pathLenth]=src;
-    * mark visited = true;
-    * if src == dest then print path
-    *    mark visited =false
-    * else
-    *   for given src do recursively
-    *
-    *  pathLength--;
-    *  mark visited = false
-    * */
+     * taking boolean visited and pathArr for storing element
+     * start traversing the adjList
+     * pathArr[pathLenth]=src;
+     * mark visited = true;
+     * if src == dest then print path
+     *    mark visited =false
+     * else
+     *   for given src do recursively
+     *
+     *  pathLength--;
+     *  mark visited = false
+     * */
     private static void printAllPathUtil(int srcV, int dstV, int[] pathArr, int pathLength) {
         pathArr[pathLength] = srcV;
         pathLength++;
@@ -53,7 +52,6 @@ public class PrintPathSrcToDst {
             visited[srcV] = false;
             return;
         }
-        Iterator<Integer> itr = adj[srcV].iterator();
         for(int tempV :adj[srcV]){
             if(!visited[tempV]){
                 printAllPathUtil(tempV,dstV,pathArr,pathLength);
@@ -62,7 +60,6 @@ public class PrintPathSrcToDst {
         pathLength--;
         visited[srcV] = false;
     }
-
     private static void printPathElements(int[] pathArr, int pathLength) {
         if(pathLength == 0){
             return;

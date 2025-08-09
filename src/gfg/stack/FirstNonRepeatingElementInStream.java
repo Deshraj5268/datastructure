@@ -5,8 +5,12 @@ import java.util.*;
 public class FirstNonRepeatingElementInStream {
 
     public static void main(String[] args) {
-        String str = "aabc";
-        firstNonRepeatingElementInStream(str);
+        String str = "aabcabcd";
+        String result = firstNonRepeatingElementInStreamUsingSet(str);
+        System.out.println("input  :"+str);
+        System.out.println("output :"+result);
+         //aabcabcd
+         //a#bbbc#d
         /*
         * Scanner kb = new Scanner(System.in);
         int t=kb.nextInt();
@@ -25,12 +29,13 @@ public class FirstNonRepeatingElementInStream {
 
     }
 
-    public static void firstNonRepeatingElementInStream(String str){
+    public static String firstNonRepeatingElementInStream(String str){
         Queue<Character> queue = new LinkedList<>();
         Map<Character,Integer> map = new HashMap<>();
         int count = 0;
         Integer value;
         char element;
+        StringBuilder result = new StringBuilder();
         for(int i=0;i<str.length();i++){
             element = str.charAt(i);
             value = map.get(element);
@@ -43,11 +48,39 @@ public class FirstNonRepeatingElementInStream {
                 deleteFrontElementIfCountNegative(queue,map);
             }
             if(queue.isEmpty()){
-                System.out.println("-1");
+                result.append("#");
             }else {
-                System.out.println(queue.peek());
+                result.append(queue.peek());
             }
         }
+        return result.toString();
+    }
+
+    public static String firstNonRepeatingElementInStreamUsingSet(String str){
+        Queue<Character> queue = new LinkedList<>();
+        Map<Character, Integer> map = new HashMap<>();
+        char element;
+        Integer mapVal;
+        StringBuilder result = new StringBuilder();
+        for(int i=0;i<str.length();i++){
+             element = str.charAt(i);
+            mapVal = map.get(element);
+            if(mapVal == null){
+                map.put(element , 1);
+                queue.add(element);
+            }else{
+                map.put(element, mapVal+1);
+                while (!queue.isEmpty() && map.get(queue.peek()) > 1 ){
+                    queue.poll();
+                }
+            }
+            if(queue.isEmpty()){
+                result.append("#");
+            }else {
+                result.append(queue.peek());
+            }
+        }
+        return result.toString();
     }
 
     public static void deleteFrontElementIfCountNegative(Queue<Character> queue, Map<Character,Integer> map){

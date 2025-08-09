@@ -4,14 +4,15 @@ import java.util.Stack;
 
 public class InfixToPostfixConversion {
 
+    private static final char SEPARATOR = ' ';
     public static void main(String[] args) {
         String [] exps = {/*"ADFSR+B-C" , "A*B*C", "A*B+C/D" , */"1+2+3"/*, "A+B*C+D", "((A+B)-C*(D/E))+F"*/};
-        String [] postfixs = {/*"ADFSR B + C -", "A B * C *", "A B * C D / +",*/ " 1 2 + 3 +"/*, "A B C * + D +", "A B + C D E / * - F +"*/};
+        String [] postfixs = {/*"ADFSR B + C -", "A B * C *", "A B * C D / +",*/ "1 2 + 3 +"/*, "A B C * + D +", "A B + C D E / * - F +"*/};
         String infixExpression;
         for(int i=0;i<exps.length;i++) {
             infixExpression = exps[i];
             String result = convertInfixToPostfix(infixExpression);
-            System.out.println("infix : " + infixExpression + " to postfix : " + result + " matched : "+postfixs[i].equals(result));
+            System.out.println("infix :" + infixExpression + " to postfix :" + result + " matched :"+postfixs[i].equals(result));
         }
     }
 
@@ -34,35 +35,36 @@ public class InfixToPostfixConversion {
         StringBuilder postfixExpression = new StringBuilder();
         Stack<Character> operatorStack = new Stack<>();
         char out;
-        for(int i=0;i<infixExpression.length();i++){
+        int n = infixExpression.length();
+        for(int i=0;i<n;i++){
             out = infixExpression.charAt(i);
             if(isOperand(out)){
-               // postfixExpression.append(out);
+                // postfixExpression.append(out);
 
                 //multi digit handling
-                while (i < infixExpression.length() && isOperand(infixExpression.charAt(i))) {
+                while (i < n && isOperand(infixExpression.charAt(i))) {
                     postfixExpression.append(infixExpression.charAt(i));
                     i++;
                 }
-                postfixExpression.append(' ');
+                postfixExpression.append(SEPARATOR);
                 i--;
             } else if(out == '('){
                 operatorStack.push(out);
             } else if(out == ')'){
                 while (operatorStack.peek() != '('){
-                    postfixExpression.append(operatorStack.pop()).append(' ');
+                    postfixExpression.append(operatorStack.pop()).append(SEPARATOR);
                 }
                 operatorStack.pop();
             }
             else{
                 while (!operatorStack.isEmpty() && findPrecedence(out) <= findPrecedence(operatorStack.peek())){
-                    postfixExpression.append(operatorStack.pop()).append(' ');
+                    postfixExpression.append(operatorStack.pop()).append(SEPARATOR);
                 }
                 operatorStack.push(out);
             }
         }
         while (!operatorStack.isEmpty()){
-            postfixExpression.append(operatorStack.pop()).append(' ');;
+            postfixExpression.append(operatorStack.pop()).append(SEPARATOR);;
         }
 
         return postfixExpression.toString().trim();

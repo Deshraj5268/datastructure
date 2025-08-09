@@ -97,6 +97,9 @@ public class LIS {
                 }
             }
         }
+
+        System.out.println("lisDP");
+        System.out.println(Arrays.toString(LIS));
         int max = Arrays.stream(LIS).max().getAsInt();
         return max;
     }

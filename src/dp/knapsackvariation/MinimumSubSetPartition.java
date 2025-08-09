@@ -25,9 +25,10 @@ public class MinimumSubSetPartition {
     public static int minimumSubsetPartition(int [] arr,int n){
         int sum = SubSetSum.calculateSum(arr);
         List<Integer> result = getAllPossibleMinSubSet(arr,n,sum);
-        int min = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
         for(int i=0;i<result.size();i++){
             min = Math.min(min,(sum-2*result.get(i)));
+            System.out.println(min);
         }
         return min;
     }

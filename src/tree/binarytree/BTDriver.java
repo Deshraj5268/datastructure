@@ -26,6 +26,8 @@ public class BTDriver {
         System.out.println("max :"+btTreeService.findMax(root));
         System.out.println("min :"+btTreeService.findMin(root));
 
+        System.out.println("is symetric " +btTreeService.isSymmetric(root));
+
         int n1= 11;
         int n2 = 5;
         System.out.println("\n lca of "+n1+" and "+n2);

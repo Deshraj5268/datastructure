@@ -17,10 +17,8 @@ public class ValidateParaMatch {
             ch = str.charAt(i);
             if(isLeftPara(ch)){
                 stack.push(ch);
-            }else if(!stack.isEmpty() && isParaMatch(stack.peek(), ch)){
-                stack.pop();
-            }else {
-                return false;
+            }else if(stack.isEmpty() || !isParaMatch(stack.pop(), ch)){
+               return false;
             }
         }
         return stack.isEmpty();

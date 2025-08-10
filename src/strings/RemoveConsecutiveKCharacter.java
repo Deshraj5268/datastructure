@@ -2,6 +2,7 @@ package strings;
 
 import java.util.Stack;
 
+//https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string-ii/
 public class RemoveConsecutiveKCharacter {
 
     public static void main(String[] args) {

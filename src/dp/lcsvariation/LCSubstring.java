@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class LCSubstring {
 
     public static void main(String[] args) {
-        String s1 ="ABCDGH";
-        String s2 = "ACDGHR";
+        String s1 = "abcmnoabcdefg";//"ABCDGH";
+        String s2 = "abclkfabcdefg";//"ACDGHR";
         System.out.println("input s1: "+s1 +" s2: "+s2);
         int result = lcSubstringDP(s1,s2);
         System.out.println("output : "+result);
@@ -31,13 +31,14 @@ public class LCSubstring {
                 }else if(s1.charAt(i-1) == s2.charAt(j-1)){
                     tab[i][j] = 1+tab[i-1][j-1];
                     result = Math.max(result,tab[i][j]);
+                    //System.out.println(result);
                 }else{
                     tab[i][j] = 0;
                 }
             }
         }
-       /* printMetrix(tab);
-        dp.lcsvariation.LCS.printLCS(tab,s1,s2,result);*/
+       // printMetrix(tab);
+       // dp.lcsvariation.LCS.printLCS(tab,s1,s2,result);*/
         return result;
     }
 

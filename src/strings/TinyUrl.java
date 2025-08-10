@@ -4,11 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+/*
+* https://leetcode.com/problems/encode-and-decode-tinyurl/
+*
+* https://www.geeksforgeeks.org/system-design/how-to-design-a-tiny-url-or-url-shortener/
+* */
 public class TinyUrl {
 
     protected static final char[] constCharArr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     protected static Map<Character, Integer> map;
-    private Random random = new Random();
+    private static Random random = new Random();
     private static int NUM_CHARS_SHORT_LINK;
 
     /*
@@ -28,13 +33,15 @@ URL with length 7, will give 62⁷ = ~3500 Billion URLs
         System.out.println("long ID : " + idToShortUrLongID(longId));
 
         NUM_CHARS_SHORT_LINK = 7;
+
+        System.out.println("generated short url of length "+NUM_CHARS_SHORT_LINK+generateRandomShortUrl());
     }
 
 
     /*
      * https://medium.com/@sandeep4.verma/system-design-scalable-url-shortener-service-like-tinyurl-106f30f23a82
      * */
-    public String generateRandomShortUrl() {
+    public static String generateRandomShortUrl() {
 
         char[] result = new char[NUM_CHARS_SHORT_LINK];
         //  while (true) {
@@ -113,4 +120,28 @@ URL with length 7, will give 62⁷ = ~3500 Billion URLs
         }
         return sb.reverse().toString();
     }
+
+
+    //https://leetcode.com/problems/encode-and-decode-tinyurl/
+    private Map<String, String> indexToUrlMap = new HashMap<>();
+    private int indexCounter=0;
+    private final String domainUrl = "http://tinyurl.com/";
+    // Encodes a URL to a shortened URL.
+    public String encode(String longUrl) {
+        String key = String.valueOf(++indexCounter);
+        indexToUrlMap.put(key, longUrl);
+        return domainUrl + key;
+    }
+
+    // Decodes a shortened URL to its original URL.
+    public String decode(String shortUrl) {
+        int index = shortUrl.lastIndexOf("/")+1;
+        String key = shortUrl.substring(index);
+        return indexToUrlMap.get(key);
+    }
+
+
+// Your Codec object will be instantiated and called as such:
+// Codec codec = new Codec();
+// codec.decode(codec.encode(url));
 }

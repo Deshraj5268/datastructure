@@ -2,7 +2,7 @@ package strings;
 
 import java.util.HashSet;
 
-public class Pangram {
+public class Panagram {
 
     public static boolean isPangram(String str){
         if(str == null){

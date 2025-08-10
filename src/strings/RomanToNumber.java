@@ -3,10 +3,20 @@ package strings;
 import java.util.HashMap;
 import java.util.Map;
 
+
+//https://leetcode.com/problems/roman-to-integer/description/
 public class RomanToNumber {
 
+    public static void main(String[] args) {
+        String [] romsStr = {"LVIII", "III", "MCMXCIV"};
+        //LVIII :58 III :3 MCMXCIV :1994
+        for(String str : romsStr){
+            System.out.print(str + " :"+romanToDecimal(str) +" ");
+        }
+    }
+
     // Finds decimal value of a given roman numeral
-    public int romanToDecimal(String str) { //M is worst case 10^4 ,str length(10^6) : 10^4*10^6=10^10(in range )
+    public static int romanToDecimal(String str) { //M is worst case 10^4 ,str length(10^6) : 10^4*10^6=10^10(in range )
         // code here
         if(str == null || str.isEmpty()){
             return -1;
@@ -33,7 +43,6 @@ public class RomanToNumber {
                     currentSum += (nextVal - currentCharVal);
                     i++;
                 }
-
             }else{
                 currentSum+=currentCharVal;
             }
@@ -42,7 +51,7 @@ public class RomanToNumber {
 
     }
 
-    public Map<Character,Integer> romanToDecimalMapping(){
+    public static Map<Character,Integer> romanToDecimalMapping(){
         Map<Character,Integer> map = new HashMap<>();
         map.put('I',1);
         map.put('V',5);

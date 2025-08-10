@@ -19,7 +19,7 @@ public class KMP {
     }
 
     /*
-    * longest prefix suffix : find longest longest proper prefix which is also suffix
+    * longest prefix suffix : find the longest proper prefix which is also suffix
     * */
     public  int [] calculateLPS(String pattern){
         int j=0;

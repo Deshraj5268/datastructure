@@ -24,11 +24,11 @@ public class CountSlbhNumAndSpChars {
             }
         }
         System.out.println("charList size "+charList.size());
-        System.out.println("numListt size "+numList.size());
+        System.out.println("numList size "+numList.size());
         System.out.println("spacialList size "+spacialList.size());
 
-        System.out.println("print charList\n "+charList.toString());
-        System.out.println("print numList\n" +numList.toString());
-        System.out.println("print spacialList\n" +spacialList.toString());
+        System.out.println("print charList\n "+charList);
+        System.out.println("print numList\n" +numList);
+        System.out.println("print spacialList\n" +spacialList);
     }
 }

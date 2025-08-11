@@ -38,6 +38,10 @@ public class JavaInternalSorting {
         });
 
         System.out.println("list after sorting decreasing "+list.toString());
+
+        Collections.sort(list, (m1,m2)->m2.get("employeeName").toString().compareTo(m1.get("employeeName").toString()));
+        System.out.println("list after sorting decreasing using lambda "+list.toString());
+
         Collections.sort(list, new Comparator<HashMap<String, Object>>() {
             @Override
             public int compare(HashMap<String, Object> o1, HashMap<String, Object> o2) {

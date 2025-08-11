@@ -6,7 +6,7 @@ import static arrays.Utility.swap;
 
 public class QuickSort {
 
-    //last element as pivot lomuto partition scheem
+    //last element as pivot lomuto partition scheme
     public static int pivot(int [] arr,int p,int q){
         int pv = arr[q];//last element as pivot
         int i = q;

@@ -1,4 +1,4 @@
-package src.arrays.sortingsearching;
+package arrays.sortingsearching;
 
 import java.util.Arrays;
 import java.util.HashMap;

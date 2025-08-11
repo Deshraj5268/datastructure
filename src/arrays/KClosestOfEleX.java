@@ -45,7 +45,7 @@ public class KClosestOfEleX {
             return new int[0];
         }
         int [] resultArr = new int[k];
-        PriorityQueue<CustomHeap> maxQueue = new PriorityQueue<>(k, (obj1,obj2)-> (obj1.heapVal < obj2.heapVal)? 1 : -1);
+        PriorityQueue<CustomHeap> maxQueue = new PriorityQueue<>(k, (obj1,obj2)-> (obj2.heapVal- obj1.heapVal)); // max heap
         int i=0;
         for(;i<arr.length;i++){
             if(maxQueue.isEmpty()){
@@ -61,7 +61,7 @@ public class KClosestOfEleX {
         int temp = 0;
         for(int j = i;j<arr.length;j++){
             temp =  Math.abs(arr[j]-x);
-            if((maxQueue.peek().heapVal > temp) && arr[j] != x){
+            if((!maxQueue.isEmpty() && maxQueue.peek().heapVal > temp) && arr[j] != x){
                 maxQueue.poll();
                 maxQueue.add(new CustomHeap(temp,arr[j]));
             }

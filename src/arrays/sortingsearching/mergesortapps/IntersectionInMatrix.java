@@ -1,24 +1,24 @@
 package arrays.sortingsearching.mergesortapps;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class IntersectionInMatrix {
     public static void main(String[] args) {
 
-        /*int [][] mat = new int[3][];
+        int [][] mat = new int[3][];
         mat[0] = new int[]{3,1,2,4,5};
         mat[1] = new int[]{1,2,3,4};
         mat[2] = new int[]{3,4,5,6};
-*/
-        int [][] mat = new int[2][];
+       /* int [][] mat = new int[2][];
         mat[0] = new int[]{1,2,3};
         mat[1] = new int[]{4,5,6};
-
+*/
 
         List<Integer> result = intersectionInMatrix(mat);
+        result.stream().forEach(x-> System.out.print(x + " "));
+
+        System.out.println("\n using map");
+        result = intersectionInMatrixUsingMap(mat); // assume that each row has unique element
         result.stream().forEach(x-> System.out.print(x + " "));
     }
 
@@ -68,6 +68,31 @@ public class IntersectionInMatrix {
             }
         }
         Collections.sort(result);
+        return result;
+    }
+
+    public static List<Integer> intersectionInMatrixUsingMap(int [][] matrix){
+        Map<Integer, Integer> countMap = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+
+        for(int j=0;j<matrix[0].length;j++){
+            countMap.put(matrix[0][j], 1);
+        }
+
+        for(int i=1;i<matrix.length;i++){
+            for(int j=0;j<matrix[i].length;j++){
+                Integer countVal = countMap.get(matrix[i][j]);
+                if(countVal != null){
+                    countMap.put(matrix[i][j], countVal+1);
+                }
+            }
+        }
+
+        for(Map.Entry<Integer, Integer> entrySet : countMap.entrySet()){
+            if(entrySet.getValue() == matrix.length){
+                result.add(entrySet.getKey());
+            }
+        }
         return result;
     }
 }

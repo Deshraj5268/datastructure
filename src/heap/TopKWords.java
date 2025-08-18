@@ -45,19 +45,18 @@ public class TopKWords {
 
     public static List<String> topKFrequentOptimize(String[] words, int k) {
         Map<String,Integer> wordCountMap = new HashMap<>();
-        List<String> result = new ArrayList();
+        List<String> result = new ArrayList<>();
         for(String word : words){
             wordCountMap.put(word,
                     wordCountMap.getOrDefault(word,0)+1);
         }
         PriorityQueue<Map.Entry<String,Integer>> minHeap =
                 new PriorityQueue<>((entry1, entry2) -> {
-                    int freqComparison = Integer.compare(entry2.getValue(), entry1.getValue());
+                    int freqComparison = Integer.compare(entry1.getValue(), entry2.getValue());
                     if (freqComparison != 0) {
                         return freqComparison; // Sort by frequency in descending order
-                    } else {
-                        return entry2.getKey().compareTo(entry1.getKey()); // Sort by key in lexicographical order
                     }
+                    return entry1.getKey().compareTo(entry2.getKey()); // Sort by key in lexicographical order
                 });
 
 

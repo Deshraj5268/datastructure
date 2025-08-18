@@ -5,8 +5,8 @@ import java.util.Stack;
 public class RemoveConsecutiveDuplicate {
 
     public static void main(String[] args) {
-        String [] input = {"Apple", "AbbcccAd","AbcdDCbA"};
-        String [] expected = {"Ale","d",null};
+        String [] input = {"Apple", "AbbcccAd","AbcdDCbA","abbacac"};
+        String [] expected = {"Ale","d",null, "cac"};
         for (int i=0;i<input.length;i++){
             String result = removeConsecutiveDuplicates(input[i]);
             System.out.println(input[i] + "-> "+result);

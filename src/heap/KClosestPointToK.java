@@ -43,7 +43,7 @@ public class KClosestPointToK {
                 Integer.compare(
                         (b[0] * b[0] + b[1] * b[1]),
                         (a[0] * a[0] + a[1] * a[1])
-                )
+                ) // directly euclidean distance calc
         ); //only this is changed (swapped)
         for (int[] point : points) {
             maxHeap.add(point);

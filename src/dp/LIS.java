@@ -13,7 +13,7 @@ public class LIS {
 
 
         globalMax = 1;
-        int [] arr = {2, 1 ,3 ,1 ,6, 2};
+        int [] arr = {1,3,5,4,7};
                 // { 10, 22, 9, 33, 21, 50, 41, 60 };
         LIS lisObj = new LIS();
         System.out.println(lisObj.lis(arr,arr.length));
@@ -92,8 +92,8 @@ public class LIS {
         Arrays.fill(LIS,1);
         for(int i=1;i<n;i++){
             for(int j=0;j<i;j++){
-                if(arr[j] < arr[i] && LIS[i] < LIS[j]+1){
-                    LIS[i] = 1+LIS[j];
+                if(arr[j] < arr[i]){
+                    LIS[i] = Math.max(1+LIS[j], LIS[i]);
                 }
             }
         }

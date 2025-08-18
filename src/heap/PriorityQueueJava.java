@@ -25,7 +25,7 @@ public class PriorityQueueJava {
 
         Queue<Integer> pq = new PriorityQueue<>(); // by default is min heap ,because we get min at the top
 
-        for(int i=10;i>0;i--){
+        for(int i=1;i<10;i++){
             pq.offer(i);
         }
         while (!pq.isEmpty()){

@@ -1,5 +1,7 @@
 package arrays.sortingsearching;
 
+import javafx.util.Pair;
+
 import java.util.*;
 
 public class SortBasedOnFrequency {
@@ -45,6 +47,46 @@ public class SortBasedOnFrequency {
                 inputArr[f++] = freqArr[j][0];
             }
         }
+    }
+
+    public  static List<Character> frequencySort(String s){
+        Map<Character, Integer> charFreqCount = new HashMap<>();
+        //StringBuilder result = new StringBuilder();
+        List<Character> result = new ArrayList<>();
+        char ch;
+        for(int k=0;k<s.length();k++){
+            ch = s.charAt(k);
+            charFreqCount.put(ch, charFreqCount.getOrDefault(ch, 0)+1);
+        }
+
+        List<Pair<Character, Integer>> charFreqCountList = new ArrayList<>();
+        for(Map.Entry<Character, Integer> entry : charFreqCount.entrySet()) {
+            charFreqCountList.add(new Pair<>(entry.getKey(), entry.getValue()));
+        }
+
+        /*Collections.sort(charFreqCountList, (p1, p2)->{
+            int freqCount = p2.getValue() - p1.getValue();
+            if(freqCount != 0){
+                return freqCount;
+            }
+            return p2.getKey().compareTo(p1.getKey());
+        }); */ // descending order by natural order
+        //charFreqCountList.sort((p1,p2)->p2.getValue() - p1.getValue() == 0 ? p2.getKey().compareTo(p1.getKey()) :1);
+
+        charFreqCountList.sort((p1,p2)->p2.getValue() - p1.getValue());
+        int countChar;
+        char charVal;
+        for(int i=0;i<charFreqCountList.size();i++){
+            countChar = charFreqCountList.get(i).getValue();
+            charVal = charFreqCountList.get(i).getKey();
+            for(int j=0;j<countChar;j++){
+                result.add(charVal);
+            }
+        }
+        return result;
+
+        // Your code goes here
+
     }
 
     public static void sortByFrequencyWay1(Integer [] inputArr){

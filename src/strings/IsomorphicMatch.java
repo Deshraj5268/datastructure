@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+// https://leetcode.com/problems/isomorphic-strings/description/
 public class IsomorphicMatch {
     public static void main(String[] args) {
-        String s="foo";
-        String t = "bar";
-        System.out.println(isIsomorphic(s,t));
+        String  [] s={"egg","foo", "badac", "add"};
+        String [] t ={"add","bar","babca", "egg"};
+        for(int i=0;i<s.length;i++) {
+            System.out.print("IsomorphicMatch for : "+s[i] + " <-> "+t[i] + " :");
+            System.out.println(isIsomorphic(s[i], t[i]));
+        }
     }
 
     /*

@@ -1,4 +1,4 @@
-package strings;
+package strings.consecutiveremoval;
 
 import java.util.Stack;
 

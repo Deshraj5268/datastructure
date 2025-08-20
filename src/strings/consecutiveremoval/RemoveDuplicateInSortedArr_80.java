@@ -1,8 +1,8 @@
-package leetcode.topinterviewquestion150.arraysString;
+package strings.consecutiveremoval;
 
 import java.util.Arrays;
 
-import static leetcode.topinterviewquestion150.arraysString.RemoveDuplicateInSorted_26.replaceOtherElementWithMinus1;
+import static strings.consecutiveremoval.RemoveDuplicateInSorted_26.replaceOtherElementWithMinus1;
 
 public class RemoveDuplicateInSortedArr_80 {
 

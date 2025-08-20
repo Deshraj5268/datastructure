@@ -1,4 +1,4 @@
-package leetcode.topinterviewquestion150.arraysString;
+package strings.consecutiveremoval;
 
 
 import java.util.Arrays;

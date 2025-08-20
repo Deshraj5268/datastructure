@@ -1,4 +1,4 @@
-package strings;
+package strings.consecutiveremoval;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -1,0 +1,64 @@
+𝗦𝗹𝗶𝗱𝗶𝗻𝗴 𝗪𝗶𝗻𝗱𝗼𝘄 is one of the most powerful techniques in coding interviews, especially for :
+- subarray
+- substring
+- contiguous
+- at most k types
+ …it’s likely a Sliding Window problem.
+
+Core Patterns
+🔹 Fixed-Size Window → Process exactly k elements each time.
+Examples:
+•• Maximum Average Subarray
+•• Sum of K Consecutive Elements
+Key Idea:
+•• Move the window forward by subtracting the element going out and adding •• the new element coming in.
+
+🔹 Variable-Size Window → Expand or shrink based on constraints.
+Examples:
+•• Longest Substring Without Repeating Characters
+•• Fruit Into Baskets
+•• Minimum Size Subarray Sum
+Key Idea:
+•• Expand right pointer until constraint breaks.
+•• Shrink left pointer until constraint is satisfied.
+
+🔹 Advanced Patterns
+•• Monotonic Window (Monotonic deque) → Sliding Window Maximum, Sliding Window Minimum.
+•• Window + HashMap/Set → Track frequency, uniqueness, or counts.
+•• Two Windows → When you need to compare different constraint windows.
+
+Interview Problems:
+1. Maximum/Minimum Subarray Sum
+2. Longest Substring with K Distinct Characters
+3. Find All Anagrams in a String
+4. Minimum Window Substring
+5. Longest Repeating Character Replacement
+6. Fruit Into Baskets
+7. Subarrays with Product Less than K
+8. Maximum Consecutive Ones after Flipping Zeros
+9. Longest Subarray with Sum Less Than K
+10. Maximum Sum Subarray of Size K
+11. First Negative Number in Every Window of Size K
+12. Count Occurrences of Anagrams
+13. Longest Substring Without Repeating Characters
+14. Longest Substring with At Most K Distinct Characters
+15. Longest Substring with At Most Two Distinct Characters
+16. Maximum Number of Vowels in a Substring of Given Length
+17. Permutation in String (Check if one is a permutation of other)
+18. Max Consecutive Ones III (Flipping 0s)
+19. Max Consecutive Ones II (Flip at most one 0)
+20. Substrings of Size Three with Distinct Characters
+21. Sliding Window Maximum
+22. Number of Subarrays of Size K and Average ≥ Threshold
+
+Can be combined with: HashMap, Prefix Sums, Two Pointers
+
+Tips to Avoid Mistakes
+✔️ Always identify the type of window first — fixed or variable.
+✔️ Be mindful of off-by-one errors when moving pointers.
+✔️ Use frequency maps for counting and uniqueness checks.
+✔️ Dry run with a small example before coding.
+✔️ If you’re nesting loops unnecessarily, recheck your approach.
+
+Quick Recognition Formula
+If it’s contiguous + has a length/constraint + requires processing subsets → Sliding Window.

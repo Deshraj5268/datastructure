@@ -6,7 +6,7 @@ public class BinarySearch {
     public static int modifiedBinarySearch(int [] arr, int l, int r, int data){
         int m;
         //corner case
-        if(arr[l] > data || arr[r] < data){
+        if(data < arr[l] || data > arr[r]){
             return -1;
         }
         while ((r-l)>1){

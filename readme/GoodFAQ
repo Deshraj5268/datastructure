@@ -9,7 +9,11 @@ https://www.educative.io/courses/grokking-coding-interview-patterns-java
 https://www.educative.io/blog/coding-interview-leetcode-patterns
 https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
 
-Pattern
+Extra and imp DSA
+SkipList ( https://www.geeksforgeeks.org/dsa/skip-list/)
+SortedSet , TreeSet, TreeMap
+
+Pattern ( https://leetcode.com/discuss/post/5886397/dsa-patterns-you-need-to-know-by-anubhav-x7og/)
 1. Two pointer
 2. Fast and slow pointer
 3. Sliding window

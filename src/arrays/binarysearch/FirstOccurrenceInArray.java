@@ -35,6 +35,23 @@ public class FirstOccurrenceInArray {
         return -1;
     }
 
+    public static int findFirstOccurrenceUsingStandardBS(int [] arr,int l, int h, int target){
+        int m;
+        int result= -1;
+        while (l <= h){
+            m = l + (h-l)/2; // mid
+            if(arr[m] == target){
+                result = m; // store index
+                h = m-1; // keep searching in left
+            }else if(arr[m] < target){
+                l = m+1;
+            }else {
+                h = m-1;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int [][] matrix = {{2,2,2,2,2,2,2},
                 {1,3,4,5,6,9,10},
@@ -50,7 +67,8 @@ public class FirstOccurrenceInArray {
         int [] result = new int[targets.length];
         FirstOccurrenceInArray firstOccurrenceInArray = new FirstOccurrenceInArray();
         for(int i=0;i<result.length;i++){
-            result[i] = firstOccurrenceInArray.findFirstOccurrenceOfElement(matrix[i],0,matrix[i].length-1,targets[i]);
+            result[i] = findFirstOccurrenceUsingStandardBS(matrix[i],0,matrix[i].length-1,targets[i]);
+                  //  firstOccurrenceInArray.findFirstOccurrenceOfElement(matrix[i],0,matrix[i].length-1,targets[i]);
         }
         for(int i=0;i<result.length;i++){
             if(result[i] != expectedArr[i]){

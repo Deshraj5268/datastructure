@@ -8,7 +8,7 @@ public class TrappingRainWater_42 {
     * */
     protected static int width = 1;
     public static void main(String[] args) {
-        int [][] arr = {{4,3,2,1},
+        int [][] arr = {{1,8,6,2,5,4,8,3,7},{4,3,2,1},
                         {1,2,3,4},
                         {3, 0, 2, 0, 4},
                         {4,0,1,6,2,5}
@@ -28,6 +28,7 @@ public class TrappingRainWater_42 {
     * */
     public static int trappingRainWater(int [] arr){
         int resultantWater = 0;
+        int maxWater = 0;
         if(arr == null || arr.length < 3){
             return resultantWater;
         }
@@ -37,7 +38,9 @@ public class TrappingRainWater_42 {
             int rightMax = findMax(arr,i,l-1);
             int waterLevel = Math.min(leftMax,rightMax);
             resultantWater += (waterLevel - arr[i])*width;
+            maxWater = Math.max(maxWater, resultantWater);
         }
+        System.out.println(maxWater+ " water");
         return resultantWater;
     }
 

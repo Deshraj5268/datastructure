@@ -35,6 +35,23 @@ public class LastOccurrenceInArray {
         return -1;
     }
 
+    public static int findLastOccurrenceUsingStandardBS(int [] arr,int l, int h, int target){
+        int m;
+        int result= -1;
+        while (l <= h){
+            m = l + (h-l)/2; // mid
+            if(arr[m] == target){
+                result = m; // store index
+                l = m+1; // keep searching in right
+            }else if(arr[m] < target){
+                l = m+1;
+            }else {
+                h = m-1;
+            }
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
         int [][] matrix = {{2,2,2,2,2,2,2},
@@ -50,7 +67,8 @@ public class LastOccurrenceInArray {
         int [] result = new int[targets.length];
         LastOccurrenceInArray lastOccurrenceInArray = new LastOccurrenceInArray();
         for(int i=0;i<result.length;i++){
-            result[i] = lastOccurrenceInArray.lastFirstOccurrenceOfElement(matrix[i],0,matrix[i].length-1,targets[i]);
+            result[i] = findLastOccurrenceUsingStandardBS(matrix[i],0,matrix[i].length-1,targets[i]);
+                    //lastOccurrenceInArray.lastFirstOccurrenceOfElement(matrix[i],0,matrix[i].length-1,targets[i]);
         }
         for(int i=0;i<result.length;i++){
             if(result[i] != expectedArr[i]){

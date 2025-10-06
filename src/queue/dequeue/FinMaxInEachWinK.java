@@ -45,9 +45,9 @@ public class FinMaxInEachWinK {
         Deque<Integer> dq = new LinkedList<>();
         int [] result = new int[n-k+1]; // 1 2 3 4 ,n = 4, k=3 result size is 2
         int j = 0;
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++){ //[3, 3, 4, 5, 5, 5, 6]
             // removing front data until data is out of window
-            while(!dq.isEmpty() && (i-k + 1) >dq.peekFirst()) {
+            while(!dq.isEmpty() && (i-k) >= dq.peekFirst()) {
                 dq.removeFirst();
             }
            /* if(!dq.isEmpty()){

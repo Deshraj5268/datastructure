@@ -1,4 +1,7 @@
-package src.queue.slidingwindowvariation;
+package queue.slidingwindowvariation;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MaxSumSubArrayWinK {
 
@@ -61,6 +64,36 @@ public class MaxSumSubArrayWinK {
         }
         return maxSubArrSum;
 
+    }
+
+
+    /*
+    * https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/
+    * */
+    public long maximumSubarraySum(int[] nums, int k) {
+        long sum = 0;
+        long max=0;
+        int i=0,j=0, n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        while(j < n){
+            sum += nums[j];
+            map.put(nums[j], map.getOrDefault(nums[j],0)+1);
+            if((j-i+1) < k){
+                j++;
+            }else {
+                if(map.size() == k && max < sum){
+                    max = sum;
+                }
+                sum -= nums[i];
+                map.put(nums[i], map.get(nums[i])-1);
+                if(map.get(nums[i]) == 0){
+                    map.remove(nums[i]);
+                }
+                i++;
+                j++;
+            }
+        }
+        return max;
     }
 
 }

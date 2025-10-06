@@ -3,7 +3,9 @@ package arrays.others;
 
 import java.util.Arrays;
 
-/*https://medium.com/algorithms-and-leetcode/best-time-to-buy-sell-stocks-on-leetcode-the-ultimate-guide-ce420259b323*/
+/*https://medium.com/algorithms-and-leetcode/best-time-to-buy-sell-stocks-on-leetcode-the-ultimate-guide-ce420259b323
+* https://www.youtube.com/watch?v=excAOvwF_Wk
+* */
 public class StockAllProblem {
 
     public static void main(String[] args) {

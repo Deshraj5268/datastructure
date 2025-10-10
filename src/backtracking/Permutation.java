@@ -32,16 +32,10 @@ public class Permutation {
             ans.add(sb.toString());
         }
         for(int i=index;i<sb.length();i++){
-            swap(sb, i, index);
+            Utility.swap(sb, i, index);
             permutationUtil(sb, index+1, ans);
-            swap(sb, i, index); // backtracking
+            Utility.swap(sb, i, index); // backtracking
         }
 
-    }
-
-    public void swap(StringBuilder sb , int src , int dst){
-        char temp = sb.charAt(src);
-        sb.setCharAt(src, sb.charAt(dst));
-        sb.setCharAt(dst, temp);
     }
 }

@@ -9,8 +9,8 @@ public class LongestSubstringWORepeating {
 
     public static void main(String[] args) {
 
-        String input = "geeksfeeks";
-        int result = longestSubstringWORepeating(input);
+        String input = "aabacdebebe";
+        int result = longestSubstringWORepeating(input); // bacde
         System.out.println("input : "+input +" result : "+result);
     }
 

@@ -2,6 +2,7 @@ package backtracking;
 
 import java.util.ArrayList;
 
+//https://www.youtube.com/watch?v=EnRciMd08_g&list=PL_z_8CaSLPWdbOTog8Jxk9XOjzUs3egMP&index=9
 public class Permutation {
 
     public static void main(String[] args) {
@@ -11,6 +12,19 @@ public class Permutation {
         permutation.permutationUtil(new StringBuilder(str), 0, ans);
         System.out.println(ans);
     }
+
+
+              /*
+              *
+              *                     abc
+              *
+              *          abc        bac         cba
+              *
+              *    abc    acb    bac  bca     cba  cab
+              *
+              *
+              *
+              * */
 
     public void permutationUtil(StringBuilder sb, int index, ArrayList<String> ans){
 

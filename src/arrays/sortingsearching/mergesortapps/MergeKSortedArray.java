@@ -27,6 +27,12 @@ public class MergeKSortedArray {
 
     }
 
+    /*
+    * total n element of all K list
+    * (k logk) + (logk + logk)*n elements
+    *TC : O( nLogK)
+    * space is O(k)
+    * */
     public ListNode mergeKLists(ListNode[] lists) {
         if(lists == null || lists.length == 0){
             return null;

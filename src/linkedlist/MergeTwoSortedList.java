@@ -1,6 +1,5 @@
 package linkedlist;
 
-import com.sun.org.apache.bcel.internal.generic.MethodGen;
 
 public class MergeTwoSortedList {
 

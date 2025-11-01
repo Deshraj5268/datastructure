@@ -1,6 +1,6 @@
-package advanceds.skiplist;
+package advanceds.leaderboardproblem.skiplist;
 
-import advanceds.setcollection.PlayerInfo;
+import advanceds.leaderboardproblem.setcollection.PlayerInfo;
 
 import java.util.Arrays;
 import java.util.Comparator;

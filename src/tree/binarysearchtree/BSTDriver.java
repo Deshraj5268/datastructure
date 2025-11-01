@@ -25,5 +25,10 @@ public class BSTDriver {
 
         int [] lvlOrderArr = {11,6,13,6,12,10};//{7,4,12,3,6,8,1,5,10};
         System.out.println(bstService.isLevelOrderBST(lvlOrderArr));
+
+        BTNode lcaNode = bstService.findLcaBST(root, 3,6);
+        if(lcaNode != null) {
+            System.out.println("lca: "+  lcaNode.data);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package advanceds.setcollection;
+package advanceds.leaderboardproblem.setcollection;
 
 public class PlayerInfo {
 

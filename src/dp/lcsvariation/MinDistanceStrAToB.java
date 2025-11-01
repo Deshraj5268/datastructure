@@ -17,8 +17,8 @@ public class MinDistanceStrAToB {
         int n = str2.length();
         int [][] lcsTab = LCS.lcsDpTab(str1,str2,m,n);
         int lcs = lcsTab[m][n];
-        int insertionCost = m-lcs;
-        int deletionCost = n-lcs;
+        int insertionCost = n-lcs;
+        int deletionCost = m-lcs;
         System.out.println("insertionCost "+insertionCost+" deletionCost "+deletionCost);
         return Math.min(insertionCost,deletionCost);
     }

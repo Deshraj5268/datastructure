@@ -10,11 +10,11 @@ Find middle node of linked list.
 Is LInkedList palindrome or not.
 Find loop in singly linkedlist ( subsequent questions).
 Find nth node from last.
-Reverse a linked list(Iterative and recursive.
+Reverse a linked list(Iterative and recursive).
 Merge two linked list.
 Reverse linked list in group (k)
 Reorder list ( ex 1-2-3-4 ==> 1-4-2-3)
-flatern linkedlist (Node { data,down,next)
+flatern linkedList (Node { data,down,next)
 Rotate a Linked List.(subsequent circular way rotation)
 
 

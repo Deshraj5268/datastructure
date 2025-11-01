@@ -1,4 +1,4 @@
-package advanceds.setcollection;
+package advanceds.leaderboardproblem.setcollection;
 
 import java.util.TreeSet;
 

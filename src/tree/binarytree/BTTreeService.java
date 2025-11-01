@@ -137,6 +137,22 @@ public class BTTreeService {
         return left!= null ? left:right;
     }
 
+    public BTNode findLcaBST(BTNode root,int n1,int n2){
+        if(root == null){
+            return null;
+        }
+        if(root.data == n1 || root.data == n2){
+            return root;
+        }
+        BTNode left = findLca(root.left,n1,n2);
+        BTNode right = findLca(root.right,n1,n2);
+
+        if(left != null && right !=  null){
+            return root;
+        }
+        return left!= null ? left:right;
+    }
+
     public int diameter(BTNode root){
         if(root == null){
             return 0;

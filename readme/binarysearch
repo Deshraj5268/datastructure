@@ -14,6 +14,16 @@ Observation :
 1. reducing by 2 : n/2, n/4 , n/8 ... n/2^k = 1 , [ k = logn]
 2. multiplying by 2 : 2, 2^2 , 2^3 ... 2^k = n [ k = logn]
 3. Binary Search on Answer Concept [sorted by nature ex. 0,0,0,0,0,0,.... 1,1,1,1 --> find position of starting one [2nd approach ]]
+4. What's important is that we think of binary search array as some array with
+   Prefixes of True(T) and Suffixes of False(F) OR
+   Prefixes of False (F) and Suffixes of True(T) OR
+   All True(T)
+   All False(F)
 
 1. First/last occurrence of target element in sorted array , follow up count of repeated element.
 2. Number of time a sorted array rotated
+
+
+Good link
+https://leetcode.com/discuss/post/1233854/a-guide-to-the-binary-search-algorithm-b-r944/
+

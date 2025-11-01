@@ -1,6 +1,6 @@
 https://github.com/Deshraj5268/datastructure/tree/master/src/tree
 
-1. Tree traversals
+1.Tree traversals
 Pre-order (NLR)
 post-order(LRN)
 In-order (LNR)
@@ -12,7 +12,7 @@ Left view
 Right view
 Bottom view
 Top view
-Diagonal left view ( Left view with keeping right HD as same)
+Diagonal left view ( Left view with keeping right HD as same) , similarly to Diagonal right view
 Print tree in Spiral or ZigZag order ( 1. using 2 Stack 2. using Deque)
 
 3. Height of the tree

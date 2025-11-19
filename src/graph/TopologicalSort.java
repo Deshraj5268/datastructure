@@ -8,7 +8,7 @@ public class TopologicalSort {
 
     public static void main(String[] args) {
         int totalVertex = 6;
-        AdjacencyMatrix adjObj = new AdjacencyMatrix(totalVertex);
+        AdjacencyList adjObj = new AdjacencyList(totalVertex);
         adj = adjObj.getAdj();
 
         adjObj.addEdge(5, 2);

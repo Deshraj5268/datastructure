@@ -10,7 +10,7 @@ public class CycleInDG {
 
     public static void main(String[] args) {
         int totalVertex = 4;
-        AdjacencyMatrix adjObj = new AdjacencyMatrix(totalVertex);
+        AdjacencyList adjObj = new AdjacencyList(totalVertex);
         adj = adjObj.getAdj();
 
         adjObj.addEdge(0, 1);

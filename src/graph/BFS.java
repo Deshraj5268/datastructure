@@ -1,6 +1,5 @@
 package graph;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -37,7 +36,7 @@ public class BFS {
 
     public static void main(String[] args) {
             int totalVertex = 4;
-            AdjacencyMatrix adjObj =  new AdjacencyMatrix(totalVertex);
+            AdjacencyList adjObj =  new AdjacencyList(totalVertex);
             adj = adjObj.getAdj();
 
             adjObj.addEdge(0, 1);

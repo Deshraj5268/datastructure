@@ -6,6 +6,11 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
+
+/*
+*
+* need to improve
+* use hashmap to store old count*/
 public class RecommendationSystem {
 
     static Set<Item> itemSet;

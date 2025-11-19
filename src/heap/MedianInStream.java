@@ -17,7 +17,7 @@ public class MedianInStream {
         int [] arr = {5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4};
         MedianInStream median = new MedianInStream();
         for(int i=0;i<arr.length;i++){
-            median.addNum(arr[i]);
+            median.addNumCleanerWay(arr[i]);
             System.out.println("median as of now "+median.findMedian() + " till index "+i);
         }
     }
@@ -56,6 +56,23 @@ public class MedianInStream {
 
         }
         // System.out.println(maxHeap.peek() + " "+minHeap.peek());
+
+    }
+
+    public void addNumCleanerWay(int num) {
+        if(maxHeap.isEmpty() || num <= maxHeap.peek()){
+            maxHeap.add(num);
+        }else{
+            minHeap.add(num);
+        }
+        //balance
+
+        if(maxHeap.size() > minHeap.size()+1){
+            minHeap.add(maxHeap.poll());
+        }else if(minHeap.size() > maxHeap.size()){
+            maxHeap.add(minHeap.poll());
+        }
+        System.out.println(maxHeap.peek() + " "+minHeap.peek());
 
     }
 

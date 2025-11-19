@@ -57,7 +57,9 @@ public class PaymentDriver {
 
     public static void main(String[] args) {
         PaymentService service = new PaymentService(2);
+        PaymentServiceOptimize paymentServiceOptimize = new PaymentServiceOptimize(2);
         TestCase2(service);
+        TestCase2Optimize(paymentServiceOptimize);
     }
 
     private static void normalTestCase(PaymentService service) {
@@ -78,6 +80,24 @@ public class PaymentDriver {
     }
 
     private static void TestCase2(PaymentService service) {
+        System.out.println(service.makePayment(5000, "TXN1", TransactionType.P2M, "U1"));
+        System.out.println(service.makePayment(6000, "TXN3", TransactionType.P2M, "U1"));
+        System.out.println(service.makePayment(8000, "TXN6", TransactionType.P2M, "U1"));
+        System.out.println(service.makePayment(19000, "TXN4", TransactionType.P2M, "U3"));
+
+        System.out.println(service.makePayment(19000, "TXN5", TransactionType.P2M, "U2"));
+
+
+        System.out.println(service.makePayment(2000, "TXN2", TransactionType.P2P, "U1"));
+
+        System.out.println("txnType :"+TransactionType.P2M+"-:{userId, count}: "+service.getTxnHistory("U1", TransactionType.P2M));
+        System.out.println("txnType :"+TransactionType.P2P+"-:{userId, count}: "+service.getTxnHistory("U1", TransactionType.P2P));
+
+        System.out.println(service.topKUser());
+    }
+
+    private static void TestCase2Optimize(PaymentServiceOptimize service) {
+        System.out.println("optimize ---------");
         System.out.println(service.makePayment(5000, "TXN1", TransactionType.P2M, "U1"));
         System.out.println(service.makePayment(6000, "TXN3", TransactionType.P2M, "U1"));
         System.out.println(service.makePayment(8000, "TXN6", TransactionType.P2M, "U1"));

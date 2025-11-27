@@ -1,4 +1,4 @@
-package graph;
+package graph.dfs.islandtype;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -107,7 +107,7 @@ public class IslandProblem {
                 if(mat[r][c] == 1){
                     dfsM2(mat,m,n,r,c);
                     islandCount++;
-                    mat[r][c] = 1; // to reset 1 to count again 1 is original matrix otherwise all 1 became -1
+                    //mat[r][c] = 1; // to reset 1 to count again 1 is original matrix otherwise all 1 became -1
                 }
 
             }

@@ -1,4 +1,6 @@
-package graph;
+package graph.bfs;
+
+import graph.AdjacencyList;
 
 import java.util.LinkedList;
 import java.util.List;

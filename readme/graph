@@ -29,3 +29,9 @@ DFS :
 
 BFS :
 1. Print jumping number(diff of adjacent digit should be 1)
+
+
+1. Island problem
+2. FloodFill
+   Surrounded X
+   Enclave count

@@ -1,5 +1,5 @@
 
-package graph;
+package graph.dfs.islandtype;
 
 
 

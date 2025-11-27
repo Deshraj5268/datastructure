@@ -1,4 +1,4 @@
-package graph;
+package graph.dfs.islandtype;
 
 public class FloodFill {
 

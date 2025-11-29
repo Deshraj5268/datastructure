@@ -28,6 +28,6 @@ public class FindInsertPosition {
                 h = m-1;
             }
         }
-        return h+1;
+        return l;
     }
 }

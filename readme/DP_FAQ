@@ -1,7 +1,8 @@
 https://github.com/Deshraj5268/datastructure/tree/master/src/dp
 DP problem based on standard problem :
 https://www.linkedin.com/posts/ramanwalia_i-sat-down-for-3-4-hours-to-find-20-dp-patterns-activity-7310640125317656576-iZVF/?utm_source=share&utm_medium=member_android&rcm=ACoAAA1swuwBZx53J_7TSO-kg2qgCColXGITmjk
-
+1. Top-Down Approach (Memoization)
+2. Bottom-Up Approach (Tabulation)
 
 1.Power Set: generate all sub set for a given set ( select or not)
   1.1 01KnapsackProblem
@@ -64,6 +65,8 @@ Egg dropping
 
 
 
+this is good
+https://leetcode.com/discuss/post/1986802/dynamic-programming-by-anonymous_user-45td/
 
 
 https://www.linkedin.com/posts/karan-saxena-466b07190_dynamic-programming-is-one-of-the-hardest-activity-7339277338628485120-eEhl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAA1swuwBZx53J_7TSO-kg2qgCColXGITmjk
@@ -73,6 +76,10 @@ https://www.linkedin.com/posts/karan-saxena-466b07190_dynamic-programming-is-one
  - Climbing Stairs
  - Fibonacci Number
  - Min Cost Climbing Stairs
+
+ Minimum jumps to reach the end
+ Friends pairing problem
+ Maximum subsequence sum such that no three are consecutive
 
 2. Kadane's Algorithm
  - Maximum Subarray

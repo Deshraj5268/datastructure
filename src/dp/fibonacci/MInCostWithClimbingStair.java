@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /*
 * https://leetcode.com/problems/min-cost-climbing-stairs/
+* // https://www.youtube.com/watch?v=ktmzAZWkEZ0 ; similar to count steps
 * */
 public class MInCostWithClimbingStair {
 

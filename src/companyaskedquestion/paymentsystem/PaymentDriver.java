@@ -1,4 +1,4 @@
-package Hashing.paymentsystem;
+package companyaskedquestion.paymentsystem;
 
 //Question description
 /*

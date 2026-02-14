@@ -116,6 +116,33 @@ public class Traversals {
         }
     }
 
+    public List<List<Integer>> levelOrder(BTNode root) {
+        if(root == null){
+            return new ArrayList<>();
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        BTNode temp = root;
+        Queue<BTNode> queue = new LinkedList<>();
+        queue.add(temp);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> levelList = new ArrayList<>();
+            for(int i=0;i<size;i++){
+                temp = queue.poll();
+                levelList.add(temp.data);
+                if(temp.left != null){
+                    queue.add(temp.left);
+                }
+                if(temp.right != null){
+                    queue.add(temp.right);
+                }
+            }
+            result.add(levelList);
+        }
+        return result;
+
+    }
+
     public void levelOrderRec(BTNode root){
         if(root == null){
             return;

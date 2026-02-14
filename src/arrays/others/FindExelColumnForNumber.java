@@ -26,9 +26,10 @@ public class FindExelColumnForNumber {
         StringBuilder sb = new StringBuilder();
         int ch;
         while (n > 0){
-            ch = (n-1)%26 + 'A'; // A -1 , B-2 .. Z -26 . so (n-1)%26
+            n = n-1;
+            ch = n%26 + 'A'; // A -1 , B-2 .. Z -26 . so (n-1)%26
             sb.append((char)ch);
-            n = (n-1)/26;
+            n /= 26;
         }
         return sb.reverse().toString();
     }

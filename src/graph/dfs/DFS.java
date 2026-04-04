@@ -32,16 +32,17 @@ public class DFS {
         st.push(startVertex);
 
         int top;
-        while (!st.isEmpty()){
+        while (!st.isEmpty()) {
             top = st.pop();
-            visited[top] = true;
-            System.out.print(top+" ");
-            List<Integer> edges = adj[top];
-            if(edges != null){
-                for(Integer edge : edges){
-                    if(!visited[edge]){
-                        visited[edge] = true;
-                        st.push(edge);
+            if (!visited[top]) {
+                visited[top] = true;
+                System.out.print(top + " ");
+                List<Integer> edges = adj[top];
+                if (edges != null) {
+                    for (Integer edge : edges) {
+                        if (!visited[edge]) {
+                            st.push(edge);
+                        }
                     }
                 }
             }

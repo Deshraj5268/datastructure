@@ -57,7 +57,7 @@ public class NumberOfClosedIsland {
             }
         }
 
-        //
+        // count connected 0 which is surrounded by 1
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if(grid[i][j] == 0 && !isBoundary(i, j , m, n)){

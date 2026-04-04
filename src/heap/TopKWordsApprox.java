@@ -26,7 +26,8 @@ public class TopKWordsApprox {
         TopKWordsApprox topKWordsApprox = new TopKWordsApprox(6);
         String[] stream = {
                 "apple","banana","cat","apple","dog","apple",
-                "banana","banana","cat","dog","banana","ele"
+                "banana","banana","cat","dog","banana","ele",
+                "mango", "Grapes", "orange", "cow"
         };
 
         for (String word : stream){
@@ -51,8 +52,7 @@ public class TopKWordsApprox {
 
         if(freqCountMap.containsKey(word)){
             freqCountMap.put(word, freqCountMap.getOrDefault(word, 0)+1);
-        }
-        if(freqCountMap.size() < k){
+        }else if(freqCountMap.size() < k){
             freqCountMap.put(word , 1);
         }else {
 

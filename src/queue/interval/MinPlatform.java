@@ -55,7 +55,7 @@ public class MinPlatform {
         int result = 1;
         int minPlatForm = 1;
         while(i < n && j < n){
-            if(departure[j] >= arrival[i]){
+            if(arrival[i] <= departure[j]){
                 minPlatForm++;
                 i++;
             }else{

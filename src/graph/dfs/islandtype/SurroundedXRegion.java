@@ -3,7 +3,7 @@ package graph.dfs.islandtype;
 import java.util.Arrays;
 
 
-//https://leetcode.com/problems/surrounded-regions/submissions/1837325123/
+//https://leetcode.com/problems/surrounded-regions/description/
 
 // https://www.youtube.com/watch?v=yyofzfxWeKk : good explanation
 public class SurroundedXRegion {
@@ -12,18 +12,18 @@ public class SurroundedXRegion {
     public static void main(String[] args) {
 
         char [][][] grids = {
-                {{'X', 'X', 'X', 'X'},
+                {       {'X', 'X', 'X', 'X'},
                         {'X', 'O', 'O', 'X'},
                         {'X', 'X', 'O', 'X'},
                         {'X', 'O', 'X', 'X'}
                 },
-                        {
-                                {'X', 'X', 'X', 'O','X'},
-                                {'X', 'X', 'X', 'O','X'},
-                                {'O', 'O', 'O', 'X','X'},
-                                {'X', 'X', 'X', 'O','X'},
-                                {'X', 'O', 'O', 'X','X'}
-                        }
+                {
+                        {'X', 'X', 'X', 'O','X'},
+                        {'X', 'X', 'X', 'O','X'},
+                        {'O', 'O', 'O', 'X','X'},
+                        {'X', 'X', 'X', 'O','X'},
+                        {'X', 'O', 'O', 'X','X'}
+                }
         };
         for(char [][] grid : grids){
             System.out.println("original matrix :");

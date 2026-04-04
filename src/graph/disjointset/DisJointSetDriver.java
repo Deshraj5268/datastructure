@@ -18,13 +18,13 @@ public class DisJointSetDriver {
         makeDisjointSet(totalV,edge);
         printDisjointSet(parent);
 
-        /*makeDisjointWeightedSet(totalV,edge);
+        makeDisjointWeightedSet(totalV,edge);
         printDisjointSet(parent);
 
         Arrays.fill(parent,-1);// reinitialize for path com
         makeDisjointPathCmp(totalV,edge);
         System.out.println("path comp");
-        printDisjointSet(parent);*/
+        printDisjointSet(parent);
     }
 
     private static void makeDisjointSet(int totalV, int edge) {

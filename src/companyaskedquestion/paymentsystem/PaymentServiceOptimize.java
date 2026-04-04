@@ -62,7 +62,7 @@ public class PaymentServiceOptimize {
         }
         UserKey newKey = new UserKey(senderId, newTotalAmount);
         AmountAndTxnPair NewAmountAndTxnPair =  new AmountAndTxnPair(newTotalAmount, oldAmountAndTxnPair.totalTxn+1);
-        p2mTxnMap.put(senderId, new AmountAndTxnPair(newTotalAmount, oldAmountAndTxnPair.totalTxn+1));
+        p2mTxnMap.put(senderId, NewAmountAndTxnPair);
 
         topP2M.put(newKey, NewAmountAndTxnPair);
         trimTopP2MTxn();

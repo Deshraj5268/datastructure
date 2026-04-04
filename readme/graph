@@ -33,5 +33,15 @@ BFS :
 
 1. Island problem
 2. FloodFill
-   Surrounded X
-   Enclave count
+3. Surrounded 'X' --extended-> Enclave count --extended---> CloseIsland
+
+
+BFS
+Rotten Orange (multi dfs problem)
+similar problem below
+Leetcode 286. Walls and Gates
+Leetcode 417. Pacific Atlantic Water Flow (Very Good Problem)
+Leetcode 994. Rotting Oranges
+Leetcode 1162. As Far from Land as Possible
+Leetcode 1765. Map of Highest Peak
+Leetcode 934. Shortest Bridge

@@ -12,9 +12,20 @@ public class NumberOfEnclave {
 
         NumberOfEnclave numberOfEnclave = new NumberOfEnclave();
 
-        int [][][] grids = {{{0,0,0,0},{1,0,1,0},{0,1,1,0},{0,0,0,0}},
+        int [][][] grids = {
+                {
+                        {0,0,0,0},
+                        {1,0,1,0},
+                        {0,1,1,0},
+                        {0,0,0,0}
+                },
 
-                {{0,1,1,0},{0,0,1,0},{0,0,1,0},{0,0,0,0}}
+                {
+                        {0,1,1,0},
+                        {0,0,1,0},
+                        {0,0,1,0},
+                        {0,0,0,0}
+                }
 
         };
         for(int [][] grid : grids){

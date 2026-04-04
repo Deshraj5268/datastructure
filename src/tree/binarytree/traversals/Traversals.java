@@ -283,11 +283,7 @@ public class Traversals {
 
         while (!queue.isEmpty()) {
             temp = queue.poll();
-            LinkedList<Integer> list = treeMap.get(temp.hd);
-            if(list == null){
-                list = new LinkedList();
-                treeMap.put(temp.hd,list);
-            }
+            LinkedList<Integer> list = treeMap.computeIfAbsent(temp.hd, k -> new LinkedList());
             list.addLast(temp.btNode.data);
 
             if (temp.btNode.left != null) {

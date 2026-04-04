@@ -1,22 +1,13 @@
 package graph.dfs.islandtype;
 
+//https://leetcode.com/problems/flood-fill/description/
 public class FloodFill {
 
     public static void main(String[] args) {
-        int [][] mat = {{4},
-                {5},
-                {4},
-                {2},
-                {4},
-                {9},
-                {9},
-                {9},
-                {4},
-                {9},
-                {8}};
-        int x=9;
-        int y=0;
-        int newColor = 52;
+        int [][] mat = {{1,1,1},{1,1,0},{1,0,1}};
+        int x=1;
+        int y=1;
+        int newColor = 2;
         FloodFill floodFill = new FloodFill();
         System.out.println("input mat ");
         floodFill.printMatrix(mat,0,0,mat.length,mat[0].length);

@@ -18,6 +18,7 @@ public class BFS {
         int queueddata;
         while (!qu.isEmpty()){
             queueddata = qu.poll();
+
             System.out.print(queueddata+" ");
             List<Integer> edges = adj[queueddata];
             if(edges != null) {

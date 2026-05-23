@@ -72,7 +72,7 @@ public class NumberOfClosedIsland {
     }
 
     private static boolean isBoundary(int i, int j, int m, int n) {
-        return i == 0 || j == 0 || i >= m - 1 || j >= n - 1;
+        return i == 0 || j == 0 || i == m - 1 || j == n - 1;
     }
 
     private void dfsWithMarker(int[][] grid, int i, int j, int m, int n, int[][] direction, int marker) {

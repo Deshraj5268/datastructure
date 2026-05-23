@@ -20,13 +20,12 @@ public class AnagramSetProblem {
             Arrays.sort(arr);
             key = new String(arr);
 
-            if(resultMap.get(key) == null){
-                HashSet<String> originalSet = new HashSet<>();
-                originalSet.add(originalKey);
+            HashSet<String> originalSet = resultMap.get(key);
+            if(originalSet == null){
+                originalSet = new HashSet<>();
                 resultMap.put(key,originalSet);
-            }else {
-                resultMap.get(key).add(originalKey);
             }
+            resultMap.get(key).add(originalKey);
         }
         for(Map.Entry<String,HashSet<String>> res:resultMap.entrySet()){
             resultSet.add(res.getValue());

@@ -30,7 +30,7 @@ public class MinPlatform {
             j++;
         }
 
-        Arrays.sort(arrDeptInfos,(x,y)->x.value>y.value ? 1:-1);
+        Arrays.sort(arrDeptInfos,(x,y)->x.value - y.value);
         int minPlatform = 0;
         int countPlatform = 0;
         for(ArrDeptInfo arrDeptInfo:arrDeptInfos){

@@ -1,4 +1,4 @@
-package graph;
+package graph.topologicalproblem;
 
 import java.util.*;
 

@@ -1,5 +1,7 @@
 package queue.interval;
 
+import queue.interval.linesweep.LineSweepAlgo;
+
 import java.util.Arrays;
 
 /*
@@ -27,9 +29,24 @@ public class MeetingRoomII {
         };
 
         for(int i=0;i<intervals.length;i++){
-            System.out.println(minRoom(intervals[i]));
+            System.out.println("normal approaches :"+minRoom(intervals[i]));
+            System.out.println("using swap algo: "+minRoomUsingLineSweepAlgo(intervals[i]));
         }
 
+    }
+
+    private static int minRoomUsingLineSweepAlgo(int[][] intervals) {
+        int [] arrival = new int[intervals.length];
+        int [] dept = new int[intervals.length];
+        int i=0;
+        for(int [] interval : intervals){
+            arrival[i] = interval[0];
+            dept[i] = interval[1];
+            i++;
+        }
+
+        int count = LineSweepAlgo.lineSweepAlgo(arrival, dept);
+        return count;
     }
 
     public static int minRoom(int [][] intervals){

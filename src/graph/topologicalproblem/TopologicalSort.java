@@ -1,4 +1,6 @@
-package graph;
+package graph.topologicalproblem;
+
+import graph.AdjacencyList;
 
 import java.util.*;
 

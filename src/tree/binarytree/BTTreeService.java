@@ -90,6 +90,7 @@ public class BTTreeService {
 
 
 
+    // pre order NLR way
     public void printRootToLeafPath(BTNode root,int [] pathArr,int length){
 
         if(root == null){

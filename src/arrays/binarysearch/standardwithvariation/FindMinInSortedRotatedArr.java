@@ -8,10 +8,10 @@ public class FindMinInSortedRotatedArr {
         for(int [] arr:nums) {
             int min = findMinInSortedRotatedArr(arr);
             int min1 = findMinElement(arr);
-           // int max = findMaxInSortedRotatedArr(arr);
-            System.out.println(min);
-            System.out.println(min1);
-           // System.out.println(max);
+            int max = findMaxInSortedRotatedArr(arr);
+            System.out.println("min index value: " +min);
+           // System.out.println(min1);
+            System.out.println("maxIndex value:  "+max);
         }
 
     }
@@ -96,7 +96,7 @@ public class FindMinInSortedRotatedArr {
     * else high = m;
     *
     * */
-    public static int findMinInSortedRotatedArr(int [] arr){
+    public static int findMinInSortedRotatedArr(int [] arr){ // good one
         int l = 0;
         int h = arr.length-1;
         int m;
@@ -113,6 +113,30 @@ public class FindMinInSortedRotatedArr {
             }
         }
         return arr[l];
+
+    }
+
+    // max element so reuse the above code
+
+    public static int findMaxInSortedRotatedArr(int [] arr){ // good one
+        int l = 0;
+        int h = arr.length-1;
+        int m;
+        int last = arr[h];
+        if(arr[l] <= arr[h]) {
+            return arr[l];
+        }
+        while(l<h){
+            m = l+(h-l)/2;
+            if(arr[m]>last){
+                l = m+1;
+            }else{
+                h = m;
+            }
+        }
+        int maxIndex = (l-1+ arr.length) % arr.length;
+
+        return arr[maxIndex];
 
     }
 

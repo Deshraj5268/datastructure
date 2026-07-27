@@ -7,8 +7,8 @@ public class MinPlatform {
 
     public static void main(String[] args) {
 
-        int [] arr = {900, 940, 950, 1100, 1500, 1800, 2001, 2010, 2030, 2040, 2050, 2060};
-        int [] dep = {1100, 1200, 1120, 1130, 1900, 2000, 2062, 2012, 2032, 2042, 2052, 2065};
+        int [] arr =  {1,10,7};//{900, 940, 950, 1100, 1500, 1800, 2001, 2010, 2030, 2040, 2050, 2060};
+        int [] dep ={4,15,10};// {1100, 1200, 1120, 1130, 1900, 2000, 2062, 2012, 2032, 2042, 2052, 2065};
         int minPlatform = minPlatform(arr,dep);
         System.out.println(minPlatform);
         minPlatform = minPlatformWithMinHeap(arr,dep);
@@ -33,7 +33,7 @@ public class MinPlatform {
 
         Arrays.sort(arrDeptInfos,(x,y)->{
             if(x.value == y.value){
-                return -1;
+                return Boolean.compare(y.isArrival, x.isArrival);
             }
            return x.value - y.value;
         }
@@ -57,10 +57,10 @@ public class MinPlatform {
         Arrays.sort(arrival);
         Arrays.sort(departure);
         int n = arrival.length;
-        int i=1;
+        int i=0;
         int j = 0;
-        int result = 1;
-        int minPlatForm = 1;
+        int result = 0;
+        int minPlatForm = 0;
         while(i < n && j < n){
             if(arrival[i] <= departure[j]){
                 minPlatForm++;

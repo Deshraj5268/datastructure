@@ -17,6 +17,8 @@ public class MaxAreaOfIsland {
     }
     static int [] row = {-1,0,0,1};
     static int [] col = {0,-1,1,0};// 4 dir
+
+   static boolean [][] visited;
     public static void main(String[] args) {
         int [][][] mat = {
                 {       {1,1,0,1},
@@ -46,6 +48,7 @@ public class MaxAreaOfIsland {
             int maxArea = maxAreaOfIsland(mat[i]);
             System.out.println("max area in 2D matrix :" + maxArea);
             System.out.println("second way : "+maxAreaOfIslandSecondWay(mat[i]));
+            System.out.println("maxAreaOfIslandRec : "+maxAreaOfIslandRec(mat[i]));
         }
     }
 
@@ -54,7 +57,7 @@ public class MaxAreaOfIsland {
     public static int maxAreaOfIslandSecondWay(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
-        boolean [][] visited = new boolean[m][n];
+        visited = new boolean[m][n];
         int maxArea = 0;
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
@@ -69,15 +72,48 @@ public class MaxAreaOfIsland {
         return maxArea;
     }
 
-    public static  int moves(int [][] grid,int r,int c,int m,int n){
+    public static int maxAreaOfIslandRec(int [][] grid){
+        int m = grid.length;
+        int n = grid[0].length;
+        visited = new boolean[m][n];
+        visited = new boolean[m][n];
+        int islandCount = 0;
+        int max =0;
+        for(int r=0;r<m;r++){
+            for(int c=0;c<n;c++){
+                if(grid[r][c] == 1 && !visited[r][c]){
+                    islandCount =  dfsRec(grid,m,n,r,c);
+                    max = Math.max(max, islandCount);
 
-        if(!isSafe(r,c,m,n) || grid[r][c] != 1){
-            return 0;
+                }
+            }
         }
-        return 1 + moves(grid,r,c+1,m,n) + // right
-                moves(grid,r+1,c,m,n); // down
+        return max;
     }
 
+    public static int  dfsRec(int [][] mat,int m,int n,int i,int j){
+        if(!isSafeMatrixCell(m,n,i,j) || visited[i][j] || mat[i][j] != 1){
+            return 0;
+        }
+        visited[i][j] = true;
+        int countOnes = 1;
+        // countOnes += dfsRec(mat, m, n, i-1, j-1);
+        countOnes +=  dfsRec(mat, m, n, i-1, j);
+        //  countOnes +=  dfsRec(mat, m, n, i-1, j+1);
+
+        countOnes += dfsRec(mat, m, n, i, j-1);
+        countOnes += dfsRec(mat, m, n, i, j+1);
+
+        //countOnes +=  dfsRec(mat, m, n, i+1, j-1);
+        countOnes += dfsRec(mat, m, n, i+1, j);
+        //countOnes += dfsRec(mat, m, n, i+1, j+1);
+
+        return countOnes;
+    }
+
+    private static boolean isSafeMatrixCell(int m, int n, int r, int c) {
+        return ((r > -1 && r < m) && (c > -1 && c < n));
+    }
 
 
     public static int maxAreaOfIsland(int[][] grid) {

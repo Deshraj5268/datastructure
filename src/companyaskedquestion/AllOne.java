@@ -1,4 +1,4 @@
-package advanceds.leaderboardproblem;
+package companyaskedquestion;
 
 
 import java.util.*;
@@ -6,6 +6,7 @@ import java.util.*;
 /*
 * https://www.youtube.com/watch?v=MrXVoWkLVog / good explanation and simple code
 * problem : https://leetcode.com/problems/all-oone-data-structure/
+* Asked in LinkedIn DSA round
 * */
 public class AllOne {
 

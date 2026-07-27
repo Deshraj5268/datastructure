@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 public class RecommendationSystem {
 
     static Set<Item> itemSet;
+
     public static void main(String[] args) {
 
         itemSet = new TreeSet<>(

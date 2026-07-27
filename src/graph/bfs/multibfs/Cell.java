@@ -1,4 +1,4 @@
-package graph.bfs;
+package graph.bfs.multibfs;
 
 public class Cell {
 

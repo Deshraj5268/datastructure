@@ -7,7 +7,7 @@ import javafx.util.Pair;
 /*
 * https://leetcode.com/problems/reorganize-string/description/
 * */
-public class RecognizeString {
+public class ReorganizeString {
 
     public static void main(String[] args) {
         String [] input = {"aab", "abab"};

@@ -12,21 +12,24 @@ public class IslandProblem {
     boolean [][]visited;
 
     public static void main(String[] args) {
-        int [][] mat = /*{
+        int [][] mat = {
                 {1,1,0,1},
                 {0,0,1,0},
                 {1,1,0,1},
                 {1,1,0,1}
-        };*/   {{1, 1, 0, 0, 0},
+        };  /* {{1, 1, 0, 0, 0},
                 {0, 1, 0, 0, 1},
                 {1, 0, 0, 1, 1},
                 {0, 0, 0, 0, 0},
-                {1, 0, 1, 0, 1}};
+                {1, 0, 1, 0, 1}};*/
         int m = mat.length;
         int n = mat[0].length;
         IslandProblem islandProblem = new IslandProblem();
         int totalIsland = islandProblem.countNumberOfIslandM1(mat,m,n,0,0);
         System.out.println("total island in 2D matrix :"+totalIsland);
+
+        totalIsland = islandProblem.countNumberOfIslandRec(mat,m,n,0,0);
+        System.out.println("total island in 2D matrix recursive :"+totalIsland);
 
         totalIsland = islandProblem.countNumberOfIslandUsingBFS(mat,m,n,0,0);
         System.out.println("total island in 2D matrix using BFS :"+totalIsland);
@@ -54,6 +57,39 @@ public class IslandProblem {
             }
         }
         return islandCount;
+    }
+
+    public int countNumberOfIslandRec(int [][] mat,int m,int n,int i,int j){
+        visited = new boolean[m][n];
+        int islandCount = 0;
+        for(int r=0;r<m;r++){
+            for(int c=0;c<n;c++){
+                if(mat[r][c] == 1 && !visited[r][c]){
+                    dfsRec(mat,m,n,r,c);
+                    islandCount++;
+                }
+            }
+        }
+        return islandCount;
+    }
+
+    public void dfsRec(int [][] mat,int m,int n,int i,int j){
+        if(!isSafeMatrixCell(m,n,i,j) || visited[i][j] || mat[i][j] != 1){
+            return ;
+        }
+        visited[i][j] = true;
+        // 8 direction
+        dfsRec(mat, m, n, i-1, j-1);
+        dfsRec(mat, m, n, i-1, j);
+        dfsRec(mat, m, n, i-1, j+1);
+
+        dfsRec(mat, m, n, i, j-1);
+        dfsRec(mat, m, n, i, j+1);
+
+        dfsRec(mat, m, n, i+1, j-1);
+        dfsRec(mat, m, n, i+1, j);
+        dfsRec(mat, m, n, i+1, j+1);
+
     }
 
     public int countNumberOfIslandUsingBFS(int [][] mat,int m,int n,int i,int j){

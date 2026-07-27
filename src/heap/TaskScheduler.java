@@ -16,21 +16,23 @@ public class TaskScheduler {
 
         int n =2;
         char [][] tasks = {
-                /*{'A', 'A', 'A', 'B', 'B', 'B'},
-                {'A', 'C', 'A', 'B', 'D', 'B'},*/
+                {'A', 'A', 'A', 'B', 'B', 'B'},
+                {'A', 'C', 'A', 'B', 'D', 'B'},
                 {'A', 'A', 'A', 'B'},
                 {'A', 'A', 'B'}
         };
-        int [] interval = {/*2, 1,*/ 2,1};
+        int [] interval = {2, 1, 2,1};
         for(int i=0;i<tasks.length;i++) {
             System.out.println("input : " + Arrays.toString(tasks[i]) + " interval : " + interval[i]);
-            int result = leastInterval(tasks[i], interval[i]);
+            /*int result = leastInterval(tasks[i], interval[i]);
             System.out.println("result : " + result);
-            int result1 = leastIntervalExetended(tasks[i], interval[i]);
-            System.out.println("result with print task flow : " + result1);
+            int result1 = leastIntervalExtended(tasks[i], interval[i]);
+            System.out.println("result with print task flow : " + result1);*/
 
             int result2 = leastIntervalBuilderPattern(tasks[i], interval[i]);
             System.out.println("result : " + result2);
+            result2 = leastIntervalCustomClass(tasks[i], interval[i]);
+            System.out.println("leastIntervalCustomClass : " + result2);
         }
     }
 
@@ -73,7 +75,7 @@ public class TaskScheduler {
 
     }
 
-    public static int leastIntervalExetended(char[] tasks, int n) {
+    public static int leastIntervalExtended(char[] tasks, int n) {
         Map<Character, Integer> charCountMap = new HashMap<>();
         PriorityQueue<Pair<Character,Integer>> pq = new PriorityQueue<>((p1, p2)->p2.getValue() - p1.getValue());
         Queue<Pair<Integer,Pair<Character,Integer>>> queue = new LinkedList<>();
@@ -150,15 +152,51 @@ public class TaskScheduler {
         }
         return globalTimeCounter.time;
     }
+
+    public static int leastIntervalCustomClass(char[] tasks, int n) {
+        Map<Character, TaskData> charCountMap = new HashMap<>();
+        PriorityQueue<TaskData> pq = new PriorityQueue<>((p1, p2)->p2.getCount() - p1.getCount());
+        Queue<TaskData> queue = new LinkedList<>();
+        for (char task : tasks) {
+            TaskData taskData = charCountMap.get(task);
+            if(taskData == null){
+                taskData = new TaskData(task,0,0);
+            }
+            taskData.count++;
+            charCountMap.put(task, taskData);
+        }
+        for(TaskData taskData : charCountMap.values()){
+            pq.add(taskData);
+        }
+
+        GlobalTimeCounter globalTimeCounter = new GlobalTimeCounter();
+        globalTimeCounter.time = 0;
+        int val;
+        while(!pq.isEmpty() || !queue.isEmpty()){
+            globalTimeCounter.time++;
+            if(!pq.isEmpty()){
+                TaskData charCountPair = pq.poll();
+                --charCountPair.count;
+                if(charCountPair.count > 0){
+                    charCountPair.time =  globalTimeCounter.time + n;
+                    queue.add(charCountPair);
+                }
+            }
+            if(!queue.isEmpty() && queue.peek().getTime() <= globalTimeCounter.time){
+                pq.add(queue.poll());
+            }
+        }
+        return globalTimeCounter.time;
+    }
 }
 
 class GlobalTimeCounter {
     int time;
 }
 class TaskData{
-    private char task;
-    private int count;
-    private int time;
+    public char task;
+    public int count;
+    public int time;
 
 
     public char getTask() {
@@ -177,6 +215,29 @@ class TaskData{
         this.task = taskDataBuilder.task;
         this.count = taskDataBuilder.count;
         this.time = taskDataBuilder.time;
+    }
+
+    public TaskData(char task, int count, int time) {
+        this.task = task;
+        this.count = count;
+        this.time = time;
+    }
+
+    public TaskData(char task, int count) {
+        this.task = task;
+        this.count = count;
+    }
+
+    public void setTask(char task) {
+        this.task = task;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 
     static class TaskDataBuilder{

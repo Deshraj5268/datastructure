@@ -17,8 +17,10 @@ public class TreeMapPractice {
 
         System.out.println(treeMap.ceilingKey(3));
         System.out.println(treeMap.descendingMap());
-        System.out.println(treeMap.firstEntry());
-        System.out.println(treeMap.pollLastEntry());
+        System.out.println(treeMap.firstEntry());// get the first node O(Logn)
+        System.out.println(treeMap.lastEntry());// get the last node O(Logn)
+        System.out.println(treeMap.pollLastEntry());// get the first node and delete O(Logn)
+        System.out.println(treeMap.pollFirstEntry()); // get the last node and delete O(Logn)
         System.out.println(treeMap.containsKey(2));
         System.out.println(treeMap.subMap(1,4));
         System.out.println(treeMap.containsValue(7));

@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 // Sweep line = walk through timeline and count active intervals
 //problems : https://leetcode.com/discuss/post/2166045/line-sweep-algorithms-by-c0d3m-8ebq/
+// good : https://www.youtube.com/watch?v=-FxkJiCyg5g&list=PLpIkg8OmuX-IOG_-Bv92l-EhuBQX28LOm
 public class LineSweepAlgo {
 
     public static void main(String[] args) {
@@ -34,11 +35,15 @@ public class LineSweepAlgo {
             events.add(new Event(endTime, -1));
         }
 
-        events.sort((e1, e2)-> {
+        /*events.sort((e1, e2)-> {
             if(e1.time == e2.time){
-                return e2.type - e1.type; // arrival first (-1 -(1) : -2 :  negative means swap , >=0 then don't swap
+                return e2.type - e1.type; // arrival first (-1 -(1) : -2 :  negative , 0  means no swap, and swap when positive
             }
             return e1.time - e2.time;
+        });*/
+        events.sort((e1, e2)-> {
+            int cmp = Integer.compare(e1.time, e2.time);
+            return cmp != 0 ? cmp : Integer.compare(e2.type, e1.type);
         });
 
         int max = 0 , curr = 0;
@@ -71,12 +76,3 @@ public class LineSweepAlgo {
     }
 }
 
-class Event {
-    int time;
-    int type;// arrival : +1 , Dept : -1
-
-    public Event(int time, int type){
-        this.time = time;
-        this.type = type;
-    }
-}
